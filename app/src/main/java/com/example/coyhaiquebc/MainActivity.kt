@@ -6,9 +6,11 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.example.coyhaiquebc.navigation.AppNavGraph
+import com.example.coyhaiquebc.navigation.NavGraph
 import com.example.coyhaiquebc.ui.theme.SlateLight
 import com.example.coyhaiquebc.ui.theme.CoyhaiqueBCTheme
+import androidx.navigation.compose.rememberNavController
+
 
 class MainActivity : ComponentActivity() {
 
@@ -23,10 +25,12 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = SlateLight
                 ) {
-                    AppNavGraph()
+                    NavGraph()
                 }
 
             }
         }
+
     }
+
 }

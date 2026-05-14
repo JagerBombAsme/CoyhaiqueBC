@@ -7,8 +7,10 @@ import androidx.navigation.compose.*
 import androidx.navigation.navArgument
 import com.example.coyhaiquebc.ui.screens.HomeScreen
 
+
+
 @Composable
-fun AppNavGraph() {
+fun NavGraph() {
     val navController = rememberNavController()
 
     NavHost(
