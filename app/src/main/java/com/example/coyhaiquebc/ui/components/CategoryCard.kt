@@ -28,40 +28,41 @@ import com.example.coyhaiquebc.data.model.homeCategories
 fun HomeScreen(
     navController: NavController
 ) {
+
     var search by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(SlateLight)                          // antes: BeigeBackground
+            .background(SlateLight)
             .verticalScroll(rememberScrollState())
             .padding(horizontal = 20.dp, vertical = 24.dp)
     ) {
-        // ── Ubicación ─────────────────────────────────────
+
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
                 imageVector = Icons.Default.LocationOn,
                 contentDescription = null,
-                tint = IceBlue                               // antes: CharcoalPrimary
+                tint = IceBlue
             )
 
             Spacer(modifier = Modifier.width(8.dp))
 
             Text(
                 text = "Basecamp Coyhaique",
-                color = CharcoalMuted,                       // antes: CharcoalPrimary
+                color = CharcoalMuted,
                 fontSize = 13.sp
             )
         }
 
         Spacer(modifier = Modifier.height(12.dp))
 
-        // ── Título principal ──────────────────────────────
+
         Text(
             text = "¿Qué quieres hacer?",
-            color = CharcoalPrimary,                         // sin cambio
+            color = CharcoalPrimary,
             fontSize = 30.sp
         )
 
@@ -69,7 +70,7 @@ fun HomeScreen(
 
         Text(
             text = "Elige una categoría para descubrir Coyhaique según tu plan.",
-            color = CharcoalMuted,                           // sin cambio
+            color = CharcoalMuted,
             fontSize = 14.sp
         )
 
@@ -82,23 +83,23 @@ fun HomeScreen(
             placeholder = {
                 Text(
                     text = "Buscar experiencias en Coyhaique...",
-                    color = CharcoalHint                     // antes: sin especificar
+                    color = CharcoalHint
                 )
             },
             leadingIcon = {
                 Icon(
                     imageVector = Icons.Default.Search,
                     contentDescription = null,
-                    tint = CharcoalMuted                     // sin cambio
+                    tint = CharcoalMuted
                 )
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .background(SlateCard, RoundedCornerShape(16.dp))   // antes: BeigeCard
-                .border(1.dp, SlateBorder, RoundedCornerShape(16.dp)), // antes: BrownBorder
+                .background(SlateCard, RoundedCornerShape(16.dp))
+                .border(1.dp, SlateBorder, RoundedCornerShape(16.dp)),
             colors = TextFieldDefaults.colors(
-                focusedContainerColor   = SlateCard,         // antes: BeigeCard
-                unfocusedContainerColor = SlateCard,         // antes: BeigeCard
+                focusedContainerColor   = SlateCard,
+                unfocusedContainerColor = SlateCard,
                 focusedIndicatorColor   = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent,
                 cursorColor             = IceBlue,
@@ -109,12 +110,12 @@ fun HomeScreen(
 
         Spacer(modifier = Modifier.height(22.dp))
 
-        // ── Card "Arma tu recorrido" ───────────────────────
+
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(SlateCard, RoundedCornerShape(24.dp))    // antes: BeigeCard
-                .border(1.dp, SlateBorder, RoundedCornerShape(24.dp)) // antes: BrownBorder
+                .background(SlateCard, RoundedCornerShape(24.dp))
+                .border(1.dp, SlateBorder, RoundedCornerShape(24.dp))
                 .padding(14.dp)
         ) {
             Row(
@@ -124,7 +125,7 @@ fun HomeScreen(
                 Box(
                     modifier = Modifier
                         .size(36.dp)
-                        .background(                          // antes: BeigePrimary.copy(0.18f)
+                        .background(
                             IceSurface,
                             RoundedCornerShape(12.dp)
                         ),
@@ -133,7 +134,7 @@ fun HomeScreen(
                     Icon(
                         imageVector = Icons.Default.Explore,
                         contentDescription = null,
-                        tint = IceBlue                       // antes: BeigePrimary
+                        tint = IceBlue
                     )
                 }
 
@@ -142,13 +143,13 @@ fun HomeScreen(
                 Column {
                     Text(
                         text = "Arma tu recorrido",
-                        color = CharcoalPrimary,             // antes: BrownText
+                        color = CharcoalPrimary,
                         fontSize = 15.sp
                     )
 
                     Text(
                         text = "Selecciona una rama para comenzar",
-                        color = CharcoalMuted,               // antes: BrownMuted
+                        color = CharcoalMuted,
                         fontSize = 12.sp
                     )
                 }
