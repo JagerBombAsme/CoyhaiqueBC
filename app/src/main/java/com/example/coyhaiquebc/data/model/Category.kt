@@ -1,79 +1,72 @@
 package com.example.coyhaiquebc.data.model
 
+import androidx.annotation.DrawableRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DirectionsBus
 import androidx.compose.material.icons.filled.Forest
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Museum
 import androidx.compose.material.icons.filled.Restaurant
 import androidx.compose.material.icons.filled.Storefront
 import androidx.compose.material.icons.filled.Terrain
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.example.coyhaiquebc.R
 
 data class Category(
     val id: String,
     val nombre: String,
     val descripcion: String,
-    val icono: ImageVector,
-    val colorFondo: Long,
+    @DrawableRes val imagen: Int,
     val ruta: String
 )
-
 val homeCategories = listOf(
     Category(
         id = "gastronomia",
         nombre = "Gastronomía",
         descripcion = "Sabores de la Patagonia",
-        icono = Icons.Default.Restaurant,
-        colorFondo = 0xFFE8F2FA,
+        imagen = R.drawable.categoria_gastronomia,
         ruta = "categoria/gastronomia"
     ),
     Category(
         id = "alojamiento",
         nombre = "Alojamiento",
         descripcion = "Dónde quedarse en Coyhaique",
-        icono = Icons.Default.Home,
-        colorFondo = 0xFFEAF4EC,
+        imagen = R.drawable.categoria_alojamiento,
         ruta = "categoria/alojamiento"
     ),
     Category(
         id = "cultura",
-        nombre = "Cultura y patrimonio",
-        descripcion = "Historia e identidad local",
-        icono = Icons.Default.Museum,
-        colorFondo = 0xFFF3EEF8,
+        nombre = "Cultura",
+        descripcion = "encuentro",
+        imagen = R.drawable.categoria_cultura,
         ruta = "categoria/cultura"
     ),
     Category(
         id = "aventura",
         nombre = "Aventura y deporte",
         descripcion = "Adrenalina en la Patagonia",
-        icono = Icons.Default.Terrain,
-        colorFondo = 0xFFFFF3E8,
+
+        imagen = R.drawable.categoria_cultura,
         ruta = "categoria/aventura"
     ),
     Category(
         id = "transporte",
         nombre = "Transporte",
         descripcion = "Cómo moverse por la ciudad",
-        icono = Icons.Default.DirectionsBus,
-        colorFondo = 0xFFE8F4FF,
+        imagen = R.drawable.categoria_cultura,
         ruta = "categoria/transporte"
     ),
     Category(
         id = "comercio",
         nombre = "Comercio local",
         descripcion = "Tiendas y emprendedores",
-        icono = Icons.Default.Storefront,
-        colorFondo = 0xFFFFF8E8,
+        imagen = R.drawable.categoria_cultura,
         ruta = "categoria/comercio"
     ),
     Category(
         id = "naturaleza",
         nombre = "Naturaleza y parques",
         descripcion = "Reservas y paisajes únicos",
-        icono = Icons.Default.Forest,
-        colorFondo = 0xFFEAF6EC,
+        imagen = R.drawable.ic_launcher_background,
         ruta = "categoria/naturaleza"
     )
 )

@@ -64,11 +64,12 @@ fun HomeScreen(
         Spacer(modifier = Modifier.height(12.dp))
 
         Text(
-            text = "¿Qué quieres hacer?",
-            color = CharcoalPrimary,
-            fontSize = 30.sp,
-            fontWeight = FontWeight.Medium
-        )
+            text = "¿Qué haremos hoy?",
+                fontFamily = CharisSIL,
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold,
+                lineHeight = 24.sp
+            )
 
         Spacer(modifier = Modifier.height(6.dp))
 
