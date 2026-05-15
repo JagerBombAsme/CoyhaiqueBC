@@ -52,7 +52,7 @@ val homeCategories = listOf(
         id = "transporte",
         nombre = "Transporte",
         descripcion = "Cómo moverse por la ciudad",
-        imagen = R.drawable.categoria_cultura,
+        imagen = R.drawable.categoria_transporte,
         ruta = "categoria/transporte"
     ),
     Category(
