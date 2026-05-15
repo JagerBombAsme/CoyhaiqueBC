@@ -24,7 +24,7 @@ import androidx.navigation.NavController
 import com.example.coyhaiquebc.data.model.homeCategories
 import com.example.coyhaiquebc.ui.components.CategoryCard
 import com.example.coyhaiquebc.ui.theme.*
-
+import com.example.coyhaiquebc.ui.components.HomeHeader
 @Composable
 fun HomeScreen(
     navController: NavController
@@ -44,30 +44,20 @@ fun HomeScreen(
             .fillMaxSize()
             .background(SlateLight)
             .verticalScroll(rememberScrollState())
-            .padding(horizontal = 20.dp, vertical = 24.dp)
+            .padding(horizontal = 20.dp, vertical = 40.dp)
     ) {
 
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Icon(
-                imageVector = Icons.Default.LocationOn,
-                contentDescription = null,
-                tint = IceBlue
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            Text(
-                text = "Basecamp Coyhaique",
-                color = CharcoalMuted,
-                fontSize = 13.sp
-            )
-        }
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        HomeHeader()
 
         Spacer(modifier = Modifier.height(12.dp))
 
         Text(
             text = "¿Qué haremos hoy?",
-                fontFamily = CharisSIL,
                 fontSize = 24.sp,
-                fontWeight = FontWeight.Bold,
+                fontWeight = FontWeight.ExtraBold,
                 lineHeight = 24.sp
             )
 
@@ -80,49 +70,14 @@ fun HomeScreen(
             lineHeight = 20.sp
         )
 
-        Spacer(modifier = Modifier.height(22.dp))
-
-
-        TextField(
-            value = search,
-            onValueChange = { search = it },
-            placeholder = {
-                Text(
-                    text = "Buscar en Coyhaique...",
-                    color = CharcoalHint
-                )
-            },
-            leadingIcon = {
-                Icon(
-                    imageVector = Icons.Default.Search,
-                    contentDescription = null,
-                    tint = CharcoalMuted
-                )
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(SlateCard, RoundedCornerShape(16.dp))
-                .border(1.dp, SlateBorder, RoundedCornerShape(16.dp)),
-            colors = TextFieldDefaults.colors(
-                focusedContainerColor   = SlateCard,
-                unfocusedContainerColor = SlateCard,
-                focusedIndicatorColor   = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent,
-                cursorColor             = IceBlue,
-                focusedTextColor        = CharcoalPrimary,
-                unfocusedTextColor      = CharcoalPrimary
-            ),
-            singleLine = true
-        )
-
-        Spacer(modifier = Modifier.height(24.dp))
+       Spacer(modifier = Modifier.height(40.dp))
 
 
         Text(
             text = "Categorías",
             color = CharcoalPrimary,
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Medium
+            fontSize = 23.sp,
+            fontWeight = FontWeight.Bold
         )
 
         Spacer(modifier = Modifier.height(12.dp))
