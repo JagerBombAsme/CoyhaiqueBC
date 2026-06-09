@@ -10,7 +10,7 @@ import androidx.navigation.NavController
 import com.example.coyhaiquebc.data.repository.PlacesRepository
 
 @Composable
-fun AlojamientosScreen(
+fun GastronomiaScreen(
     navController: NavController
 ) {
     val repository = remember { PlacesRepository() }
@@ -18,16 +18,16 @@ fun AlojamientosScreen(
     var reloadKey by remember { mutableIntStateOf(0) }
     var isLoading by remember { mutableStateOf(true) }
     var errorMessage by remember { mutableStateOf<String?>(null) }
-    var alojamientos by remember { mutableStateOf<List<CategoryItem>>(emptyList()) }
+    var gastronomia by remember { mutableStateOf<List<CategoryItem>>(emptyList()) }
 
     LaunchedEffect(reloadKey) {
         isLoading = true
         errorMessage = null
 
         try {
-            val places = repository.getPlacesByCategory("alojamientos")
+            val places = repository.getPlacesByCategory("gastronomia")
 
-            alojamientos = places.map { place ->
+            gastronomia = places.map { place ->
                 CategoryItem(
                     title = place.title,
                     subtitle = place.subtitle ?: "Coyhaique",
@@ -36,7 +36,7 @@ fun AlojamientosScreen(
                 )
             }
         } catch (e: Exception) {
-            errorMessage = "No se pudieron cargar los alojamientos."
+            errorMessage = "No se pudieron cargar los datos de gastronomía."
         } finally {
             isLoading = false
         }
@@ -44,26 +44,18 @@ fun AlojamientosScreen(
 
     when {
         isLoading -> {
-            Column(
-                modifier = Modifier.padding(24.dp)
-            ) {
-                Text(text = "Cargando alojamientos...")
+            Column(modifier = Modifier.padding(24.dp)) {
+                Text(text = "Cargando gastronomía...")
             }
         }
 
         errorMessage != null -> {
-            Column(
-                modifier = Modifier.padding(24.dp)
-            ) {
+            Column(modifier = Modifier.padding(24.dp)) {
                 Text(text = errorMessage ?: "Error desconocido")
 
                 Spacer(modifier = Modifier.height(12.dp))
 
-                Button(
-                    onClick = {
-                        reloadKey++
-                    }
-                ) {
+                Button(onClick = { reloadKey++ }) {
                     Text("Reintentar")
                 }
             }
@@ -73,23 +65,21 @@ fun AlojamientosScreen(
             Column {
                 Button(
                     modifier = Modifier.padding(16.dp),
-                    onClick = {
-                        reloadKey++
-                    }
+                    onClick = { reloadKey++ }
                 ) {
                     Text("Recargar")
                 }
 
                 CategoryListScreen(
-                    title = "Encuentra tu\nalojamiento",
-                    subtitle = "Hoteles, hostales y cabañas disponibles en Coyhaique.",
-                    searchPlaceholder = "Buscar alojamiento",
-                    tabs = listOf("Todos", "Hotel", "Hostal", "Cabañas"),
+                    title = "Sabores de\nCoyhaique",
+                    subtitle = "Restaurantes, cafeterías y comida típica de la Patagonia.",
+                    searchPlaceholder = "Buscar gastronomía",
+                    tabs = listOf("Todos", "Restaurantes", "Cafeterías", "Comida típica"),
                     selectedTab = "Todos",
-                    featuredItems = alojamientos,
-                    popularItems = alojamientos,
-                    onItemClick = { alojamiento ->
-                        // Luego detalle
+                    featuredItems = gastronomia,
+                    popularItems = gastronomia,
+                    onItemClick = {
+                        // Luego navegamos al detalle
                     }
                 )
             }

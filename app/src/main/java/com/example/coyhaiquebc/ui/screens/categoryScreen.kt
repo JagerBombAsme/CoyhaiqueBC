@@ -10,9 +10,14 @@ fun CategoryScreen(
 ) {
     when (category) {
         "alojamientos" -> AlojamientosScreen(navController = navController)
+        "transporte" -> TransporteScreen(navController = navController)
+        //"cultura" -> GastronomiaScreen(navController = navController)
+        "gastronomia" -> GastronomiaScreen(navController = navController)
         else -> ComingSoonScreen(category = category)
+
     }
 }
+
 @Composable
 fun ComingSoonScreen(category: String) {
     androidx.compose.material3.Text(

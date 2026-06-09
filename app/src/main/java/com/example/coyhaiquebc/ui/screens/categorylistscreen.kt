@@ -30,12 +30,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 
 data class CategoryItem(
     val title: String,
     val subtitle: String,
     val description: String,
-    val image: Int
+    val imageUrl: String?
 )
 
 @Composable
@@ -288,8 +289,8 @@ fun RecommendedCarouselCard(
             .clip(RoundedCornerShape(26.dp))
             .clickable { onClick() }
     ) {
-        Image(
-            painter = painterResource(id = item.image),
+        AsyncImage(
+            model = item.imageUrl,
             contentDescription = item.title,
             contentScale = ContentScale.Crop,
             modifier = Modifier.fillMaxSize()
@@ -344,13 +345,12 @@ fun CategoryListCard(
             .clip(RoundedCornerShape(24.dp))
             .clickable { onClick() }
     ) {
-        Image(
-            painter = painterResource(id = item.image),
+        AsyncImage(
+            model = item.imageUrl,
             contentDescription = item.title,
             contentScale = ContentScale.Crop,
             modifier = Modifier.fillMaxSize()
         )
-
         Box(
             modifier = Modifier
                 .fillMaxSize()
