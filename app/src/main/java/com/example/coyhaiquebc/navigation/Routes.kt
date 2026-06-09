@@ -3,9 +3,11 @@ package com.example.coyhaiquebc.navigation
 object Routes {
     const val HOME = "home"
     const val FAVORITES = "favorites"
-    const val EXPLORE = "explore/{category}"
+    const val ALOJAMIENTO = "alojamiento"
 
-    fun explore(category: String): String {
-        return "explore/$category"
+    const val CATEGORY = "category/{category}"
+
+    fun category(category: String): String {
+        return "category/$category"
     }
 }

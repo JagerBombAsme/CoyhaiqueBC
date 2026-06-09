@@ -25,6 +25,8 @@ import com.example.coyhaiquebc.data.model.homeCategories
 import com.example.coyhaiquebc.ui.components.CategoryCard
 import com.example.coyhaiquebc.ui.theme.*
 import com.example.coyhaiquebc.ui.components.HomeHeader
+
+
 @Composable
 fun HomeScreen(
     navController: NavController
@@ -56,10 +58,10 @@ fun HomeScreen(
 
         Text(
             text = "¿Qué haremos hoy?",
-                fontSize = 24.sp,
-                fontWeight = FontWeight.ExtraBold,
-                lineHeight = 24.sp
-            )
+            fontSize = 24.sp,
+            fontWeight = FontWeight.ExtraBold,
+            lineHeight = 24.sp
+        )
 
         Spacer(modifier = Modifier.height(6.dp))
 
@@ -70,7 +72,7 @@ fun HomeScreen(
             lineHeight = 20.sp
         )
 
-       Spacer(modifier = Modifier.height(40.dp))
+        Spacer(modifier = Modifier.height(40.dp))
 
 
         Text(
@@ -93,17 +95,29 @@ fun HomeScreen(
             Column(
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                categoriasFiltradas.forEach { categoria ->
-                    CategoryCard(
-                        category = categoria,
-                        onClick = {
-                            navController.navigate(categoria.ruta)
-                        }
+                if (categoriasFiltradas.isEmpty()) {
+                    Text(
+                        text = "No se encontraron categorías para \"$search\"",
+                        color = CharcoalHint,
+                        fontSize = 13.sp
                     )
+                } else {
+                    Column(
+                        verticalArrangement = Arrangement.spacedBy(12.dp)
+                    ) {
+                        categoriasFiltradas.forEach { categoria ->
+                            CategoryCard(
+                                category = categoria,
+                                onClick = {
+                                    navController.navigate(categoria.ruta)
+                                }
+                            )
+                        }
+                    }
                 }
+
+                Spacer(modifier = Modifier.height(24.dp))
             }
         }
-
-        Spacer(modifier = Modifier.height(24.dp))
     }
 }

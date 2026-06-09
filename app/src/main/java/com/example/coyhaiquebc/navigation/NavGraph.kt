@@ -1,13 +1,13 @@
 package com.example.coyhaiquebc.navigation
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavType
-import androidx.navigation.compose.*
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.coyhaiquebc.ui.screens.HomeScreen
-
-
+import com.example.coyhaiquebc.ui.screens.CategoryScreen
 
 @Composable
 fun NavGraph() {
@@ -22,20 +22,20 @@ fun NavGraph() {
         }
 
         composable(
-            route = Routes.EXPLORE,
+            route = Routes.CATEGORY,
             arguments = listOf(
                 navArgument("category") {
                     type = NavType.StringType
                 }
             )
         ) { backStackEntry ->
+
             val category = backStackEntry.arguments?.getString("category") ?: ""
 
-            Text(text = "Explorar categoría: $category")
-        }
-
-        composable(Routes.FAVORITES) {
-            Text(text = "Favoritos")
+            CategoryScreen(
+                category = category,
+                navController = navController
+            )
         }
     }
 }

@@ -10,6 +10,8 @@ import androidx.compose.material.icons.filled.Storefront
 import androidx.compose.material.icons.filled.Terrain
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.example.coyhaiquebc.R
+import com.example.coyhaiquebc.navigation.Routes
+
 
 data class Category(
     val id: String,
@@ -24,49 +26,49 @@ val homeCategories = listOf(
         nombre = "Gastronomía",
         descripcion = "Sabores de la Patagonia",
         imagen = R.drawable.categoria_gastronomia,
-        ruta = "categoria/gastronomia"
+        ruta = Routes.category("gastronomia")
     ),
     Category(
         id = "alojamiento",
         nombre = "Alojamiento",
         descripcion = "Dónde quedarse en Coyhaique",
         imagen = R.drawable.categoria_alojamiento,
-        ruta = "categoria/alojamiento"
+        ruta = Routes.category("alojamientos")
     ),
     Category(
         id = "cultura",
         nombre = "Cultura",
         descripcion = "encuentro",
         imagen = R.drawable.categoria_cultura,
-        ruta = "categoria/cultura"
+        ruta = Routes.category("cultura")
     ),
     Category(
         id = "aventura",
         nombre = "Aventura y deporte",
         descripcion = "Adrenalina en la Patagonia",
 
-        imagen = R.drawable.categoria_cultura,
-        ruta = "categoria/aventura"
+        imagen = R.drawable.categoria_alojamiento,
+        ruta = Routes.category("aventura")
     ),
     Category(
         id = "transporte",
         nombre = "Transporte",
         descripcion = "Cómo moverse por la ciudad",
         imagen = R.drawable.categoria_transporte,
-        ruta = "categoria/transporte"
+        ruta = Routes.category("transporte")
     ),
     Category(
         id = "comercio",
         nombre = "Comercio local",
         descripcion = "Tiendas y emprendedores",
         imagen = R.drawable.categoria_cultura,
-        ruta = "categoria/comercio"
+        ruta = Routes.category("comercio")
     ),
     Category(
         id = "naturaleza",
         nombre = "Naturaleza y parques",
         descripcion = "Reservas y paisajes únicos",
         imagen = R.drawable.ic_launcher_background,
-        ruta = "categoria/naturaleza"
+        ruta = Routes.category("naturaleza")
     )
 )
