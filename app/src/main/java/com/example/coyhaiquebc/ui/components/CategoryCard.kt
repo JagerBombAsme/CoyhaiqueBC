@@ -1,11 +1,8 @@
 package com.example.coyhaiquebc.ui.components
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,17 +12,18 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.coyhaiquebc.R
 import com.example.coyhaiquebc.data.model.Category
-import com.example.coyhaiquebc.ui.theme.CharisSIL
+
 
 @Composable
-fun CategoryCard(
-    category: Category,
-    onClick: () -> Unit
-) {
+fun CategoryCard(category: Category, onClick: () -> Unit) {
+    val textColor = Color.White.copy(alpha = 0.9f)
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -40,31 +38,15 @@ fun CategoryCard(
             modifier = Modifier.fillMaxSize()
         )
 
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(
-                    Brush.horizontalGradient(
-                        colors = listOf(
-                            Color.Black.copy(alpha = 0.72f),
-                            Color.Black.copy(alpha = 0.38f),
-                            Color.Transparent
-                        )
-                    )
-                )
+        GradientOverlay(
+            brush = Brush.horizontalGradient(
+                colors = listOf(Color.Black.copy(alpha = 0.72f), Color.Black.copy(alpha = 0.38f), Color.Transparent)
+            )
         )
-
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(
-                    Brush.verticalGradient(
-                        colors = listOf(
-                            Color.Transparent,
-                            Color.Black.copy(alpha = 0.45f)
-                        )
-                    )
-                )
+        GradientOverlay(
+            brush = Brush.verticalGradient(
+                colors = listOf(Color.Transparent, Color.Black.copy(alpha = 0.45f))
+            )
         )
 
         Column(
@@ -72,13 +54,12 @@ fun CategoryCard(
                 .align(Alignment.BottomStart)
                 .padding(start = 22.dp, end = 72.dp, bottom = 20.dp)
         ) {
-            Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = category.nombre,
-                color = Color.White.copy(alpha = 0.78f),
-                fontFamily = CharisSIL,
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Normal,
+                color = textColor,
+                fontFamily = FontFamily.SansSerif,
+                fontWeight = FontWeight.Bold,
+                fontSize = 22.sp,
                 lineHeight = 24.sp
             )
 
@@ -86,11 +67,11 @@ fun CategoryCard(
 
             Text(
                 text = category.descripcion,
-                color = Color.White.copy(alpha = 0.78f),
-                fontFamily = CharisSIL,
-                fontSize = 15.sp,
-                fontWeight = FontWeight.Normal,
-                lineHeight = 24.sp
+                color = textColor.copy(alpha = 0.8f),
+                fontFamily = FontFamily.SansSerif,
+                fontWeight = FontWeight.Medium,
+                fontSize = 14.sp,
+                lineHeight = 18.sp
             )
         }
 
@@ -103,12 +84,12 @@ fun CategoryCard(
                 .background(Color.White.copy(alpha = 0.18f)),
             contentAlignment = Alignment.Center
         ) {
-            Text(
-                text = "›",
-                color = Color.White,
-                fontSize = 28.sp,
-                fontWeight = FontWeight.Medium
-            )
+            Text(text = "›", color = Color.White, fontSize = 28.sp, fontWeight = FontWeight.Medium)
         }
     }
+}
+
+@Composable
+private fun GradientOverlay(brush: Brush) {
+    Box(modifier = Modifier.fillMaxSize().background(brush))
 }

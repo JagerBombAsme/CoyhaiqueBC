@@ -46,8 +46,7 @@ val homeCategories = listOf(
         id = "aventura",
         nombre = "Aventura y deporte",
         descripcion = "Adrenalina en la Patagonia",
-
-        imagen = R.drawable.categoria_alojamiento,
+        imagen = R.drawable.categoria_deporte,
         ruta = Routes.category("aventura")
     ),
     Category(
@@ -58,17 +57,10 @@ val homeCategories = listOf(
         ruta = Routes.category("transporte")
     ),
     Category(
-        id = "comercio",
-        nombre = "Comercio local",
-        descripcion = "Tiendas y emprendedores",
-        imagen = R.drawable.categoria_cultura,
-        ruta = Routes.category("comercio")
-    ),
-    Category(
         id = "naturaleza",
         nombre = "Naturaleza y parques",
         descripcion = "Reservas y paisajes únicos",
-        imagen = R.drawable.ic_launcher_background,
+        imagen = R.drawable.categoria_naturaleza,
         ruta = Routes.category("naturaleza")
     )
 )
