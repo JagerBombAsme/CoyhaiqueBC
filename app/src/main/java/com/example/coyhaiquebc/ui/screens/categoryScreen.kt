@@ -9,7 +9,7 @@ fun CategoryScreen(
     navController: NavController
 ) {
     when (category) {
-        "alojamientos" -> AlojamientosScreen()
+        "alojamientos" -> AlojamientosScreen(navController = navController)
         else -> ComingSoonScreen(category = category)
     }
 }

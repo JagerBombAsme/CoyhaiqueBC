@@ -6,12 +6,12 @@ import io.github.jan.supabase.postgrest.from
 
 class PlacesRepository {
 
-    suspend fun getAlojamientos(): List<PlaceDto> {
+    suspend fun getPlacesByCategory(categorySlug: String): List<PlaceDto> {
         return SupabaseClientProvider.client
             .from("places")
             .select {
                 filter {
-                    eq("category_slug", "alojamientos")
+                    eq("category_slug", categorySlug)
                     eq("is_active", true)
                 }
             }
