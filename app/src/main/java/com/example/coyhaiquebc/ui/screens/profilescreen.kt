@@ -11,48 +11,63 @@ import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+
+
+import com.example.coyhaiquebc.ui.components.BottomNavBar
 
 @Composable
-fun ProfileScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color(0xFF1E1E1B))
-            .padding(14.dp)
-    ) {
-        ProfileTopCard()
-
-        Spacer(modifier = Modifier.height(12.dp))
-
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(10.dp),
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            SmallProfileCard(
-                modifier = Modifier.weight(1f)
-            )
-
-            ImagePlaceholderCard(
-                modifier = Modifier.weight(1f)
-            )
+fun ProfileScreen(
+    navController: NavController
+) {
+    Scaffold(
+        bottomBar = {
+            BottomNavBar(navController = navController)
         }
+    ) { padding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(padding)
+                .background(Color(0xFF1E1E1B))
+                .padding(14.dp)
+        ) {
+            ProfileTopCard()
 
-        Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(12.dp))
 
-        WideProfileCard()
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(10.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                SmallProfileCard(
+                    modifier = Modifier.weight(1f)
+                )
 
-        Spacer(modifier = Modifier.weight(1f))
+                ImagePlaceholderCard(
+                    modifier = Modifier.weight(1f)
+                )
+            }
 
-        ProfileBottomBar()
+            Spacer(modifier = Modifier.height(12.dp))
+
+            WideProfileCard()
+
+            Spacer(modifier = Modifier.weight(1f))
+
+            ProfileBottomBar()
+        }
     }
 }
 
@@ -114,7 +129,7 @@ fun ProfileTopCard() {
             Spacer(modifier = Modifier.height(14.dp))
 
             Text(
-                text = "Sebastián",
+                text = "Diego",
                 color = Color.White,
                 fontSize = 19.sp,
                 fontWeight = FontWeight.Bold
@@ -123,7 +138,7 @@ fun ProfileTopCard() {
             Spacer(modifier = Modifier.height(4.dp))
 
             Text(
-                text = "Explorador de Coyhaique",
+                text = "Explorador de Sabores",
                 color = Color.White.copy(alpha = 0.55f),
                 fontSize = 12.sp
             )
@@ -133,7 +148,7 @@ fun ProfileTopCard() {
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.BottomCenter),
-            horizontalArrangement = Arrangement.spacedBy(10.dp)
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             ProfileButton(
                 text = "Editar",
@@ -351,7 +366,7 @@ fun ProfileBottomBar() {
 
 @Composable
 fun BottomIcon(
-    icon: androidx.compose.ui.graphics.vector.ImageVector,
+    icon: ImageVector,
     selected: Boolean
 ) {
     Box(

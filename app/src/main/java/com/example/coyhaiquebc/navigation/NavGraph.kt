@@ -22,8 +22,9 @@ fun NavGraph() {
         }
 
         composable(Routes.PROFILE) {
-            ProfileScreen()
+            ProfileScreen(navController = navController)
         }
+
 
         composable(
             route = Routes.CATEGORY,
