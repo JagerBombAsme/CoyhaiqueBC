@@ -19,7 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.coyhaiquebc.navigation.Routes
-
+import androidx.compose.foundation.layout.navigationBarsPadding
 @Composable
 fun BottomNavBar(
     navController: NavController
@@ -27,6 +27,7 @@ fun BottomNavBar(
     Box(
         modifier = Modifier
             .fillMaxWidth()
+            .navigationBarsPadding()
             .padding(horizontal = 28.dp, vertical = 14.dp),
         contentAlignment = Alignment.Center
     ) {

@@ -6,10 +6,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.FavoriteBorder
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -18,13 +14,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-
-
 import com.example.coyhaiquebc.ui.components.BottomNavBar
 
 @Composable
@@ -32,6 +25,7 @@ fun ProfileScreen(
     navController: NavController
 ) {
     Scaffold(
+        containerColor = Color(0xFF1E1E1B),
         bottomBar = {
             BottomNavBar(navController = navController)
         }
@@ -39,11 +33,19 @@ fun ProfileScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(padding)
                 .background(Color(0xFF1E1E1B))
-                .padding(14.dp)
+                .padding(
+                    start = 14.dp,
+                    end = 14.dp,
+                    top = 50.dp,
+                    bottom = padding.calculateBottomPadding() + 14.dp
+                )
         ) {
-            ProfileTopCard()
+            ProfileTopCard(
+                onBackClick = {
+                    navController.popBackStack()
+                }
+            )
 
             Spacer(modifier = Modifier.height(12.dp))
 
@@ -51,13 +53,8 @@ fun ProfileScreen(
                 horizontalArrangement = Arrangement.spacedBy(10.dp),
                 modifier = Modifier.fillMaxWidth()
             ) {
-                SmallProfileCard(
-                    modifier = Modifier.weight(1f)
-                )
-
-                ImagePlaceholderCard(
-                    modifier = Modifier.weight(1f)
-                )
+                SmallProfileCard(modifier = Modifier.weight(1f))
+                ImagePlaceholderCard(modifier = Modifier.weight(1f))
             }
 
             Spacer(modifier = Modifier.height(12.dp))
@@ -65,18 +62,18 @@ fun ProfileScreen(
             WideProfileCard()
 
             Spacer(modifier = Modifier.weight(1f))
-
-            ProfileBottomBar()
         }
     }
 }
 
 @Composable
-fun ProfileTopCard() {
+fun ProfileTopCard(
+    onBackClick: () -> Unit
+) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(252.dp)
+            .height(280.dp)
             .clip(RoundedCornerShape(28.dp))
             .background(Color(0xFF2A2A27))
             .padding(18.dp)
@@ -90,7 +87,7 @@ fun ProfileTopCard() {
         ) {
             Icon(
                 imageVector = Icons.Default.ArrowBack,
-                contentDescription = null,
+                contentDescription = "Volver",
                 tint = Color.White,
                 modifier = Modifier.size(20.dp)
             )
@@ -100,7 +97,7 @@ fun ProfileTopCard() {
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.TopCenter)
-                .padding(top = 28.dp),
+                .padding(top = 40.dp),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             ProfileStat(number = "1.2 K", label = "Visitados")
@@ -108,25 +105,27 @@ fun ProfileTopCard() {
         }
 
         Column(
-            modifier = Modifier.align(Alignment.Center),
+            modifier = Modifier
+                .align(Alignment.Center)
+                .padding(bottom = 34.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Box(
                 modifier = Modifier
-                    .size(104.dp)
+                    .size(96.dp)
                     .clip(CircleShape)
                     .background(Color(0xFFE8E8E3)),
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = "SB",
+                    text = "DG",
                     fontSize = 28.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color(0xFF2A2A27)
                 )
             }
 
-            Spacer(modifier = Modifier.height(14.dp))
+            Spacer(modifier = Modifier.height(12.dp))
 
             Text(
                 text = "Diego",
@@ -193,7 +192,7 @@ fun ProfileButton(
         modifier = modifier
             .height(42.dp)
             .clip(RoundedCornerShape(22.dp))
-            .background(Color.Transparent),
+            .background(Color.White.copy(alpha = 0.10f)),
         contentAlignment = Alignment.Center
     ) {
         Text(
@@ -228,7 +227,7 @@ fun SmallProfileCard(
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = "SB",
+                    text = "DG",
                     color = Color.White,
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Bold
@@ -238,7 +237,7 @@ fun SmallProfileCard(
             Spacer(modifier = Modifier.height(12.dp))
 
             Text(
-                text = "Sebastián",
+                text = "Diego",
                 color = Color(0xFF2A2A27),
                 fontSize = 13.sp,
                 fontWeight = FontWeight.Bold
@@ -337,50 +336,6 @@ fun WideProfileCard() {
                 .height(90.dp)
                 .clip(RoundedCornerShape(24.dp))
                 .background(Color(0xFFB9C5C0))
-        )
-    }
-}
-
-@Composable
-fun ProfileBottomBar() {
-    Box(
-        modifier = Modifier.fillMaxWidth(),
-        contentAlignment = Alignment.Center
-    ) {
-        Row(
-            modifier = Modifier
-                .height(58.dp)
-                .clip(RoundedCornerShape(32.dp))
-                .background(Color(0xFF0F0F0E))
-                .padding(horizontal = 10.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            BottomIcon(Icons.Default.Email, true)
-            BottomIcon(Icons.Default.Search, false)
-            BottomIcon(Icons.Default.FavoriteBorder, false)
-            BottomIcon(Icons.Default.Menu, false)
-        }
-    }
-}
-
-@Composable
-fun BottomIcon(
-    icon: ImageVector,
-    selected: Boolean
-) {
-    Box(
-        modifier = Modifier
-            .size(42.dp)
-            .clip(CircleShape)
-            .background(if (selected) Color(0xFFE6E6E1) else Color(0xFF1C1C1A)),
-        contentAlignment = Alignment.Center
-    ) {
-        Icon(
-            imageVector = icon,
-            contentDescription = null,
-            tint = if (selected) Color(0xFF2A2A27) else Color.White.copy(alpha = 0.55f),
-            modifier = Modifier.size(20.dp)
         )
     }
 }

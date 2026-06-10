@@ -3,6 +3,7 @@ package com.example.coyhaiquebc.ui.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
@@ -19,7 +20,9 @@ import com.example.coyhaiquebc.R
 import com.example.coyhaiquebc.ui.theme.*
 
 @Composable
-fun HomeHeader() {
+fun HomeHeader(
+    onProfileClick: () -> Unit
+) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -50,6 +53,7 @@ fun HomeHeader() {
             modifier = Modifier
                 .size(56.dp)
                 .clip(CircleShape)
+                .clickable { onProfileClick() }
                 .background(
                     Brush.linearGradient(
                         colors = listOf(
