@@ -31,10 +31,10 @@ fun BottomNavBar(
 
     var showLabel by remember { mutableStateOf(true) }
 
-    // Reiniciar la animación de la etiqueta cuando cambia la ruta
+
     LaunchedEffect(currentRoute) {
         showLabel = true
-        delay(1500)
+        delay(700)
         showLabel = false
     }
 
@@ -60,7 +60,6 @@ fun BottomNavBar(
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Item Inicio
                 BubbleNavItem(
                     selected = currentRoute == Routes.HOME,
                     showLabel = showLabel,
@@ -69,7 +68,7 @@ fun BottomNavBar(
                         Icon(
                             imageVector = Icons.Default.Home,
                             contentDescription = "Inicio",
-                            modifier = Modifier.size(24.dp)
+                            modifier = Modifier.size(28.dp)
                         )
                     },
                     onClick = {
@@ -84,7 +83,6 @@ fun BottomNavBar(
                     unselectedColor = unselectedColor
                 )
 
-                // Item Perfil
                 BubbleNavItem(
                     selected = currentRoute == Routes.PROFILE,
                     showLabel = showLabel,
@@ -93,7 +91,7 @@ fun BottomNavBar(
                         Icon(
                             imageVector = Icons.Default.Person,
                             contentDescription = "Perfil",
-                            modifier = Modifier.size(24.dp)
+                            modifier = Modifier.size(28.dp)
                         )
                     },
                     onClick = {
