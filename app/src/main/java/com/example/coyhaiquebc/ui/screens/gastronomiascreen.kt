@@ -79,7 +79,6 @@ fun GastronomiaScreen(
                     featuredItems = gastronomia,
                     popularItems = gastronomia,
                     onItemClick = {
-                        // Luego navegamos al detalle
                     }
                 )
             }

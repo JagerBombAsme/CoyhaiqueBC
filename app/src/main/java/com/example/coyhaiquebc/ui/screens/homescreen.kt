@@ -14,11 +14,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.coyhaiquebc.data.model.homeCategories
-import com.example.coyhaiquebc.ui.components.BottomNavBar
+
 import com.example.coyhaiquebc.ui.components.CategoryCard
 import com.example.coyhaiquebc.ui.components.HomeHeader
 import com.example.coyhaiquebc.ui.theme.*
 import com.example.coyhaiquebc.navigation.Routes
+import com.example.coyhaiquebc.ui.components.BottomNavBar
+
 @Composable
 fun HomeScreen(
     navController: NavController

@@ -28,7 +28,7 @@ import androidx.navigation.NavController
 import com.example.coyhaiquebc.ui.components.BottomNavBar
 
 @Composable
-fun RutasScreen(
+fun AventuraScreen(
     navController: NavController
 ) {
     var selectedTransport by remember { mutableStateOf("A pie") }
