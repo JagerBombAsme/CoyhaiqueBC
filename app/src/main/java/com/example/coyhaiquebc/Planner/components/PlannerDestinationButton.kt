@@ -20,9 +20,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.coyhaiquebc.R
 import com.example.coyhaiquebc.data.model.DestinationDto
 import com.example.coyhaiquebc.Planner.PlannerColors
 
@@ -33,6 +35,10 @@ fun PlannerDestinationButton(
     onDestinationChange: (DestinationDto) -> Unit
 ) {
     var expanded by remember { mutableStateOf(false) }
+
+    val selectedDestinationLabel = stringResource(R.string.planner_destination_selected_label)
+    val noDestinationsText = stringResource(R.string.planner_no_destinations_available)
+    val selectDestinationText = stringResource(R.string.planner_select_destination)
 
     Box(
         modifier = Modifier.fillMaxWidth()
@@ -53,7 +59,7 @@ fun PlannerDestinationButton(
         ) {
             Column {
                 Text(
-                    text = "Destino seleccionado",
+                    text = selectedDestinationLabel,
                     color = PlannerColors.TextSecondary,
                     fontSize = 11.sp
                 )
@@ -62,8 +68,8 @@ fun PlannerDestinationButton(
 
                 Text(
                     text = selectedDestination?.name
-                        ?: if (destinations.isEmpty()) "No hay destinos disponibles"
-                        else "Seleccionar destino",
+                        ?: if (destinations.isEmpty()) noDestinationsText
+                        else selectDestinationText,
                     color = PlannerColors.TextPrimary,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold

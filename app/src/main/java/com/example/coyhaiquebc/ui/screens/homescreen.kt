@@ -9,12 +9,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.coyhaiquebc.R
 import com.example.coyhaiquebc.data.model.homeCategories
-
 import com.example.coyhaiquebc.ui.components.CategoryCard
 import com.example.coyhaiquebc.ui.components.HomeHeader
 import com.example.coyhaiquebc.ui.theme.*
@@ -68,7 +69,7 @@ fun HomeScreen(
             Spacer(modifier = Modifier.height(12.dp))
 
             Text(
-                text = "¿Qué haremos hoy?",
+                text = stringResource(R.string.home_title),
                 fontSize = 24.sp,
                 fontWeight = FontWeight.ExtraBold,
                 lineHeight = 24.sp
@@ -77,7 +78,7 @@ fun HomeScreen(
             Spacer(modifier = Modifier.height(6.dp))
 
             Text(
-                text = "Elige una categoría para descubrir Coyhaique según tu plan.",
+                text = stringResource(R.string.home_subtitle),
                 color = CharcoalMuted,
                 fontSize = 14.sp,
                 lineHeight = 20.sp
@@ -86,7 +87,7 @@ fun HomeScreen(
             Spacer(modifier = Modifier.height(40.dp))
 
             Text(
-                text = "Categorías",
+                text = stringResource(R.string.home_categories_title),
                 color = CharcoalPrimary,
                 fontSize = 23.sp,
                 fontWeight = FontWeight.Bold
@@ -96,7 +97,7 @@ fun HomeScreen(
 
             if (categoriasFiltradas.isEmpty()) {
                 Text(
-                    text = "No se encontraron categorías para \"$search\"",
+                    text = stringResource(R.string.home_no_categories_found, search),
                     color = CharcoalHint,
                     fontSize = 13.sp
                 )

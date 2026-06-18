@@ -18,9 +18,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.coyhaiquebc.R
 import com.example.coyhaiquebc.data.model.TransportRouteDto
 import com.example.coyhaiquebc.Planner.PlannerColors
 import com.example.coyhaiquebc.Planner.components.PlannerPrimaryButton
@@ -34,13 +36,25 @@ fun PlannerConfirmationStep(
     people: String,
     onFinishClick: () -> Unit
 ) {
+    // Textos internacionalizados
+    val readyText = stringResource(R.string.planner_confirmation_ready)
+    val qrInstructionText = stringResource(R.string.planner_confirmation_qr_instruction)
+    val originText = stringResource(R.string.planner_confirmation_origin)
+    val departureText = stringResource(R.string.planner_confirmation_departure)
+    val arrivalText = stringResource(R.string.planner_confirmation_arrival)
+    val priceText = stringResource(R.string.planner_confirmation_price)
+    val dateText = stringResource(R.string.planner_confirmation_date)
+    val peopleText = stringResource(R.string.planner_confirmation_people)
+    val finishText = stringResource(R.string.planner_confirmation_finish)
+    val defaultOrigin = stringResource(R.string.planner_confirmation_default_origin)
+
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = "LISTO",
+            text = readyText,
             fontSize = 28.sp,
             fontWeight = FontWeight.Bold,
             color = PlannerColors.TextPrimary
@@ -49,7 +63,7 @@ fun PlannerConfirmationStep(
         Spacer(modifier = Modifier.height(12.dp))
 
         Text(
-            text = "Presenta este código al subirte al transporte.",
+            text = qrInstructionText,
             fontSize = 14.sp,
             lineHeight = 20.sp,
             color = PlannerColors.TextSecondary
@@ -66,7 +80,7 @@ fun PlannerConfirmationStep(
         ) {
             Icon(
                 imageVector = Icons.Default.QrCode,
-                contentDescription = "QR",
+                contentDescription = stringResource(R.string.planner_confirmation_qr_content_description),
                 modifier = Modifier.size(135.dp),
                 tint = Color.Black
             )
@@ -75,25 +89,15 @@ fun PlannerConfirmationStep(
         Spacer(modifier = Modifier.height(26.dp))
 
         Text(
-            text = """
-Destino: $destination
-Origen: ${route?.origin ?: "Coyhaique"}
-Salida: ${route?.departureTime ?: "--:--"}
-Llegada: ${route?.arrivalTime ?: "--:--"}
-Precio: ${route?.priceClp?.let { "$$it CLP" } ?: "Por confirmar"}
-Fecha: $date
-Personas: $people
-            """.trimIndent(),
+            text = stringResource(R.string.planner_confirmation_destination) + " $destination\n" +
+                    stringResource(R.string.planner_confirmation_origin) + " ${route?.origin ?: defaultOrigin}\n" +
+                    stringResource(R.string.planner_confirmation_departure) + " ${route?.departureTime ?: "--:--"}\n" +
+                    stringResource(R.string.planner_confirmation_arrival) + " ${route?.arrivalTime ?: "--:--"}\n" +
+                    stringResource(R.string.planner_confirmation_date) + " $date\n" +
+                    stringResource(R.string.planner_confirmation_people) + " $people",
             fontSize = 14.sp,
             lineHeight = 22.sp,
             color = PlannerColors.TextSecondary
-        )
-
-        Spacer(modifier = Modifier.height(30.dp))
-
-        PlannerPrimaryButton(
-            text = "Finalizar",
-            onClick = onFinishClick
         )
     }
 }

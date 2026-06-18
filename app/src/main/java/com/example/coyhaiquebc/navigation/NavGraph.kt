@@ -10,6 +10,7 @@ import com.example.coyhaiquebc.ui.screens.CategoryScreen
 import com.example.coyhaiquebc.ui.screens.HomeScreen
 import com.example.coyhaiquebc.ui.screens.PlanificacionScreen
 import com.example.coyhaiquebc.ui.screens.ProfileScreen
+import com.example.coyhaiquebc.ui.screens.WelcomeScreen
 
 @Composable
 fun NavGraph() {
@@ -17,7 +18,7 @@ fun NavGraph() {
 
     NavHost(
         navController = navController,
-        startDestination = Routes.HOME
+        startDestination = Routes.WELCOME
     ) {
         composable(Routes.HOME) {
             HomeScreen(navController = navController)
@@ -29,6 +30,9 @@ fun NavGraph() {
 
         composable(Routes.PLANNER) {
             PlanificacionScreen(navController = navController)
+        }
+        composable(Routes.WELCOME) {
+            WelcomeScreen(navController = navController)
         }
 
         composable(

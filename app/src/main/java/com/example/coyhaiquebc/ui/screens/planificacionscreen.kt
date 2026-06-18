@@ -36,10 +36,8 @@ import com.example.coyhaiquebc.Planner.Plannerstep.PlannerConfirmationStep
 import com.example.coyhaiquebc.Planner.Plannerstep.PlannerFormStep
 import com.example.coyhaiquebc.Planner.Plannerstep.PlannerWelcomeStep
 
-
-
 @Composable
-fun  PlanificacionScreen(
+fun PlanificacionScreen(
     navController: NavController
 ) {
     val repository = remember { PlannerRepository() }
@@ -80,6 +78,7 @@ fun  PlanificacionScreen(
     }
 
     Scaffold(
+        modifier = Modifier.fillMaxSize(),
         containerColor = PlannerColors.Background,
         bottomBar = {
             BottomNavBar(navController = navController)
@@ -89,13 +88,16 @@ fun  PlanificacionScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .background(PlannerColors.Background)
+        ) {
+            val stepModifier = Modifier
+                .fillMaxSize()
                 .padding(
                     start = 22.dp,
                     end = 22.dp,
                     top = 48.dp,
                     bottom = padding.calculateBottomPadding() + 20.dp
                 )
-        ) {
+
             when {
                 isLoading -> {
                     Box(
@@ -108,7 +110,7 @@ fun  PlanificacionScreen(
 
                 errorMessage != null -> {
                     Column(
-                        modifier = Modifier.fillMaxSize(),
+                        modifier = stepModifier,
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
                     ) {
@@ -132,9 +134,11 @@ fun  PlanificacionScreen(
 
                 else -> {
                     when (step) {
-                        1 -> PlannerWelcomeStep(
-                            onStartClick = { step = 2 }
-                        )
+                        1 -> Box(modifier = stepModifier) {
+                            PlannerWelcomeStep(
+                                onStartClick = { step = 2 }
+                            )
+                        }
 
                         2 -> PlannerFormStep(
                             destinations = destinations,
@@ -146,6 +150,7 @@ fun  PlanificacionScreen(
                             onDateChange = { date = it },
                             people = people,
                             onPeopleChange = { people = it },
+                            bottomPadding = padding.calculateBottomPadding(),
                             onSearchClick = {
                                 val destination = selectedDestination
 
@@ -181,20 +186,23 @@ fun  PlanificacionScreen(
                             onBackClick = {
                                 step = 2
                                 routes = emptyList()
-                            }
+                            },
+                            bottomPadding = padding.calculateBottomPadding()
                         )
 
-                        4 -> PlannerConfirmationStep(
-                            destination = selectedDestination?.name ?: "Destino",
-                            route = selectedRoute,
-                            date = date,
-                            people = people,
-                            onFinishClick = {
-                                step = 1
-                                selectedRoute = null
-                                routes = emptyList()
-                            }
-                        )
+                        4 -> Box(modifier = stepModifier) {
+                            PlannerConfirmationStep(
+                                destination = selectedDestination?.name ?: "Destino",
+                                route = selectedRoute,
+                                date = date,
+                                people = people,
+                                onFinishClick = {
+                                    step = 1
+                                    selectedRoute = null
+                                    routes = emptyList()
+                                }
+                            )
+                        }
                     }
                 }
             }

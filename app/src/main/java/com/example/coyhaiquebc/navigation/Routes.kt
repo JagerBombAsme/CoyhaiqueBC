@@ -4,6 +4,7 @@ object Routes {
     const val HOME = "home"
     const val FAVORITES = "favorites"
     const val ALOJAMIENTO = "alojamiento"
+    const val WELCOME = "bienvenida"
     const val PLANNER = "prereserva"
     const val PROFILE = "perfil"
     const val CATEGORY = "category/{category}"

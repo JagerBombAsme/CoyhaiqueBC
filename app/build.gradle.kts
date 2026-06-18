@@ -43,6 +43,8 @@ android {
 }
 
 dependencies {
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("androidx.core:core-ktx:1.13.1")
     implementation("com.google.dagger:hilt-android:2.48")
     implementation("javax.inject:javax.inject:1")
     implementation("androidx.compose.ui:ui-text-google-fonts:1.6.0")
