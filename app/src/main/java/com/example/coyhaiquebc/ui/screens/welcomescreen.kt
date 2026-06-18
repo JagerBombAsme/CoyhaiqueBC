@@ -23,10 +23,14 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.coyhaiquebc.R
 import com.example.coyhaiquebc.navigation.Routes
-import com.example.coyhaiquebc.components.LanguageManager
-
+import com.example.coyhaiquebc.utils.LanguageManager
+import android.app.Activity
+import androidx.compose.ui.platform.LocalContext
 @Composable
 fun WelcomeScreen(navController: NavController) {
+    val context = LocalContext.current
+    val activity = context as? Activity
+
     val configuration = LocalConfiguration.current
     val currentLanguage = configuration.locales[0].language
 
@@ -57,29 +61,23 @@ fun WelcomeScreen(navController: NavController) {
 
             Spacer(modifier = Modifier.height(34.dp))
 
-            // ✅ Botón Español - DENTRO del Column
             LanguageButton(
                 text = stringResource(R.string.welcome_language_spanish),
-                selected = currentLanguage == "es",  // ← CORREGIDO: usa currentLanguage
+                selected = currentLanguage == "es",
                 onClick = {
                     LanguageManager.setLanguage("es")
-                    navController.navigate(Routes.HOME) {
-                        popUpTo(Routes.WELCOME) { inclusive = true }
-                    }
+                    activity?.recreate()
                 }
             )
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // ✅ Botón Inglés - DENTRO del Column
             LanguageButton(
                 text = stringResource(R.string.welcome_language_english),
-                selected = currentLanguage == "en",  // ← CORREGIDO: usa currentLanguage
+                selected = currentLanguage == "en",
                 onClick = {
                     LanguageManager.setLanguage("en")
-                    navController.navigate(Routes.HOME) {
-                        popUpTo(Routes.WELCOME) { inclusive = true }
-                    }
+                    activity?.recreate()
                 }
             )
         }
