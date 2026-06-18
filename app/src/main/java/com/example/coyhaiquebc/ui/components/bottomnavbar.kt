@@ -3,6 +3,7 @@ package com.example.coyhaiquebc.ui.components
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Category
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Icon
@@ -91,12 +92,34 @@ fun BottomNavBar(
                         Icon(
                             imageVector = Icons.Default.Person,
                             contentDescription = "Perfil",
-                            modifier = Modifier.size(28.dp)
+                            modifier = Modifier.size(40.dp)
                         )
                     },
                     onClick = {
                         navController.navigate(Routes.PROFILE) {
                             launchSingleTop = true
+                        }
+                    },
+                    selectedColor = selectedColor,
+                    unselectedColor = unselectedColor
+                )
+                BubbleNavItem(
+                    selected = currentRoute == Routes.PLANNER,
+                    showLabel = showLabel,
+                    label = "Planificador",
+                    icon = {
+                        Icon(
+                            imageVector = Icons.Default.Category,
+                            contentDescription = "Planificador",
+                            modifier = Modifier.size(28.dp)
+                        )
+                    },
+                    onClick = {
+                        navController.navigate(Routes.PLANNER) {
+                            launchSingleTop = true
+                            popUpTo(Routes.PLANNER) {
+                                inclusive = false
+                            }
                         }
                     },
                     selectedColor = selectedColor,

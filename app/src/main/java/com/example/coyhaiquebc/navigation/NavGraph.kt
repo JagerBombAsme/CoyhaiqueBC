@@ -6,9 +6,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.coyhaiquebc.ui.screens.HomeScreen
 import com.example.coyhaiquebc.ui.screens.CategoryScreen
+import com.example.coyhaiquebc.ui.screens.HomeScreen
+import com.example.coyhaiquebc.ui.screens.PlanificacionScreen
 import com.example.coyhaiquebc.ui.screens.ProfileScreen
+
 @Composable
 fun NavGraph() {
     val navController = rememberNavController()
@@ -25,6 +27,9 @@ fun NavGraph() {
             ProfileScreen(navController = navController)
         }
 
+        composable(Routes.PLANNER) {
+            PlanificacionScreen(navController = navController)
+        }
 
         composable(
             route = Routes.CATEGORY,

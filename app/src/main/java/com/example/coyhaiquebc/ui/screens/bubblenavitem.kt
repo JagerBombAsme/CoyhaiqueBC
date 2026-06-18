@@ -84,12 +84,13 @@ fun BubbleNavItem(
     )
 
     val targetScale = when {
-        !selected -> 0.9f
-        animationPhase == 1 -> 0.7f
-        animationPhase == 2 -> 1.0f
-        else -> 0.9f
+        !selected -> 1.2f
+        animationPhase == 1 -> 0.8f
+        animationPhase == 2 -> 1.1f
+        animationPhase == 3 -> 0.8f
+        animationPhase == 4 -> 1.2f
+        else -> 1.2f
     }
-
 
     val scale by animateFloatAsState(
         targetValue = targetScale,
@@ -116,7 +117,7 @@ fun BubbleNavItem(
         ) {
             Surface(
                 modifier = Modifier
-                    .size(if (selected) 38.dp else 33.dp),
+                    .size(if (selected) 42.dp else 33.dp),
                 shape = CircleShape,
                 color = if (selected) selectedColor else Color.Transparent,
                 shadowElevation = if (selected) 13.dp else 0.dp,
