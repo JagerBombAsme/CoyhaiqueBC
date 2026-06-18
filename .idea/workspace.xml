@@ -22,8 +22,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11d72b1a-eb7c-44f3-8a59-257f442bdb80" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/Plannerstep/PlannerAvailabilityStep.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/Plannerstep/PlannerConfirmationStep.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/Plannerstep/PlannerFormStep.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/Plannerstep/PlannerWelcomeStep.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/components/PlannerDestinationButton.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/components/PlannerFieldCard.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/components/PlannerOptionCard.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/components/PlannerPrimaryButton.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/components/PlannerSegment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/plannercolors.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/planificacionscreen.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/plannelcolors.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/preservascreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/preservascreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/preservascreen.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +79,9 @@
   <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="C:\Users\Crisis.ckmm\.gradle\wrapper\dists\gradle-9.4.1-bin\arn2x92ynaizyzdaamcbpbhtj\gradle-9.4.1" javaHome="C:\Program Files\Android\Android Studio\jbr" gradleVersion="9.4.1" />
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.compose.material3/material3-android/1.2.1/a269bcec123bcf8567c612a65f19cc47d9ab2b49/material3-android-1.2.1-sources.jar!/commonMain/androidx/compose/material3/Icon.kt" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2,
