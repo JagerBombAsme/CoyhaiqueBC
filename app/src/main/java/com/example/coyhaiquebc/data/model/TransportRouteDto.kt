@@ -6,10 +6,18 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class TransportRouteDto(
     val id: String,
-    val origin: String? = null,
 
-    @SerialName("destination_label")
-    val destinationLabel: String? = null,
+    @SerialName("origen_es")
+    val origenEs: String? = null,
+
+    @SerialName("origen_en")
+    val origenEn: String? = null,
+
+    @SerialName("destino_es")
+    val destinoEs: String? = null,
+
+    @SerialName("destino_en")
+    val destinoEn: String? = null,
 
     @SerialName("departure_time")
     val departureTime: String? = null,
@@ -25,4 +33,31 @@ data class TransportRouteDto(
 
     @SerialName("is_active")
     val isActive: Boolean = true
-)
+) {
+
+    fun getOrigen(language: String): String {
+        return when (language) {
+            "en" -> origenEn ?: origenEs ?: ""
+            else -> origenEs ?: origenEn ?: ""
+        }
+    }
+
+    fun getDestino(language: String): String {
+        return when (language) {
+            "en" -> destinoEn ?: destinoEs ?: ""
+            else -> destinoEs ?: destinoEn ?: ""
+        }
+    }
+
+    fun getPriceFormatted(): String {
+        return priceClp?.let { "$$it CLP" } ?: "Por confirmar"
+    }
+
+    fun getPriceFormatted(language: String): String {
+        val priceText = when (language) {
+            "en" -> "To be confirmed"
+            else -> "Por confirmar"
+        }
+        return priceClp?.let { "$$it CLP" } ?: priceText
+    }
+}

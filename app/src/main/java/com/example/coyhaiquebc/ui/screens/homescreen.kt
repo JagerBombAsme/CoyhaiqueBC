@@ -8,7 +8,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -26,15 +26,37 @@ import com.example.coyhaiquebc.ui.components.BottomNavBar
 fun HomeScreen(
     navController: NavController
 ) {
+
+    val configuration = LocalConfiguration.current
+    val currentLanguage = configuration.locales[0].language
+
     var search by remember { mutableStateOf("") }
 
-    val categoriasFiltradas = remember(search) {
-        if (search.isBlank()) {
-            homeCategories
-        } else {
-            homeCategories.filter {
-                it.nombre.contains(search, ignoreCase = true) ||
-                        it.descripcion.contains(search, ignoreCase = true)
+
+    val homeTitle = stringResource(R.string.home_title)
+    val homeSubtitle =  stringResource(R.string.home_subtitle)
+    val categoriesTitle =  stringResource(R.string.home_categories_title)
+    val noCategoriesFound = stringResource(R.string.home_no_categories_found)
+
+
+    val categoriasFiltradas by remember(currentLanguage) {
+        derivedStateOf {
+            val categories = if (search.isBlank()) {
+                homeCategories
+            } else {
+                homeCategories.filter {
+                    it.getNombre(currentLanguage)
+                        .contains(search, ignoreCase = true) ||
+                            it.getDescripcion(currentLanguage)
+                                .contains(search, ignoreCase = true)
+                }
+            }
+
+            categories.map { category ->
+                category.copy(
+                    nombre_es = category.getNombre(currentLanguage),
+                    descripcion_es = category.getDescripcion(currentLanguage)
+                )
             }
         }
     }
@@ -45,7 +67,6 @@ fun HomeScreen(
             BottomNavBar(navController = navController)
         }
     ) { padding ->
-
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -69,7 +90,7 @@ fun HomeScreen(
             Spacer(modifier = Modifier.height(12.dp))
 
             Text(
-                text = stringResource(R.string.home_title),
+                text = homeTitle,
                 fontSize = 24.sp,
                 fontWeight = FontWeight.ExtraBold,
                 lineHeight = 24.sp
@@ -78,7 +99,7 @@ fun HomeScreen(
             Spacer(modifier = Modifier.height(6.dp))
 
             Text(
-                text = stringResource(R.string.home_subtitle),
+                text = homeSubtitle,
                 color = CharcoalMuted,
                 fontSize = 14.sp,
                 lineHeight = 20.sp
@@ -87,7 +108,7 @@ fun HomeScreen(
             Spacer(modifier = Modifier.height(40.dp))
 
             Text(
-                text = stringResource(R.string.home_categories_title),
+                text = categoriesTitle,
                 color = CharcoalPrimary,
                 fontSize = 23.sp,
                 fontWeight = FontWeight.Bold
@@ -97,7 +118,7 @@ fun HomeScreen(
 
             if (categoriasFiltradas.isEmpty()) {
                 Text(
-                    text = stringResource(R.string.home_no_categories_found, search),
+                    text = "$noCategoriesFound \"$search\"",
                     color = CharcoalHint,
                     fontSize = 13.sp
                 )

@@ -11,6 +11,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -19,9 +20,11 @@ import androidx.compose.ui.unit.sp
 import com.example.coyhaiquebc.R
 import com.example.coyhaiquebc.data.model.Category
 
-
 @Composable
 fun CategoryCard(category: Category, onClick: () -> Unit) {
+    val configuration = LocalConfiguration.current
+    val currentLanguage = configuration.locales[0].language
+
     val textColor = Color.White.copy(alpha = 0.9f)
 
     Box(
@@ -33,19 +36,26 @@ fun CategoryCard(category: Category, onClick: () -> Unit) {
     ) {
         Image(
             painter = painterResource(id = category.imagen),
-            contentDescription = category.nombre,
+            contentDescription = category.getNombre(currentLanguage),
             contentScale = ContentScale.Crop,
             modifier = Modifier.fillMaxSize()
         )
 
         GradientOverlay(
             brush = Brush.horizontalGradient(
-                colors = listOf(Color.Black.copy(alpha = 0.72f), Color.Black.copy(alpha = 0.38f), Color.Transparent)
+                colors = listOf(
+                    Color.Black.copy(alpha = 0.72f),
+                    Color.Black.copy(alpha = 0.38f),
+                    Color.Transparent
+                )
             )
         )
         GradientOverlay(
             brush = Brush.verticalGradient(
-                colors = listOf(Color.Transparent, Color.Black.copy(alpha = 0.45f))
+                colors = listOf(
+                    Color.Transparent,
+                    Color.Black.copy(alpha = 0.45f)
+                )
             )
         )
 
@@ -55,7 +65,7 @@ fun CategoryCard(category: Category, onClick: () -> Unit) {
                 .padding(start = 22.dp, end = 72.dp, bottom = 20.dp)
         ) {
             Text(
-                text = category.nombre,
+                text = category.getNombre(currentLanguage),
                 color = textColor,
                 fontFamily = FontFamily.SansSerif,
                 fontWeight = FontWeight.Bold,
@@ -66,7 +76,7 @@ fun CategoryCard(category: Category, onClick: () -> Unit) {
             Spacer(modifier = Modifier.height(4.dp))
 
             Text(
-                text = category.descripcion,
+                text = category.getDescripcion(currentLanguage),
                 color = textColor.copy(alpha = 0.8f),
                 fontFamily = FontFamily.SansSerif,
                 fontWeight = FontWeight.Medium,
@@ -84,7 +94,12 @@ fun CategoryCard(category: Category, onClick: () -> Unit) {
                 .background(Color.White.copy(alpha = 0.18f)),
             contentAlignment = Alignment.Center
         ) {
-            Text(text = "›", color = Color.White, fontSize = 28.sp, fontWeight = FontWeight.Medium)
+            Text(
+                text = "›",
+                color = Color.White,
+                fontSize = 28.sp,
+                fontWeight = FontWeight.Medium
+            )
         }
     }
 }

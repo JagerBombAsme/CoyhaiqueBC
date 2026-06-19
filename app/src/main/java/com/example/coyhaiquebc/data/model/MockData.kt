@@ -1,24 +1,24 @@
 package com.example.coyhaiquebc.data.model
 
-
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Restaurant
-import androidx.compose.material.icons.filled.Terrain
 import com.example.coyhaiquebc.R
+
+
 val categoriesPrueba = listOf(
     Category(
         id = "comer",
-        nombre = "Comer algo",
-        descripcion = "Restaurantes, cafés y comida local",
-
+        nombre_es = "Comer algo",
+        nombre_en = "Eat something",
+        descripcion_es = "Restaurantes, cafés y comida local",
+        descripcion_en = "Restaurants, cafés and local food",
         imagen = R.drawable.ic_launcher_background,
         ruta = "explore/gastronomia"
     ),
     Category(
         id = "rutas",
-        nombre = "Explorar rutas",
-        descripcion = "Senderos, miradores y naturaleza",
-
+        nombre_es = "Explorar rutas",
+        nombre_en = "Explore routes",
+        descripcion_es = "Senderos, miradores y naturaleza",
+        descripcion_en = "Trails, viewpoints and nature",
         imagen = R.drawable.ic_launcher_background,
         ruta = "explore/rutas"
     )

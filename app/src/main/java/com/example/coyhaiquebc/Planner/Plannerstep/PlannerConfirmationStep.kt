@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -36,6 +37,8 @@ fun PlannerConfirmationStep(
     people: String,
     onFinishClick: () -> Unit
 ) {
+    val configuration = LocalConfiguration.current
+    val currentLanguage = configuration.locales[0].language
 
     val readyText = stringResource(R.string.planner_confirmation_ready)
     val qrInstructionText = stringResource(R.string.planner_confirmation_qr_instruction)
@@ -47,6 +50,11 @@ fun PlannerConfirmationStep(
     val peopleText = stringResource(R.string.planner_confirmation_people)
     val finishText = stringResource(R.string.planner_confirmation_finish)
     val defaultOrigin = stringResource(R.string.planner_confirmation_default_origin)
+    val priceToConfirm = stringResource(R.string.planner_confirmation_price_to_confirm)
+
+    // ✅ Obtener origen y destino traducidos
+    val origen = route?.getOrigen(currentLanguage) ?: defaultOrigin
+    val destino = route?.getDestino(currentLanguage) ?: destination
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -89,15 +97,23 @@ fun PlannerConfirmationStep(
         Spacer(modifier = Modifier.height(26.dp))
 
         Text(
-            text = stringResource(R.string.planner_confirmation_destination) + " $destination\n" +
-                    stringResource(R.string.planner_confirmation_origin) + " ${route?.origin ?: defaultOrigin}\n" +
+            text = stringResource(R.string.planner_confirmation_destination) + " $destino\n" +
+                    stringResource(R.string.planner_confirmation_origin) + " $origen\n" +
                     stringResource(R.string.planner_confirmation_departure) + " ${route?.departureTime ?: "--:--"}\n" +
                     stringResource(R.string.planner_confirmation_arrival) + " ${route?.arrivalTime ?: "--:--"}\n" +
+                    stringResource(R.string.planner_confirmation_price) + " ${route?.getPriceFormatted(currentLanguage)}\n" +
                     stringResource(R.string.planner_confirmation_date) + " $date\n" +
                     stringResource(R.string.planner_confirmation_people) + " $people",
             fontSize = 14.sp,
             lineHeight = 22.sp,
             color = PlannerColors.TextSecondary
+        )
+
+        Spacer(modifier = Modifier.height(30.dp))
+
+        PlannerPrimaryButton(
+            text = finishText,
+            onClick = onFinishClick
         )
     }
 }

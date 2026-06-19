@@ -1,6 +1,5 @@
 package com.example.coyhaiquebc.Planner.components
 
-
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -16,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -27,6 +27,14 @@ fun PlannerOptionCard(
     route: TransportRouteDto,
     onClick: () -> Unit
 ) {
+    val configuration = LocalConfiguration.current
+    val currentLanguage = configuration.locales[0].language
+
+    // ✅ Obtener textos traducidos
+    val origen = route.getOrigen(currentLanguage)
+    val destino = route.getDestino(currentLanguage)
+    val price = route.getPriceFormatted(currentLanguage)
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -37,7 +45,7 @@ fun PlannerOptionCard(
             .padding(horizontal = 14.dp, vertical = 10.dp)
     ) {
         Text(
-            text = route.origin ?: "Coyhaique",
+            text = origen,
             modifier = Modifier.align(Alignment.TopStart),
             color = PlannerColors.TextPrimary,
             fontSize = 12.sp,
@@ -45,7 +53,7 @@ fun PlannerOptionCard(
         )
 
         Text(
-            text = route.destinationLabel ?: "Destino",
+            text = destino,
             modifier = Modifier.align(Alignment.TopEnd),
             color = PlannerColors.TextPrimary,
             fontSize = 12.sp,
@@ -74,7 +82,7 @@ fun PlannerOptionCard(
         )
 
         Text(
-            text = route.priceClp?.let { "$$it CLP" } ?: "Por confirmar",
+            text = price,
             modifier = Modifier.align(Alignment.BottomCenter),
             color = PlannerColors.TextPrimary,
             fontSize = 10.sp,

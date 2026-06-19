@@ -1,6 +1,5 @@
 package com.example.coyhaiquebc.ui.screens
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -26,7 +25,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -36,7 +34,8 @@ data class CategoryItem(
     val title: String,
     val subtitle: String,
     val description: String,
-    val imageUrl: String?
+    val imageUrl: String?,
+    val id: String
 )
 
 @Composable

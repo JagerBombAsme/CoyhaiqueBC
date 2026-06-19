@@ -22,16 +22,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11d72b1a-eb7c-44f3-8a59-257f442bdb80" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/example/coyhaiquebc/ExampleInstrumentedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/example/coyhaiquebc/ExampleInstrumentedTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/Plannerstep/PlannerAvailabilityStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/Plannerstep/PlannerAvailabilityStep.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/Plannerstep/PlannerConfirmationStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/Plannerstep/PlannerConfirmationStep.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/Plannerstep/PlannerFormStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/Plannerstep/PlannerFormStep.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/components/PlannerOptionCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/components/PlannerOptionCard.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/data/model/Category.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/data/model/Category.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/data/model/MockData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/data/model/MockData.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/components/languagemanager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/components/languagemanager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/data/model/Places.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/data/model/Places.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/data/model/TransportRouteDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/data/model/TransportRouteDto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/components/CategoryCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/components/CategoryCard.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/alojamientoscreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/alojamientoscreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/categorylistscreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/categorylistscreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/gastronomiascreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/gastronomiascreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/homeheader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/homeheader.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/homescreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/homescreen.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/transportescreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/transportescreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/welcomescreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/welcomescreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/theme/color.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/theme/color.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-en/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-en/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +84,7 @@
     <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.compose.material3/material3-android/1.2.1/a269bcec123bcf8567c612a65f19cc47d9ab2b49/material3-android-1.2.1-sources.jar!/commonMain/androidx/compose/material3/Icon.kt" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2,
@@ -131,10 +138,10 @@
       <recent name="com.example.coyhaiquebc.ui.screens" />
     </key>
     <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="com.example.coyhaiquebc.data.model" />
       <recent name="com.example.coyhaiquebc.Planner.Plannerstep" />
       <recent name="com.example.coyhaiquebc.ui.screens" />
       <recent name="com.example.coyhaiquebc.ui.components" />
-      <recent name="com.example.coyhaiquebc.data.model" />
       <recent name="com.example.coyhaiquebc.ui.theme" />
     </key>
   </component>
@@ -215,18 +222,6 @@
       <updated>1778733786784</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-field">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/navigation/Routes.kt</url>
-          <line>5</line>
-          <properties myFieldName="ALOJAMIENTO" myClassName="com.example.coyhaiquebc.navigation.Routes" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">

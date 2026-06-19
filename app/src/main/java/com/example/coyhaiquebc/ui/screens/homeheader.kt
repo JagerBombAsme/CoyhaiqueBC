@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -33,7 +34,7 @@ fun HomeHeader(
             modifier = Modifier.weight(1f)
         ) {
             Text(
-                text = "Hola, Diego",
+                text = stringResource(R.string.home_header_greeting),
                 color = CharcoalPrimary,
                 fontSize = 22.sp,
                 fontWeight = FontWeight.SemiBold
@@ -42,7 +43,7 @@ fun HomeHeader(
             Spacer(modifier = Modifier.height(4.dp))
 
             Text(
-                text = "Explorador de sabores",
+                text = stringResource(R.string.home_header_subtitle),
                 color = IceBlue,
                 fontSize = 13.sp,
                 fontWeight = FontWeight.Medium
@@ -72,7 +73,7 @@ fun HomeHeader(
         ) {
             Image(
                 painter = painterResource(id = R.drawable.ic_launcher_foreground),
-                contentDescription = "Foto de perfil",
+                contentDescription = stringResource(R.string.home_header_profile_image_description),
                 modifier = Modifier
                     .fillMaxSize()
                     .clip(CircleShape)

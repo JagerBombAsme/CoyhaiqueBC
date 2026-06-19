@@ -1,22 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- ============================================ -->
+    <!-- APP -->
+    <!-- ============================================ -->
     <string name="app_name">Coyhaique BaseCamp</string>
+
+    <!-- ============================================ -->
+    <!-- WELCOME SCREEN -->
+    <!-- ============================================ -->
+    <string name="welcome_title">Welcome to\nCoyhaique BaseCamp</string>
     <string name="welcome_subtitle">Choose the display language to start your tourist experience.</string>
     <string name="welcome_language_spanish">Spanish</string>
     <string name="welcome_language_english">English</string>
-    <string name="welcome_title">Welcome to Coyhaique BaseCamp</string>
+    <string name="welcome_loading_message">Please wait while we change the language,\nYour screen may flicker,\nDo not worry, we\'ve got you covered...</string>
+
+    <!-- ============================================ -->
+    <!-- HOME SCREEN -->
+    <!-- ============================================ -->
     <string name="home_title">What will we do today?</string>
     <string name="home_subtitle">Choose a category to discover Coyhaique according to your plan.</string>
     <string name="home_categories_title">Categories</string>
     <string name="home_no_categories_found">No categories found for "%1$s"</string>
+    <string name="home_header_greeting">Hello, Diego</string>
+    <string name="home_header_subtitle">Flavor explorer</string>
+    <string name="home_header_profile_image_description">Profile picture</string>
+
+    <!-- ============================================ -->
+    <!-- PLANIFICACION SCREEN -->
+    <!-- ============================================ -->
     <string name="planner_unknown_error">Unknown error</string>
     <string name="planner_retry">Retry</string>
     <string name="planner_error_loading_destinations">Could not load destinations. %1$s</string>
     <string name="planner_select_destination_error">Please select a destination.</string>
     <string name="planner_error_loading_availability">Could not load availability. %1$s</string>
     <string name="planner_default_destination">Destination</string>
+
+    <!-- ============================================ -->
+    <!-- PLANNER - DESTINATION BUTTON -->
+    <!-- ============================================ -->
     <string name="planner_destination_selected_label">Selected destination</string>
     <string name="planner_no_destinations_available">No destinations available</string>
     <string name="planner_select_destination">Select destination</string>
+
+    <!-- ============================================ -->
+    <!-- PLANNER - FORM STEP -->
+    <!-- ============================================ -->
     <string name="planner_configure_trip">Plan\nyour trip</string>
     <string name="planner_tourist">Tourist</string>
     <string name="planner_adventure">Adventure</string>
@@ -24,9 +52,17 @@
     <string name="planner_date">Date</string>
     <string name="planner_people">People</string>
     <string name="planner_search_availability">Search availability</string>
+
+    <!-- ============================================ -->
+    <!-- PLANNER - WELCOME STEP -->
+    <!-- ============================================ -->
     <string name="planner_welcome_title">Already know\nwhere to go?</string>
     <string name="planner_welcome_subtitle">Plan your trip in a few steps. Select the destination, type of transport, date and number of people.</string>
     <string name="planner_welcome_button">Start planning</string>
+
+    <!-- ============================================ -->
+    <!-- PLANNER - CONFIRMATION STEP -->
+    <!-- ============================================ -->
     <string name="planner_confirmation_ready">READY</string>
     <string name="planner_confirmation_qr_instruction">Show this code when boarding the transport.</string>
     <string name="planner_confirmation_qr_content_description">QR Code</string>
@@ -39,8 +75,122 @@
     <string name="planner_confirmation_people">People:</string>
     <string name="planner_confirmation_finish">Finish</string>
     <string name="planner_confirmation_default_origin">Coyhaique</string>
+    <string name="planner_confirmation_price_to_confirm">To be confirmed</string>
+
+    <!-- ============================================ -->
+    <!-- PLANNER - AVAILABILITY STEP -->
+    <!-- ============================================ -->
     <string name="planner_availability_title">Availability\nfor %1$s</string>
     <string name="planner_availability_no_options">No options available for this destination.</string>
     <string name="planner_availability_back">Back</string>
+
+    <!-- ============================================ -->
+    <!-- ALOJAMIENTOS SCREEN -->
+    <!-- ============================================ -->
+    <string name="alojamientos_loading">Loading accommodations...</string>
+    <string name="alojamientos_error">Could not load accommodations.</string>
+    <string name="alojamientos_retry">Retry</string>
+    <string name="alojamientos_reload">Reload</string>
+    <string name="alojamientos_title">Find your\naccommodation</string>
+    <string name="alojamientos_subtitle">Hotels, hostels and cabins available in Coyhaique.</string>
+    <string name="alojamientos_search_placeholder">Search accommodation</string>
+    <string name="alojamientos_tab_all">All</string>
+    <string name="alojamientos_tab_hotel">Hotel</string>
+    <string name="alojamientos_tab_hostal">Hostel</string>
+    <string name="alojamientos_tab_cabanas">Cabins</string>
+    <string name="alojamientos_no_description">No description available.</string>
+    <string name="alojamientos_no_title">No title</string>
+    <string name="alojamientos_default_subtitle">Coyhaique</string>
+    <string name="alojamientos_empty">No accommodations available.</string>
+
+    <!-- ============================================ -->
+    <!-- GASTRONOMIA SCREEN -->
+    <!-- ============================================ -->
+    <string name="gastronomia_loading">Loading gastronomy...</string>
+    <string name="gastronomia_error">Could not load gastronomy data.</string>
+    <string name="gastronomia_retry">Retry</string>
+    <string name="gastronomia_no_description">No description available.</string>
+    <string name="gastronomia_no_title">No title</string>
+    <string name="gastronomia_default_subtitle">Coyhaique</string>
+    <string name="gastronomia_empty">No gastronomy data available.</string>
+    <string name="gastronomia_title">Flavors of\nCoyhaique</string>
+    <string name="gastronomia_subtitle">Restaurants, cafés and typical food from Patagonia.</string>
+    <string name="gastronomia_search_placeholder">Search gastronomy</string>
+    <string name="gastronomia_tab_all">All</string>
+    <string name="gastronomia_tab_restaurant">Restaurants</string>
+    <string name="gastronomia_tab_cafe">Cafés</string>
+    <string name="gastronomia_tab_traditional">Typical food</string>
+
+    <!-- ============================================ -->
+    <!-- TRANSPORTE SCREEN -->
+    <!-- ============================================ -->
+    <string name="transporte_loading">Loading transport...</string>
+    <string name="transporte_error">Could not load transport data.</string>
+    <string name="transporte_retry">Retry</string>
+    <string name="transporte_no_description">No description available.</string>
+    <string name="transporte_no_title">No title</string>
+    <string name="transporte_default_subtitle">Coyhaique</string>
+    <string name="transporte_empty">No transport data available.</string>
+    <string name="transporte_title">Transport in\nCoyhaique</string>
+    <string name="transporte_subtitle">Trips, routes and transport to and from the airport.</string>
+    <string name="transporte_search_placeholder">Search transport</string>
+    <string name="transporte_tab_all">All</string>
+    <string name="transporte_tab_viajes">Trips</string>
+    <string name="transporte_tab_transfers">Transfers</string>
+    <string name="transporte_tab_rutas">Routes</string>
+
+    <!-- ============================================ -->
+    <!-- CULTURA SCREEN -->
+    <!-- ============================================ -->
+    <string name="cultura_loading">Loading cultural places...</string>
+    <string name="cultura_error">Could not load cultural places.</string>
+    <string name="cultura_retry">Retry</string>
+    <string name="cultura_no_description">No description available.</string>
+    <string name="cultura_no_title">No title</string>
+    <string name="cultura_default_subtitle">Coyhaique</string>
+    <string name="cultura_empty">No cultural places available.</string>
+    <string name="cultura_title">Culture and\nHeritage</string>
+    <string name="cultura_subtitle">Museums, monuments and traditions of Coyhaique.</string>
+    <string name="cultura_search_placeholder">Search culture</string>
+    <string name="cultura_tab_all">All</string>
+    <string name="cultura_tab_museum">Museum</string>
+    <string name="cultura_tab_monument">Monument</string>
+    <string name="cultura_tab_tradition">Tradition</string>
+
+    <!-- ============================================ -->
+    <!-- AVENTURA SCREEN -->
+    <!-- ============================================ -->
+    <string name="aventura_loading">Loading adventure activities...</string>
+    <string name="aventura_error">Could not load activities.</string>
+    <string name="aventura_retry">Retry</string>
+    <string name="aventura_no_description">No description available.</string>
+    <string name="aventura_no_title">No title</string>
+    <string name="aventura_default_subtitle">Coyhaique</string>
+    <string name="aventura_empty">No adventure activities available.</string>
+    <string name="aventura_title">Adventure in\nPatagonia</string>
+    <string name="aventura_subtitle">Trekking, rafting and more in Coyhaique.</string>
+    <string name="aventura_search_placeholder">Search adventure</string>
+    <string name="aventura_tab_all">All</string>
+    <string name="aventura_tab_trekking">Trekking</string>
+    <string name="aventura_tab_water">Water sports</string>
+    <string name="aventura_tab_extreme">Extreme</string>
+
+    <!-- ============================================ -->
+    <!-- NATURALEZA SCREEN -->
+    <!-- ============================================ -->
+    <string name="naturaleza_loading">Loading parks and reserves...</string>
+    <string name="naturaleza_error">Could not load parks.</string>
+    <string name="naturaleza_retry">Retry</string>
+    <string name="naturaleza_no_description">No description available.</string>
+    <string name="naturaleza_no_title">No title</string>
+    <string name="naturaleza_default_subtitle">Coyhaique</string>
+    <string name="naturaleza_empty">No parks or reserves available.</string>
+    <string name="naturaleza_title">Nature\nat its purest</string>
+    <string name="naturaleza_subtitle">Parks and nature reserves in Coyhaique.</string>
+    <string name="naturaleza_search_placeholder">Search nature</string>
+    <string name="naturaleza_tab_all">All</string>
+    <string name="naturaleza_tab_park">Park</string>
+    <string name="naturaleza_tab_reserve">Reserve</string>
+    <string name="naturaleza_tab_viewpoint">Viewpoint</string>
 
 </resources>
