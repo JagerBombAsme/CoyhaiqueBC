@@ -1,12 +1,12 @@
 package com.example.coyhaiquebc.ui.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -19,6 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.coyhaiquebc.navigation.Routes
 import com.example.coyhaiquebc.ui.components.BottomNavBar
 
 @Composable
@@ -45,7 +46,8 @@ fun ProfileScreen(
             ProfileTopCard(
                 onBackClick = {
                     navController.popBackStack()
-                }
+                },
+                navController = navController
             )
 
             Spacer(modifier = Modifier.height(12.dp))
@@ -69,7 +71,8 @@ fun ProfileScreen(
 
 @Composable
 fun ProfileTopCard(
-    onBackClick: () -> Unit
+    onBackClick: () -> Unit,
+    navController: NavController
 ) {
     Box(
         modifier = Modifier
@@ -83,7 +86,8 @@ fun ProfileTopCard(
             modifier = Modifier
                 .size(34.dp)
                 .clip(CircleShape)
-                .background(Color(0xFF1B1B19)),
+                .background(Color(0xFF1B1B19))
+                .clickable { onBackClick() },
             contentAlignment = Alignment.Center
         ) {
             Icon(
@@ -150,13 +154,21 @@ fun ProfileTopCard(
                 .align(Alignment.BottomCenter),
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            ProfileButton(
+            ProfileButton1(
                 text = "Editar",
+                navController = navController,
                 modifier = Modifier.weight(1f)
             )
 
-            ProfileButton(
+            ProfileButton1(
                 text = "Guardar",
+                navController = navController,
+                modifier = Modifier.weight(1f)
+            )
+
+            ProfileButton1(
+                text = "Cambiar Idioma de la App",
+                navController = navController,
                 modifier = Modifier.weight(1f)
             )
         }
@@ -185,15 +197,21 @@ fun ProfileStat(
 }
 
 @Composable
-fun ProfileButton(
+fun ProfileButton1(
     text: String,
+    navController: NavController,
     modifier: Modifier = Modifier
 ) {
     Box(
         modifier = modifier
             .height(42.dp)
             .clip(RoundedCornerShape(22.dp))
-            .background(Color.White.copy(alpha = 0.10f)),
+            .background(Color.White.copy(alpha = 0.10f))
+            .clickable {
+                navController.navigate(Routes.WELCOME) {
+                    popUpTo(Routes.WELCOME) { inclusive = true }
+                }
+            },
         contentAlignment = Alignment.Center
     ) {
         Text(

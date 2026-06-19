@@ -66,6 +66,7 @@ fun WelcomeScreen(navController: NavController) {
                 selected = currentLanguage == "es",
                 onClick = {
                     LanguageManager.setLanguage("es")
+
                     activity?.recreate()
                 }
             )
