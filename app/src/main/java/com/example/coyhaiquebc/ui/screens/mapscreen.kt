@@ -63,7 +63,8 @@ fun MapScreen(navController: NavController) {
                 .fillMaxSize()
                 .background(Color.White)
                 .padding(
-                    bottom = padding.calculateBottomPadding() + 24.dp
+                    top = 35.dp,
+                    bottom =  4.dp
                 )
         ) {
             GoogleMap(
