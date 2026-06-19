@@ -2,8 +2,8 @@ package com.example.coyhaiquebc.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val SlateLight       = Color(0xFFF4F5F7) // fondo principal
-val SlateCard        = Color(0xFFECEEF2) // tarjetas
+val SlateLight       = Color(0xFFFFFFFF)
+val SlateCard        = Color(0xFFFFFFFF)
 val SlateBorder      = Color(0xFFE2E5EB) // bordes suaves
 val SlateStrong      = Color(0xFFD0D4DC) // bordes fuertes
 

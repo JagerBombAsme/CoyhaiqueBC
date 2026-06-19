@@ -18,7 +18,7 @@ fun NavGraph() {
 
     NavHost(
         navController = navController,
-        startDestination = Routes.WELCOME
+        startDestination = Routes.HOME
     ) {
         composable(Routes.HOME) {
             HomeScreen(navController = navController)

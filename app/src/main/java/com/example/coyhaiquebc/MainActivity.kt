@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.example.coyhaiquebc.navigation.NavGraph
-import com.example.coyhaiquebc.ui.theme.CoyhaiqueBCTheme
 import com.example.coyhaiquebc.ui.theme.SlateLight
 import androidx.appcompat.app.AppCompatActivity
 import com.example.coyhaiquebc.utils.LanguageManager
@@ -19,7 +18,6 @@ class MainActivity : AppCompatActivity() {
             LanguageManager.applySavedLanguage()
 
         setContent {
-            CoyhaiqueBCTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = SlateLight
@@ -28,7 +26,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-    }
 }
 
 
