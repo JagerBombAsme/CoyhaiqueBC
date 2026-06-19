@@ -22,7 +22,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11d72b1a-eb7c-44f3-8a59-257f442bdb80" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/fonts_certs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/welcomescreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/welcomescreen.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

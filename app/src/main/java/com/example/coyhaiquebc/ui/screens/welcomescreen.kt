@@ -5,14 +5,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.key
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -21,6 +16,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -104,30 +100,9 @@ fun WelcomeScreen(navController: NavController) {
                 )
             }
 
+            // ✅ Overlay de carga
             if (isChangingLanguage) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(Color.Black.copy(alpha = 0.35f)),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .padding(horizontal = 32.dp)
-                            .clip(RoundedCornerShape(18.dp))
-                            .background(Color.White)
-                            .padding(horizontal = 24.dp, vertical = 20.dp),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            text = "Espera mientras cambiamos el idioma,\npuede que tu pantalla parpadee,\ntranquilo te cuidamos",
-                            color = Color.Black,
-                            fontSize = 18.sp,
-                            fontWeight = FontWeight.Medium,
-                            textAlign = androidx.compose.ui.text.style.TextAlign.Center
-                        )
-                    }
-                }
+                LoadingOverlay()
             }
         }
     }
@@ -157,5 +132,58 @@ fun LanguageButton(
             fontSize = 16.sp,
             fontWeight = FontWeight.Bold
         )
+    }
+}
+
+@Composable
+fun LoadingOverlay() {
+    val configuration = LocalConfiguration.current
+    val currentLanguage = configuration.locales[0].language
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Black.copy(alpha = 0.35f)),
+        contentAlignment = Alignment.Center
+    ) {
+        Box(
+            modifier = Modifier
+                .padding(horizontal = 32.dp)
+                .clip(RoundedCornerShape(18.dp))
+                .background(Color.White)
+                .padding(horizontal = 24.dp, vertical = 32.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+
+                CircularProgressIndicator(
+                    color = Color(0xFF2F7D75),
+                    modifier = Modifier.size(48.dp)
+                )
+
+                Spacer(modifier = Modifier.height(20.dp))
+
+
+                if (currentLanguage == "en") {
+                    Text(
+                        text = "Espera mientras cambiamos el idioma,\nPuede que tu pantalla parpadee,\nTranquilo te cuidamos...",
+                        color = Color.Black,
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Medium,
+                        textAlign = TextAlign.Center
+                    )
+                } else {
+                    Text(
+                        text = "Please wait while we change the language,\nYour screen may flicker,\nDon't worry, we've got you covered...",
+                        color = Color.Black,
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Medium,
+                        textAlign = TextAlign.Center
+                    )
+                }
+            }
+        }
     }
 }
