@@ -6,12 +6,11 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.foundation.Image
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Language
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Save
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
@@ -26,18 +25,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import coil.compose.AsyncImage
-import coil.request.ImageRequest
 import com.example.coyhaiquebc.R
 import com.example.coyhaiquebc.navigation.Routes
 import com.example.coyhaiquebc.ui.components.BottomNavBar
-import com.example.coyhaiquebc.utils.LanguageManager
 
 @Composable
 fun ProfileScreen(
@@ -68,7 +64,6 @@ fun ProfileScreen(
             )
 
             Spacer(modifier = Modifier.height(12.dp))
-
 
             Row(
                 horizontalArrangement = Arrangement.spacedBy(10.dp),
@@ -110,7 +105,6 @@ fun ProfileTopCard(
             .background(Color(0xFF2A2A27))
             .padding(18.dp)
     ) {
-
         Box(
             modifier = Modifier
                 .size(34.dp)
@@ -151,10 +145,10 @@ fun ProfileTopCard(
                 .padding(bottom = 34.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-
             ProfileAvatar(
                 imageUrl = profileImageUrl,
                 onImageClick = {
+
                 }
             )
 
@@ -183,11 +177,11 @@ fun ProfileTopCard(
                 .align(Alignment.BottomCenter),
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-
             ProfileActionButton(
                 text = stringResource(R.string.profile_edit),
                 icon = Icons.Default.Edit,
                 onClick = {
+
                 },
                 modifier = Modifier.weight(1f)
             )
@@ -213,7 +207,6 @@ fun ProfileTopCard(
         }
     }
 }
-
 @Composable
 fun ProfileAvatar(
     imageUrl: String?,
@@ -222,50 +215,21 @@ fun ProfileAvatar(
 ) {
     Box(
         modifier = modifier
-            .size(96.dp)
+            .size(105.dp)
             .clip(CircleShape)
             .clickable { onImageClick() }
             .background(Color(0xFFE8E8E3)),
         contentAlignment = Alignment.Center
     ) {
-        if (!imageUrl.isNullOrEmpty()) {
-            AsyncImage(
-                model = ImageRequest.Builder(LocalContext.current)
-                    .data(imageUrl)
-                    .crossfade(true)
-                    .build(),
-                contentDescription = stringResource(R.string.profile_profile_image),
-                modifier = Modifier.fillMaxSize(),
-                contentScale = ContentScale.Crop
-            )
-        } else {
-            Text(
-                text = "DG",
-                fontSize = 28.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color(0xFF2A2A27)
-            )
-        }
+        Image(
+            painter = painterResource(id = R.drawable.comida),
+            contentDescription = "Avatar de prueba",
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop
+        )
 
-        Box(
-            modifier = Modifier
-                .align(Alignment.BottomEnd)
-                .size(28.dp)
-                .clip(CircleShape)
-                .background(Color(0xFF2F7D75))
-                .padding(4.dp),
-            contentAlignment = Alignment.Center
-        ) {
-            Icon(
-                imageVector = Icons.Default.Person,
-                contentDescription = null,
-                tint = Color.White,
-                modifier = Modifier.size(14.dp)
-            )
-        }
     }
 }
-
 @Composable
 fun ProfileStat(
     number: String,
@@ -390,6 +354,7 @@ fun RecentActivityCard() {
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.clickable {
+
                     }
                 )
             }

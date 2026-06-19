@@ -129,7 +129,7 @@ fun BottomNavBar(
                 BubbleNavItem(
                     selected = currentRoute == Routes.MAP,
                     showLabel = showLabel,
-                    label = "Planificador",
+                    label = "Mapa",
                     icon = {
                         Icon(
                             imageVector = Icons.Default.Map,
@@ -138,10 +138,13 @@ fun BottomNavBar(
                         )
                     },
                     onClick = {
-                        navController.navigate(Routes.MAP) {
-                            launchSingleTop = true
-                            popUpTo(Routes.MAP) {
-                                inclusive = false
+                        if (currentRoute != Routes.MAP) {
+                            navController.navigate(Routes.MAP) {
+                                launchSingleTop = true
+                                restoreState = true
+                                popUpTo(Routes.HOME) {
+                                    saveState = true
+                                }
                             }
                         }
                     },

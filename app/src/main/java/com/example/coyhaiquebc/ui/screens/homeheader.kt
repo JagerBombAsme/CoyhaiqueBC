@@ -52,27 +52,22 @@ fun HomeHeader(
 
         Box(
             modifier = Modifier
-                .size(56.dp)
+                .size(80.dp)
                 .clip(CircleShape)
                 .clickable { onProfileClick() }
                 .background(
                     Brush.linearGradient(
                         colors = listOf(
-                            IceBlue,
-                            IceLight
+                            SnowWhite,
+                            SnowWhite
                         )
                     )
-                )
-                .border(
-                    width = 2.dp,
-                    color = IceSurface,
-                    shape = CircleShape
                 )
                 .padding(3.dp),
             contentAlignment = Alignment.Center
         ) {
             Image(
-                painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                painter = painterResource(id = R.drawable.comida),
                 contentDescription = stringResource(R.string.home_header_profile_image_description),
                 modifier = Modifier
                     .fillMaxSize()
