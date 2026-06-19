@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- ============================================ -->
-    <!-- APP -->
-    <!-- ============================================ -->
     <string name="app_name">Coyhaique BaseCamp</string>
-
-    <!-- ============================================ -->
-    <!-- WELCOME SCREEN -->
-    <!-- ============================================ -->
     <string name="welcome_title">Welcome to\nCoyhaique BaseCamp</string>
     <string name="welcome_subtitle">Choose the display language to start your tourist experience.</string>
     <string name="welcome_language_spanish">Spanish</string>
     <string name="welcome_language_english">English</string>
     <string name="welcome_loading_message">Please wait while we change the language,\nYour screen may flicker,\nDo not worry, we\'ve got you covered...</string>
-
-    <!-- ============================================ -->
-    <!-- HOME SCREEN -->
-    <!-- ============================================ -->
     <string name="home_title">What will we do today?</string>
     <string name="home_subtitle">Choose a category to discover Coyhaique according to your plan.</string>
     <string name="home_categories_title">Categories</string>
@@ -24,27 +13,15 @@
     <string name="home_header_greeting">Hello, Diego</string>
     <string name="home_header_subtitle">Flavor explorer</string>
     <string name="home_header_profile_image_description">Profile picture</string>
-
-    <!-- ============================================ -->
-    <!-- PLANIFICACION SCREEN -->
-    <!-- ============================================ -->
     <string name="planner_unknown_error">Unknown error</string>
     <string name="planner_retry">Retry</string>
     <string name="planner_error_loading_destinations">Could not load destinations. %1$s</string>
     <string name="planner_select_destination_error">Please select a destination.</string>
     <string name="planner_error_loading_availability">Could not load availability. %1$s</string>
     <string name="planner_default_destination">Destination</string>
-
-    <!-- ============================================ -->
-    <!-- PLANNER - DESTINATION BUTTON -->
-    <!-- ============================================ -->
     <string name="planner_destination_selected_label">Selected destination</string>
     <string name="planner_no_destinations_available">No destinations available</string>
     <string name="planner_select_destination">Select destination</string>
-
-    <!-- ============================================ -->
-    <!-- PLANNER - FORM STEP -->
-    <!-- ============================================ -->
     <string name="planner_configure_trip">Plan\nyour trip</string>
     <string name="planner_tourist">Tourist</string>
     <string name="planner_adventure">Adventure</string>
@@ -52,17 +29,9 @@
     <string name="planner_date">Date</string>
     <string name="planner_people">People</string>
     <string name="planner_search_availability">Search availability</string>
-
-    <!-- ============================================ -->
-    <!-- PLANNER - WELCOME STEP -->
-    <!-- ============================================ -->
     <string name="planner_welcome_title">Already know\nwhere to go?</string>
     <string name="planner_welcome_subtitle">Plan your trip in a few steps. Select the destination, type of transport, date and number of people.</string>
     <string name="planner_welcome_button">Start planning</string>
-
-    <!-- ============================================ -->
-    <!-- PLANNER - CONFIRMATION STEP -->
-    <!-- ============================================ -->
     <string name="planner_confirmation_ready">READY</string>
     <string name="planner_confirmation_qr_instruction">Show this code when boarding the transport.</string>
     <string name="planner_confirmation_qr_content_description">QR Code</string>
@@ -76,17 +45,9 @@
     <string name="planner_confirmation_finish">Finish</string>
     <string name="planner_confirmation_default_origin">Coyhaique</string>
     <string name="planner_confirmation_price_to_confirm">To be confirmed</string>
-
-    <!-- ============================================ -->
-    <!-- PLANNER - AVAILABILITY STEP -->
-    <!-- ============================================ -->
     <string name="planner_availability_title">Availability\nfor %1$s</string>
     <string name="planner_availability_no_options">No options available for this destination.</string>
     <string name="planner_availability_back">Back</string>
-
-    <!-- ============================================ -->
-    <!-- ALOJAMIENTOS SCREEN -->
-    <!-- ============================================ -->
     <string name="alojamientos_loading">Loading accommodations...</string>
     <string name="alojamientos_error">Could not load accommodations.</string>
     <string name="alojamientos_retry">Retry</string>
@@ -102,10 +63,6 @@
     <string name="alojamientos_no_title">No title</string>
     <string name="alojamientos_default_subtitle">Coyhaique</string>
     <string name="alojamientos_empty">No accommodations available.</string>
-
-    <!-- ============================================ -->
-    <!-- GASTRONOMIA SCREEN -->
-    <!-- ============================================ -->
     <string name="gastronomia_loading">Loading gastronomy...</string>
     <string name="gastronomia_error">Could not load gastronomy data.</string>
     <string name="gastronomia_retry">Retry</string>
@@ -120,10 +77,6 @@
     <string name="gastronomia_tab_restaurant">Restaurants</string>
     <string name="gastronomia_tab_cafe">Cafés</string>
     <string name="gastronomia_tab_traditional">Typical food</string>
-
-    <!-- ============================================ -->
-    <!-- TRANSPORTE SCREEN -->
-    <!-- ============================================ -->
     <string name="transporte_loading">Loading transport...</string>
     <string name="transporte_error">Could not load transport data.</string>
     <string name="transporte_retry">Retry</string>
@@ -138,10 +91,6 @@
     <string name="transporte_tab_viajes">Trips</string>
     <string name="transporte_tab_transfers">Transfers</string>
     <string name="transporte_tab_rutas">Routes</string>
-
-    <!-- ============================================ -->
-    <!-- CULTURA SCREEN -->
-    <!-- ============================================ -->
     <string name="cultura_loading">Loading cultural places...</string>
     <string name="cultura_error">Could not load cultural places.</string>
     <string name="cultura_retry">Retry</string>
@@ -156,10 +105,6 @@
     <string name="cultura_tab_museum">Museum</string>
     <string name="cultura_tab_monument">Monument</string>
     <string name="cultura_tab_tradition">Tradition</string>
-
-    <!-- ============================================ -->
-    <!-- AVENTURA SCREEN -->
-    <!-- ============================================ -->
     <string name="aventura_loading">Loading adventure activities...</string>
     <string name="aventura_error">Could not load activities.</string>
     <string name="aventura_retry">Retry</string>
@@ -174,10 +119,6 @@
     <string name="aventura_tab_trekking">Trekking</string>
     <string name="aventura_tab_water">Water sports</string>
     <string name="aventura_tab_extreme">Extreme</string>
-
-    <!-- ============================================ -->
-    <!-- NATURALEZA SCREEN -->
-    <!-- ============================================ -->
     <string name="naturaleza_loading">Loading parks and reserves...</string>
     <string name="naturaleza_error">Could not load parks.</string>
     <string name="naturaleza_retry">Retry</string>
@@ -192,5 +133,25 @@
     <string name="naturaleza_tab_park">Park</string>
     <string name="naturaleza_tab_reserve">Reserve</string>
     <string name="naturaleza_tab_viewpoint">Viewpoint</string>
-
+    <string name="profile_back">Back</string>
+    <string name="profile_visited">Visited</string>
+    <string name="profile_favorites">Favorites</string>
+    <string name="profile_explorer">Flavor Explorer</string>
+    <string name="profile_edit">Edit</string>
+    <string name="profile_save">Save</string>
+    <string name="profile_change_language">Change Language</string>
+    <string name="profile_places_visited">Places visited</string>
+    <string name="profile_favorites_list">Favorites</string>
+    <string name="profile_recent_activity">Recent activity</string>
+    <string name="profile_recent_places">Saved places</string>
+    <string name="profile_view_favorites">View favorites</string>
+    <string name="profile_profile_image">Profile picture</string>
+    <string name="map_search_placeholder">Search place...</string>
+    <string name="map_search_sernatur">Search SERNATUR</string>
+    <string name="map_coyhaique">Coyhaique</string>
+    <string name="map_coyhaique_desc">Capital of Aysén region</string>
+    <string name="map_cerro_castillo">Cerro Castillo</string>
+    <string name="map_cerro_castillo_desc">Cerro Castillo National Park</string>
+    <string name="map_lago_carrera">General Carrera Lake</string>
+    <string name="map_lago_carrera_desc">The second largest lake in South America</string>
 </resources>

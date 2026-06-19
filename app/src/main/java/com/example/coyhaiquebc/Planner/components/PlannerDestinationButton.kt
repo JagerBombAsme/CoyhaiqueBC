@@ -20,6 +20,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -34,11 +35,16 @@ fun PlannerDestinationButton(
     selectedDestination: DestinationDto?,
     onDestinationChange: (DestinationDto) -> Unit
 ) {
+    val configuration = LocalConfiguration.current
+    val currentLanguage = configuration.locales[0].language
+
     var expanded by remember { mutableStateOf(false) }
 
     val selectedDestinationLabel = stringResource(R.string.planner_destination_selected_label)
     val noDestinationsText = stringResource(R.string.planner_no_destinations_available)
     val selectDestinationText = stringResource(R.string.planner_select_destination)
+
+    val selectedName = selectedDestination?.getNombre(currentLanguage)
 
     Box(
         modifier = Modifier.fillMaxWidth()
@@ -67,7 +73,7 @@ fun PlannerDestinationButton(
                 Spacer(modifier = Modifier.height(4.dp))
 
                 Text(
-                    text = selectedDestination?.name
+                    text = selectedName
                         ?: if (destinations.isEmpty()) noDestinationsText
                         else selectDestinationText,
                     color = PlannerColors.TextPrimary,
@@ -87,7 +93,7 @@ fun PlannerDestinationButton(
                     text = {
                         Column {
                             Text(
-                                text = destination.name,
+                                text = destination.getNombre(currentLanguage),
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 14.sp
                             )

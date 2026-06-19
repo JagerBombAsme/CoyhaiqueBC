@@ -23,9 +23,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.height
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.coyhaiquebc.R
 import com.example.coyhaiquebc.data.model.DestinationDto
 import com.example.coyhaiquebc.data.model.TransportRouteDto
 import com.example.coyhaiquebc.data.repository.PlannerRepository
@@ -40,6 +43,9 @@ import com.example.coyhaiquebc.Planner.Plannerstep.PlannerWelcomeStep
 fun PlanificacionScreen(
     navController: NavController
 ) {
+    val configuration = LocalConfiguration.current
+    val currentLanguage = configuration.locales[0].language
+
     val repository = remember { PlannerRepository() }
     val coroutineScope = rememberCoroutineScope()
 
@@ -57,16 +63,33 @@ fun PlanificacionScreen(
     var date by remember { mutableStateOf("12/01/2027") }
     var people by remember { mutableStateOf("2") }
 
+    val errorLoadingDestinations = stringResource(R.string.planner_error_loading_destinations)
+    val errorSelectDestination = stringResource(R.string.planner_select_destination_error)
+    val errorLoadingAvailability = stringResource(R.string.planner_error_loading_availability)
+    val unknownError = stringResource(R.string.planner_unknown_error)
+    val retryText = stringResource(R.string.planner_retry)
+    val defaultDestination = stringResource(R.string.planner_default_destination)
+
     fun loadDestinations() {
         coroutineScope.launch {
             isLoading = true
             errorMessage = null
 
             try {
+                println(" Cargando destinos desde Supabase...")
                 destinations = repository.getDestinations()
-                selectedDestination = destinations.firstOrNull()
+                println(" Destinos obtenidos: ${destinations.size}")
+
+                if (destinations.isNotEmpty()) {
+                    selectedDestination = destinations.firstOrNull()
+                    println(" Destino seleccionado: ${selectedDestination?.getNombre(currentLanguage)}")
+                } else {
+                    println(" No hay destinos disponibles en la base de datos")
+                }
             } catch (e: Exception) {
-                errorMessage = "No se pudieron cargar los destinos. ${e.message.orEmpty()}"
+                println(" Error: ${e.message}")
+                e.printStackTrace()
+                errorMessage = "$errorLoadingDestinations ${e.message.orEmpty()}"
             } finally {
                 isLoading = false
             }
@@ -115,7 +138,7 @@ fun PlanificacionScreen(
                         verticalArrangement = Arrangement.Center
                     ) {
                         Text(
-                            text = errorMessage ?: "Error desconocido",
+                            text = errorMessage ?: unknownError,
                             color = PlannerColors.Error,
                             fontSize = 16.sp
                         )
@@ -123,7 +146,7 @@ fun PlanificacionScreen(
                         Spacer(modifier = Modifier.height(12.dp))
 
                         PlannerPrimaryButton(
-                            text = "Reintentar",
+                            text = retryText,
                             onClick = {
                                 step = 1
                                 loadDestinations()
@@ -155,7 +178,7 @@ fun PlanificacionScreen(
                                 val destination = selectedDestination
 
                                 if (destination == null) {
-                                    errorMessage = "Por favor, selecciona un destino."
+                                    errorMessage = errorSelectDestination
                                     return@PlannerFormStep
                                 }
 
@@ -164,11 +187,13 @@ fun PlanificacionScreen(
                                     errorMessage = null
 
                                     try {
-                                        routes = repository.getRoutesByDestination(destination.name)
+
+                                        val destinationName = destination.getNombre(currentLanguage)
+                                        routes = repository.getRoutesByDestination(destinationName)
                                         step = 3
                                     } catch (e: Exception) {
                                         routes = emptyList()
-                                        errorMessage = "No se pudo cargar la disponibilidad. ${e.message.orEmpty()}"
+                                        errorMessage = "$errorLoadingAvailability ${e.message.orEmpty()}"
                                     } finally {
                                         isLoading = false
                                     }
@@ -177,7 +202,8 @@ fun PlanificacionScreen(
                         )
 
                         3 -> PlannerAvailabilityStep(
-                            destination = selectedDestination?.name ?: "Destino",
+
+                            destination = selectedDestination?.getNombre(currentLanguage) ?: defaultDestination,
                             routes = routes,
                             onOptionSelected = {
                                 selectedRoute = it
@@ -192,7 +218,7 @@ fun PlanificacionScreen(
 
                         4 -> Box(modifier = stepModifier) {
                             PlannerConfirmationStep(
-                                destination = selectedDestination?.name ?: "Destino",
+                                destination = selectedDestination?.getNombre(currentLanguage) ?: defaultDestination,
                                 route = selectedRoute,
                                 date = date,
                                 people = people,

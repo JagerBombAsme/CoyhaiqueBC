@@ -30,7 +30,6 @@ fun PlannerOptionCard(
     val configuration = LocalConfiguration.current
     val currentLanguage = configuration.locales[0].language
 
-    // ✅ Obtener textos traducidos
     val origen = route.getOrigen(currentLanguage)
     val destino = route.getDestino(currentLanguage)
     val price = route.getPriceFormatted(currentLanguage)

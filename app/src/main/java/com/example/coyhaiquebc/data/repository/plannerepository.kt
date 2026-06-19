@@ -1,27 +1,46 @@
 package com.example.coyhaiquebc.data.repository
 
+import com.example.coyhaiquebc.data.remote.SupabaseClientProvider
 import com.example.coyhaiquebc.data.model.DestinationDto
 import com.example.coyhaiquebc.data.model.TransportRouteDto
-import com.example.coyhaiquebc.data.remote.SupabaseClientProvider
 import io.github.jan.supabase.postgrest.from
 
 class PlannerRepository {
 
+    private val supabaseClient = SupabaseClientProvider.client
+
     suspend fun getDestinations(): List<DestinationDto> {
-        return SupabaseClientProvider.client
-            .from("destinations")
-            .select()
-            .decodeList<DestinationDto>()
+        return try {
+            supabaseClient
+                .from("destinations")
+                .select {
+                    filter {
+                        eq("is_active", true)
+                    }
+                }
+                .decodeList<DestinationDto>()
+        } catch (e: Exception) {
+            println(" Error al obtener destinos: ${e.message}")
+            emptyList()
+        }
     }
 
-    suspend fun getRoutesByDestination(destinationLabel: String): List<TransportRouteDto> {
-        return SupabaseClientProvider.client
-            .from("transport_routes")
-            .select {
-                filter {
-                    eq("destination_label", destinationLabel)
+    suspend fun getRoutesByDestination(destinationName: String): List<TransportRouteDto> {
+        return try {
+            supabaseClient
+                .from("transport_routes")
+                .select {
+                    filter {
+                        or {
+                            eq("destino_es", destinationName)
+                            eq("destino_en", destinationName)
+                        }
+                    }
                 }
-            }
-            .decodeList<TransportRouteDto>()
+                .decodeList<TransportRouteDto>()
+        } catch (e: Exception) {
+            println("Error al obtener rutas por destino: ${e.message}")
+            emptyList()
+        }
     }
 }

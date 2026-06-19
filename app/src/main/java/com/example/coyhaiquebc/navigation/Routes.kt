@@ -8,6 +8,8 @@ object Routes {
     const val PLANNER = "prereserva"
     const val PROFILE = "perfil"
     const val CATEGORY = "category/{category}"
+    const val MAP = "map"
+
 
     fun category(category: String): String {
         return "category/$category"

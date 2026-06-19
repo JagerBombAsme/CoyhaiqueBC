@@ -5,6 +5,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Category
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
@@ -118,6 +119,28 @@ fun BottomNavBar(
                         navController.navigate(Routes.PLANNER) {
                             launchSingleTop = true
                             popUpTo(Routes.PLANNER) {
+                                inclusive = false
+                            }
+                        }
+                    },
+                    selectedColor = selectedColor,
+                    unselectedColor = unselectedColor
+                )
+                BubbleNavItem(
+                    selected = currentRoute == Routes.MAP,
+                    showLabel = showLabel,
+                    label = "Planificador",
+                    icon = {
+                        Icon(
+                            imageVector = Icons.Default.Map,
+                            contentDescription = "Mapa",
+                            modifier = Modifier.size(28.dp)
+                        )
+                    },
+                    onClick = {
+                        navController.navigate(Routes.MAP) {
+                            launchSingleTop = true
+                            popUpTo(Routes.MAP) {
                                 inclusive = false
                             }
                         }

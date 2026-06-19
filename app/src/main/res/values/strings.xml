@@ -133,5 +133,25 @@
     <string name="naturaleza_tab_park">Parque</string>
     <string name="naturaleza_tab_reserve">Reserva</string>
     <string name="naturaleza_tab_viewpoint">Mirador</string>
-
+    <string name="profile_back">Volver</string>
+    <string name="profile_visited">Visitados</string>
+    <string name="profile_favorites">Favoritos</string>
+    <string name="profile_explorer">Explorador de Sabores</string>
+    <string name="profile_edit">Editar</string>
+    <string name="profile_save">Guardar</string>
+    <string name="profile_change_language">Cambiar Idioma</string>
+    <string name="profile_places_visited">Lugares visitados</string>
+    <string name="profile_favorites_list">Favoritos</string>
+    <string name="profile_recent_activity">Actividad reciente</string>
+    <string name="profile_recent_places">Lugares guardados</string>
+    <string name="profile_view_favorites">Ver favoritos</string>
+    <string name="profile_profile_image">Foto de perfil</string>
+    <string name="map_search_placeholder">Buscar lugar...</string>
+    <string name="map_search_sernatur">Buscar SERNATUR</string>
+    <string name="map_coyhaique">Coyhaique</string>
+    <string name="map_coyhaique_desc">Capital de la región de Aysén</string>
+    <string name="map_cerro_castillo">Cerro Castillo</string>
+    <string name="map_cerro_castillo_desc">Parque Nacional Cerro Castillo</string>
+    <string name="map_lago_carrera">Lago General Carrera</string>
+    <string name="map_lago_carrera_desc">El segundo lago más grande de Sudamérica</string>
 </resources>

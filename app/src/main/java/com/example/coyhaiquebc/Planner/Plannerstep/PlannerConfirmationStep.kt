@@ -52,7 +52,6 @@ fun PlannerConfirmationStep(
     val defaultOrigin = stringResource(R.string.planner_confirmation_default_origin)
     val priceToConfirm = stringResource(R.string.planner_confirmation_price_to_confirm)
 
-    // ✅ Obtener origen y destino traducidos
     val origen = route?.getOrigen(currentLanguage) ?: defaultOrigin
     val destino = route?.getDestino(currentLanguage) ?: destination
 

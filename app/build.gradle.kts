@@ -43,6 +43,15 @@ android {
 }
 
 dependencies {
+    implementation("androidx.compose.material3:material3:1.3.0")
+    implementation ("com.google.maps.android:maps-compose:4.3.0")
+    implementation ("com.google.android.gms:play-services-maps:18.2.0")
+    implementation ("com.google.android.gms:play-services-location:21.0.1")
+    implementation("org.maplibre.gl:android-sdk:10.0.0")
+    implementation("org.maplibre.gl:android-sdk:11.13.0")
+    implementation("org.maplibre.gl:android-plugin-annotation-v9:3.0.1")
+    implementation("org.maplibre.gl:android-plugin-markerview-v9:3.0.1")
+    implementation("io.coil-kt:coil-compose:2.6.0")
     implementation("androidx.compose.ui:ui-text-google-fonts:1.7.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
