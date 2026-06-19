@@ -1,5 +1,6 @@
 package com.example.coyhaiquebc.ui.screens
 
+import android.app.Activity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -10,22 +11,24 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.coyhaiquebc.R
-import com.example.coyhaiquebc.navigation.Routes
 import com.example.coyhaiquebc.utils.LanguageManager
-import android.app.Activity
-import androidx.compose.ui.platform.LocalContext
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+
 @Composable
 fun WelcomeScreen(navController: NavController) {
     val context = LocalContext.current
@@ -34,53 +37,98 @@ fun WelcomeScreen(navController: NavController) {
     val configuration = LocalConfiguration.current
     val currentLanguage = configuration.locales[0].language
 
+    val coroutineScope = rememberCoroutineScope()
+    var isChangingLanguage by remember { mutableStateOf(false) }
+
+    fun changeLanguage(language: String) {
+        if (isChangingLanguage) return
+
+        isChangingLanguage = true
+
+        coroutineScope.launch {
+            delay(1700)
+            LanguageManager.setLanguage(language)
+            activity?.recreate()
+        }
+    }
+
     key(currentLanguage) {
-        Column(
+        Box(
             modifier = Modifier
                 .fillMaxSize()
                 .background(Color(0xFFF6F7F5))
-                .padding(horizontal = 24.dp, vertical = 56.dp),
-            verticalArrangement = Arrangement.Center
         ) {
-            Text(
-                text = stringResource(R.string.welcome_title),
-                fontSize = 34.sp,
-                fontWeight = FontWeight.ExtraBold,
-                lineHeight = 38.sp,
-                color = Color(0xFF1E1E1B)
-            )
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = 24.dp, vertical = 56.dp),
+                verticalArrangement = Arrangement.Center
+            ) {
+                Text(
+                    text = stringResource(R.string.welcome_title),
+                    fontSize = 34.sp,
+                    fontWeight = FontWeight.ExtraBold,
+                    lineHeight = 38.sp,
+                    color = Color(0xFF1E1E1B)
+                )
 
-            Spacer(modifier = Modifier.height(14.dp))
+                Spacer(modifier = Modifier.height(14.dp))
 
-            Text(
-                text = stringResource(R.string.welcome_subtitle),
-                fontSize = 15.sp,
-                lineHeight = 22.sp,
-                color = Color(0xFF6D7875)
-            )
+                Text(
+                    text = stringResource(R.string.welcome_subtitle),
+                    fontSize = 15.sp,
+                    lineHeight = 22.sp,
+                    color = Color(0xFF6D7875)
+                )
 
-            Spacer(modifier = Modifier.height(34.dp))
+                Spacer(modifier = Modifier.height(34.dp))
 
-            LanguageButton(
-                text = stringResource(R.string.welcome_language_spanish),
-                selected = currentLanguage == "es",
-                onClick = {
-                    LanguageManager.setLanguage("es")
+                LanguageButton(
+                    text = stringResource(R.string.welcome_language_spanish),
+                    selected = currentLanguage == "es",
+                    enabled = !isChangingLanguage,
+                    onClick = {
+                        changeLanguage("es")
+                    }
+                )
 
-                    activity?.recreate()
+                Spacer(modifier = Modifier.height(14.dp))
+
+                LanguageButton(
+                    text = stringResource(R.string.welcome_language_english),
+                    selected = currentLanguage == "en",
+                    enabled = !isChangingLanguage,
+                    onClick = {
+                        changeLanguage("en")
+                    }
+                )
+            }
+
+            if (isChangingLanguage) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(Color.Black.copy(alpha = 0.35f)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .padding(horizontal = 32.dp)
+                            .clip(RoundedCornerShape(18.dp))
+                            .background(Color.White)
+                            .padding(horizontal = 24.dp, vertical = 20.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "Espera mientras cambiamos el idioma,\npuede que tu pantalla parpadee,\ntranquilo te cuidamos",
+                            color = Color.Black,
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.Medium,
+                            textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                        )
+                    }
                 }
-            )
-
-            Spacer(modifier = Modifier.height(14.dp))
-
-            LanguageButton(
-                text = stringResource(R.string.welcome_language_english),
-                selected = currentLanguage == "en",
-                onClick = {
-                    LanguageManager.setLanguage("en")
-                    activity?.recreate()
-                }
-            )
+            }
         }
     }
 }
@@ -89,6 +137,7 @@ fun WelcomeScreen(navController: NavController) {
 fun LanguageButton(
     text: String,
     selected: Boolean,
+    enabled: Boolean = true,
     onClick: () -> Unit
 ) {
     Box(
@@ -97,7 +146,9 @@ fun LanguageButton(
             .height(56.dp)
             .clip(RoundedCornerShape(18.dp))
             .background(if (selected) Color(0xFF2F7D75) else Color.White)
-            .clickable { onClick() },
+            .clickable(enabled = enabled) {
+                onClick()
+            },
         contentAlignment = Alignment.Center
     ) {
         Text(
