@@ -100,7 +100,6 @@ fun WelcomeScreen(navController: NavController) {
                 )
             }
 
-            // ✅ Overlay de carga
             if (isChangingLanguage) {
                 LoadingOverlay()
             }

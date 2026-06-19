@@ -33,7 +33,7 @@ fun PlannerAvailabilityStep(
     onBackClick: () -> Unit,
     bottomPadding: Dp = 0.dp
 ) {
-    // Textos internacionalizados
+
     val availabilityTitle = stringResource(R.string.planner_availability_title, destination)
     val noOptionsText = stringResource(R.string.planner_availability_no_options)
     val backButtonText = stringResource(R.string.planner_availability_back)

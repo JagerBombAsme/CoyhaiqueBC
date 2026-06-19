@@ -1,6 +1,5 @@
 package com.example.coyhaiquebc.data.model
 
-// Archivo de datos de prueba para la aplicación
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Restaurant

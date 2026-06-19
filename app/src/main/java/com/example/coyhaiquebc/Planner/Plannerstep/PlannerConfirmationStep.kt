@@ -36,7 +36,7 @@ fun PlannerConfirmationStep(
     people: String,
     onFinishClick: () -> Unit
 ) {
-    // Textos internacionalizados
+
     val readyText = stringResource(R.string.planner_confirmation_ready)
     val qrInstructionText = stringResource(R.string.planner_confirmation_qr_instruction)
     val originText = stringResource(R.string.planner_confirmation_origin)

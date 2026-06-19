@@ -132,7 +132,7 @@ fun PlannerFormStep(
 
                 Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                     PlannerFieldCard(
-                        title = date, // Datos dinámicos - NO traducir
+                        title = date,
                         subtitle = dateSubtitleText,
                         modifier = Modifier.weight(1f),
                         onClick = {
@@ -143,7 +143,7 @@ fun PlannerFormStep(
                     )
 
                     PlannerFieldCard(
-                        title = people, // Datos dinámicos - NO traducir
+                        title = people,
                         subtitle = peopleSubtitleText,
                         modifier = Modifier.weight(1f),
                         onClick = {

@@ -89,7 +89,6 @@ fun AlojamientosScreen(
                     featuredItems = alojamientos,
                     popularItems = alojamientos,
                     onItemClick = { alojamiento ->
-                        // Luego detalle
                     }
                 )
             }

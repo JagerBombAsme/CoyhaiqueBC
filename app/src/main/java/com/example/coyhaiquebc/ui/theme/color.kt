@@ -4,22 +4,22 @@ import androidx.compose.ui.graphics.Color
 
 val SlateLight       = Color(0xFFFFFFFF)
 val SlateCard        = Color(0xFFFFFFFF)
-val SlateBorder      = Color(0xFFE2E5EB) // bordes suaves
-val SlateStrong      = Color(0xFFD0D4DC) // bordes fuertes
+val SlateBorder      = Color(0xFFE2E5EB)
+val SlateStrong      = Color(0xFFD0D4DC)
 
-// ── Textos carbón ────────────────────────────────────
-val CharcoalPrimary  = Color(0xFF1C2128) // texto principal
-val CharcoalMuted    = Color(0xFF4A5568) // texto secundario
-val CharcoalHint     = Color(0xFF8896A8) // placeholders
 
-// ── Acento azul hielo ────────────────────────────────
-val IceBlue          = Color(0xFF2E7BB4) // botones primarios
-val IceLight         = Color(0xFF5B9FD4) // acentos / links
-val IceSurface       = Color(0xFFE8F2FA) // fondo badge azul
-val IceBorder        = Color(0xFF5B9FD4) // borde badge azul
-val SnowWhite        = Color(0xFFFFFFFF) // texto sobre botón
+val CharcoalPrimary  = Color(0xFF1C2128)
+val CharcoalMuted    = Color(0xFF4A5568)
+val CharcoalHint     = Color(0xFF8896A8)
 
-// ── Semánticos ───────────────────────────────────────
-val AlertRed         = Color(0xFFC0392B) // errores
-val WarnAmber        = Color(0xFFD4880A) // advertencias
-val SuccessGreen     = Color(0xFF1E7E4A) // confirmaciones
+
+val IceBlue          = Color(0xFF2E7BB4)
+val IceLight         = Color(0xFF5B9FD4)
+val IceSurface       = Color(0xFFE8F2FA)
+val IceBorder        = Color(0xFF5B9FD4)
+val SnowWhite        = Color(0xFFFFFFFF)
+
+
+val AlertRed         = Color(0xFFC0392B)
+val WarnAmber        = Color(0xFFD4880A)
+val SuccessGreen     = Color(0xFF1E7E4A)

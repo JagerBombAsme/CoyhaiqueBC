@@ -80,7 +80,6 @@ fun TransporteScreen(
                     featuredItems = transporte,
                     popularItems = transporte,
                     onItemClick = {
-                        // Luego navegamos al detalle
                     }
                 )
             }
