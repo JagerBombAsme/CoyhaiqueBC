@@ -13,6 +13,8 @@ import com.example.coyhaiquebc.ui.screens.MapScreen
 import com.example.coyhaiquebc.ui.screens.PlanificacionScreen
 import com.example.coyhaiquebc.ui.screens.ProfileScreen
 import com.example.coyhaiquebc.ui.screens.WelcomeScreen
+import com.example.coyhaiquebc.ui.screens.RouteDetailScreen
+
 
 @Composable
 fun NavGraph() {
@@ -35,6 +37,16 @@ fun NavGraph() {
         }
         composable(Routes.WELCOME) {
             WelcomeScreen(navController = navController)
+        }
+        composable(
+            route = Routes.ROUTED,
+            arguments = listOf(navArgument("routeId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val routeId = backStackEntry.arguments?.getString("routeId") ?: ""
+            RouteDetailScreen(
+                navController = navController,
+                routeId = routeId
+            )
         }
         composable(
             route = Routes.MAP

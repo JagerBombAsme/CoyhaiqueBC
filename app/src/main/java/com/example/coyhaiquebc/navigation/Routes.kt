@@ -6,6 +6,8 @@ object Routes {
     const val ALOJAMIENTO = "alojamiento"
     const val WELCOME = "bienvenida"
     const val PLANNER = "prereserva"
+
+    const val ROUTED = "detalleruta"
     const val PROFILE = "perfil"
     const val CATEGORY = "category/{category}"
     const val MAP = "map"

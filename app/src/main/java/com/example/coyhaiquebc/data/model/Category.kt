@@ -62,8 +62,8 @@ val homeCategories = listOf(
     ),
     Category(
         id = "aventura",
-        nombre_es = "Aventura y deporte",
-        nombre_en = "Adventure and sports",
+        nombre_es = "Rutas",
+        nombre_en = "Routes",
         descripcion_es = "Adrenalina en la Patagonia",
         descripcion_en = "Adrenaline in Patagonia",
         imagen = R.drawable.categoria_deporte,

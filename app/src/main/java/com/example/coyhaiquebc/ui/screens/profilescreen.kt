@@ -155,7 +155,7 @@ fun ProfileTopCard(
             Spacer(modifier = Modifier.height(12.dp))
 
             Text(
-                text = "Diego González",
+                text = "Diego Del Río",
                 color = Color.White,
                 fontSize = 19.sp,
                 fontWeight = FontWeight.Bold
