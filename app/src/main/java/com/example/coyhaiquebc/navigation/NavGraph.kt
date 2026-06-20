@@ -14,8 +14,7 @@ import com.example.coyhaiquebc.ui.screens.PlanificacionScreen
 import com.example.coyhaiquebc.ui.screens.ProfileScreen
 import com.example.coyhaiquebc.ui.screens.WelcomeScreen
 import com.example.coyhaiquebc.ui.screens.RouteDetailScreen
-
-
+import com.example.coyhaiquebc.ui.screens.CulturaScreen
 @Composable
 fun NavGraph() {
     val navController = rememberNavController()
@@ -37,6 +36,9 @@ fun NavGraph() {
         }
         composable(Routes.WELCOME) {
             WelcomeScreen(navController = navController)
+        }
+        composable(Routes.CULTURA) {
+            CulturaScreen(navController = navController)
         }
         composable(
             route = Routes.ROUTED,

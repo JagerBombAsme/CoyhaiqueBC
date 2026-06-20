@@ -3,7 +3,7 @@ package com.example.coyhaiquebc.navigation
 object Routes {
     const val HOME = "home"
     const val FAVORITES = "favorites"
-    const val ALOJAMIENTO = "alojamiento"
+    const val CULTURA = "cultura"
     const val WELCOME = "bienvenida"
     const val PLANNER = "prereserva"
 

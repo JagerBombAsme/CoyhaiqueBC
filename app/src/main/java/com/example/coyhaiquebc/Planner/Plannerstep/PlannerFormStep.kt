@@ -2,7 +2,6 @@ package com.example.coyhaiquebc.Planner.Plannerstep
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,13 +18,16 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Remove
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DatePickerDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
@@ -36,6 +38,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -48,11 +51,9 @@ import com.example.coyhaiquebc.R
 import com.example.coyhaiquebc.data.model.DestinationDto
 import com.example.coyhaiquebc.Planner.PlannerColors
 import com.example.coyhaiquebc.Planner.components.PlannerPrimaryButton
-import com.example.coyhaiquebc.Planner.components.PlannerSegment
 import com.example.coyhaiquebc.Planner.components.PlannerDestinationButton
 import com.example.coyhaiquebc.Planner.components.PlannerFieldCard
 import java.text.SimpleDateFormat
-import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 
@@ -76,8 +77,11 @@ fun PlannerFormStep(
     val peopleSubtitleText = stringResource(R.string.planner_people)
     val selectDateText = stringResource(R.string.planner_select_date)
     val selectPeopleText = stringResource(R.string.planner_select_people)
-    val fromText = "From"
-    val toText = "To"
+
+    val fromText = "Origen"
+    val toText = "Destino"
+    val titlePart1 = "Planifica tu ruta,"
+    val titlePart2 = "Comienza el viaje."
 
     var showDatePicker by remember { mutableStateOf(false) }
     val datePickerState = rememberDatePickerState(initialSelectedDateMillis = System.currentTimeMillis())
@@ -102,17 +106,27 @@ fun PlannerFormStep(
             contentDescription = null,
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop,
-            alpha = 0.32f
+            alpha = 0.25f
+        )
+
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(
+                    Brush.verticalGradient(
+                        colors = listOf(Color.White.copy(alpha = 0.6f), Color.White.copy(alpha = 0.9f))
+                    )
+                )
         )
 
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(
-                    start = 22.dp,
-                    end = 22.dp,
-                    top = 60.dp,
-                    bottom = bottomPadding + 20.dp
+                    start = 24.dp,
+                    end = 24.dp,
+                    top = 50.dp,
+                    bottom = bottomPadding + 24.dp
                 )
         ) {
             Column(
@@ -120,86 +134,101 @@ fun PlannerFormStep(
                     .weight(1f)
                     .verticalScroll(rememberScrollState())
             ) {
+                Spacer(modifier = Modifier.height(20.dp))
+
                 Text(
-                    text = "Find a route,",
-                    fontSize = 28.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color.Black
+                    text = titlePart1,
+                    fontSize = 30.sp,
+                    fontWeight = FontWeight.Light,
+                    color = Color(0xFF1A1A1A),
+                    letterSpacing = (-0.5).sp
                 )
                 Text(
-                    text = "Let's make a journey.",
-                    fontSize = 28.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color.Black
+                    text = titlePart2,
+                    fontSize = 32.sp,
+                    fontWeight = FontWeight.ExtraBold,
+                    color = Color(0xFF2F7D75),
+                    letterSpacing = (-0.5).sp
                 )
 
-                Spacer(modifier = Modifier.height(24.dp))
+                Spacer(modifier = Modifier.height(28.dp))
 
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(16.dp))
-                        .background(Color.White)
-                        .border(1.dp, Color.LightGray, RoundedCornerShape(16.dp))
-                        .padding(16.dp)
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(20.dp),
+                    colors = CardDefaults.cardColors(containerColor = Color.White),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 3.dp)
                 ) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Icon(
-                            painter = painterResource(id = android.R.drawable.ic_menu_directions),
-                            contentDescription = null,
-                            modifier = Modifier.size(20.dp),
-                            tint = Color(0xFF2F7D75)
-                        )
-                        Spacer(modifier = Modifier.width(12.dp))
-                        Column {
-                            Text(
-                                text = fromText,
-                                fontSize = 12.sp,
-                                color = Color.Gray
+                    Column(modifier = Modifier.padding(20.dp)) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Icon(
+                                painter = painterResource(id = android.R.drawable.ic_menu_directions),
+                                contentDescription = null,
+                                modifier = Modifier.size(22.dp),
+                                tint = Color(0xFF2F7D75)
                             )
-                            Text(
-                                text = "Coyhaique, Chile",
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Medium,
-                                color = Color.Black
-                            )
+                            Spacer(modifier = Modifier.width(14.dp))
+                            Column {
+                                Text(
+                                    text = fromText,
+                                    fontSize = 11.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.Gray,
+                                    letterSpacing = 0.5.sp
+                                )
+                                Text(
+                                    text = "Coyhaique, Chile",
+                                    fontSize = 16.sp,
+                                    fontWeight = FontWeight.SemiBold,
+                                    color = Color(0xFF1A1A1A)
+                                )
+                            }
                         }
-                    }
 
-                    Spacer(modifier = Modifier.height(12.dp))
 
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Icon(
-                            painter = painterResource(id = android.R.drawable.ic_menu_mylocation),
-                            contentDescription = null,
-                            modifier = Modifier.size(20.dp),
-                            tint = Color(0xFF2F7D75)
+                        Box(
+                            modifier = Modifier
+                                .padding(start = 11.dp, top = 8.dp, bottom = 8.dp)
+                                .width(1.5.dp)
+                                .height(20.dp)
+                                .background(Color(0xFF2F7D75).copy(alpha = 0.3f))
                         )
-                        Spacer(modifier = Modifier.width(12.dp))
-                        Column {
-                            Text(
-                                text = toText,
-                                fontSize = 12.sp,
-                                color = Color.Gray
+
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Icon(
+                                painter = painterResource(id = android.R.drawable.ic_menu_mylocation),
+                                contentDescription = null,
+                                modifier = Modifier.size(22.dp),
+                                tint = Color(0xFFE07A5F)
                             )
-                            PlannerDestinationButton(
-                                destinations = destinations,
-                                selectedDestination = selectedDestination,
-                                onDestinationChange = onDestinationChange
-                            )
+                            Spacer(modifier = Modifier.width(14.dp))
+                            Column {
+                                Text(
+                                    text = toText,
+                                    fontSize = 11.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.Gray,
+                                    letterSpacing = 0.5.sp
+                                )
+                                PlannerDestinationButton(
+                                    destinations = destinations,
+                                    selectedDestination = selectedDestination,
+                                    onDestinationChange = onDestinationChange
+                                )
+                            }
                         }
                     }
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
                     PlannerFieldCard(
                         title = date,
                         subtitle = dateSubtitleText,
@@ -214,57 +243,62 @@ fun PlannerFormStep(
                     )
                 }
 
-                Spacer(modifier = Modifier.height(24.dp))
+                Spacer(modifier = Modifier.height(32.dp))
+
 
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.Bottom
                 ) {
                     Text(
-                        text = "Recent Booked",
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.SemiBold,
-                        color = Color.Gray
+                        text = "Agendado Recientemente",
+                        fontSize = 15.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF1A1A1A)
                     )
                     Text(
-                        text = "See more",
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.Medium,
+                        text = "Ver más",
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight.Bold,
                         color = Color(0xFF2F7D75)
                     )
                 }
 
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(12.dp))
 
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(12.dp))
-                        .background(Color.White)
-                        .border(1.dp, Color.LightGray, RoundedCornerShape(12.dp))
-                        .padding(16.dp),
-                    verticalAlignment = Alignment.CenterVertically
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(16.dp),
+                    colors = CardDefaults.cardColors(containerColor = Color.White.copy(alpha = 0.9f)),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
                 ) {
-                    Column(modifier = Modifier.weight(1f)) {
-                        Text(
-                            text = "Cerro Castillo",
-                            fontSize = 14.sp,
-                            fontWeight = FontWeight.Medium,
-                            color = Color.Black
-                        )
-                        Text(
-                            text = "14 Jan 2023 | 2 Seats",
-                            fontSize = 12.sp,
-                            color = Color.Gray
+                    Row(
+                        modifier = Modifier.padding(16.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(
+                                text = "Cerro Castillo",
+                                fontSize = 15.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                color = Color(0xFF1A1A1A)
+                            )
+                            Text(
+                                text = "14 Ene | 2 Asientos",
+                                fontSize = 12.sp,
+                                color = Color.Gray
+                            )
+                        }
+                        Icon(
+                            painter = painterResource(id = android.R.drawable.ic_menu_myplaces),
+                            contentDescription = null,
+                            tint = Color(0xFF2F7D75).copy(alpha = 0.7f),
+                            modifier = Modifier.size(20.dp)
                         )
                     }
-                    Icon(
-                        painter = painterResource(id = android.R.drawable.ic_menu_myplaces),
-                        contentDescription = null,
-                        tint = Color(0xFF2F7D75)
-                    )
                 }
+                Spacer(modifier = Modifier.height(20.dp))
             }
 
             PlannerPrimaryButton(
@@ -278,23 +312,24 @@ fun PlannerFormStep(
                 onDismissRequest = { showDatePicker = false },
                 confirmButton = {
                     TextButton(onClick = { updateDate(datePickerState.selectedDateMillis) }) {
-                        Text("Accept")
+                        Text("Aceptar", fontWeight = FontWeight.Bold, color = Color(0xFF2F7D75))
                     }
                 },
                 dismissButton = {
                     TextButton(onClick = { showDatePicker = false }) {
-                        Text("Cancel")
+                        Text("Cancelar", color = Color.Gray)
                     }
                 }
             ) {
                 DatePicker(
                     state = datePickerState,
-                    showModeToggle = true,
+                    showModeToggle = false,
                     title = {
                         Text(
                             text = selectDateText,
-                            fontSize = 18.sp,
-                            fontWeight = FontWeight.Bold
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(start = 24.dp, top = 16.dp)
                         )
                     }
                 )
@@ -304,43 +339,59 @@ fun PlannerFormStep(
         if (showPeoplePicker) {
             androidx.compose.material3.AlertDialog(
                 onDismissRequest = { showPeoplePicker = false },
+                shape = RoundedCornerShape(24.dp),
+                containerColor = Color.White,
                 title = {
                     Text(
                         text = selectPeopleText,
                         fontSize = 18.sp,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF1A1A1A)
                     )
                 },
                 text = {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
                         Row(
                             horizontalArrangement = Arrangement.Center,
-                            verticalAlignment = Alignment.CenterVertically
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.padding(vertical = 12.dp)
                         ) {
-                            IconButton(onClick = { if (tempPeople > 1) tempPeople-- }) {
+                            IconButton(
+                                onClick = { if (tempPeople > 1) tempPeople-- },
+                                modifier = Modifier.background(Color(0xFFF0F0F0), RoundedCornerShape(12.dp))
+                            ) {
                                 Icon(
                                     imageVector = Icons.Default.Remove,
-                                    contentDescription = null
+                                    contentDescription = null,
+                                    tint = Color(0xFF2F7D75)
                                 )
                             }
                             Text(
                                 text = "$tempPeople",
-                                fontSize = 48.sp,
-                                fontWeight = FontWeight.Bold,
-                                modifier = Modifier.padding(horizontal = 24.dp)
+                                fontSize = 44.sp,
+                                fontWeight = FontWeight.ExtraBold,
+                                color = Color(0xFF1A1A1A),
+                                modifier = Modifier.padding(horizontal = 28.dp)
                             )
-                            IconButton(onClick = { if (tempPeople < 20) tempPeople++ }) {
+                            IconButton(
+                                onClick = { if (tempPeople < 20) tempPeople++ },
+                                modifier = Modifier.background(Color(0xFFF0F0F0), RoundedCornerShape(12.dp))
+                            ) {
                                 Icon(
                                     imageVector = Icons.Default.Add,
-                                    contentDescription = null
+                                    contentDescription = null,
+                                    tint = Color(0xFF2F7D75)
                                 )
                             }
                         }
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(
-                            text = "Maximum 20 people",
+                            text = "Máximo 20 personas por reserva",
                             fontSize = 12.sp,
-                            color = PlannerColors.TextSecondary
+                            color = Color.Gray
                         )
                     }
                 },
@@ -351,7 +402,7 @@ fun PlannerFormStep(
                             showPeoplePicker = false
                         }
                     ) {
-                        Text("Accept")
+                        Text("Confirmar", fontWeight = FontWeight.Bold, color = Color(0xFF2F7D75))
                     }
                 },
                 dismissButton = {
@@ -361,7 +412,7 @@ fun PlannerFormStep(
                             showPeoplePicker = false
                         }
                     ) {
-                        Text("Cancel")
+                        Text("Cancelar", color = Color.Gray)
                     }
                 }
             )

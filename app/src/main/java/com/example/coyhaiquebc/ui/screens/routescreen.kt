@@ -17,11 +17,13 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
@@ -455,7 +457,7 @@ fun getRoutes(
             duration = "3 horas",
             difficulty = difficultyMedium,
             stops = 4,
-            location = LatLng(-45.5680, -72.0650),
+            location = LatLng(-45.519759364582185, -72.09609880228778),
             imageRes = 0,
             rating = 4.5,
             stopsList = listOf(
@@ -491,7 +493,7 @@ fun getRoutes(
             duration = "4 horas",
             difficulty = difficultyMedium,
             stops = 4,
-            location = LatLng(-45.4242, -72.0480),
+            location = LatLng(-45.52084047900688, -71.829670194351980),
             imageRes = 0,
             rating = 4.7,
             stopsList = listOf(
@@ -509,7 +511,7 @@ fun getRoutes(
             duration = "6 horas",
             difficulty = difficultyHigh,
             stops = 3,
-            location = LatLng(-45.4200, -72.0450),
+            location = LatLng(-45.51290087531122, -72.02875725145691),
             imageRes = 0,
             rating = 4.9,
             stopsList = listOf(
@@ -526,7 +528,6 @@ fun getRoutes(
             duration = "4 horas",
             difficulty = difficultyMedium,
             stops = 3,
-
             location = LatLng(-45.599014950441294, -72.07256754155097),
             imageRes = 0,
             rating = 4.4,
@@ -544,7 +545,7 @@ fun getRoutes(
             duration = "4 horas",
             difficulty = difficultyMedium,
             stops = 2,
-            location = LatLng(-45.4220, -72.0500),
+            location = LatLng(-45.59804611966424, -72.0851278239362),
             imageRes = 0,
             rating = 4.3,
             stopsList = listOf(
@@ -649,59 +650,85 @@ fun RouteCard(
     route: RouteItem,
     onClick: () -> Unit
 ) {
+    val categoryColor = getCategoryColor(route.category)
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .clickable { onClick() },
         shape = RoundedCornerShape(24.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(3.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column {
+            // Cabecera estilizada con gradiente premium basado en la categoría
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(128.dp)
-                    .background(getCategoryColor(route.category))
-                    .padding(16.dp)
+                    .height(134.dp)
+                    .background(
+                        Brush.verticalGradient(
+                            colors = listOf(categoryColor, categoryColor.copy(alpha = 0.8f))
+                        )
+                    )
+                    .padding(18.dp)
             ) {
                 Column(
-                    modifier = Modifier.align(Alignment.TopStart)
+                    modifier = Modifier
+                        .align(Alignment.TopStart)
+                        .fillMaxWidth(0.8f)
                 ) {
                     Text(
                         text = route.name,
-                        fontSize = 21.sp,
-                        fontWeight = FontWeight.ExtraBold,
-                        color = Color.White
+                        fontSize = 22.sp,
+                        fontWeight = FontWeight.Black,
+                        color = Color.White,
+                        letterSpacing = (-0.3).sp,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
                     )
 
-                    Spacer(modifier = Modifier.height(4.dp))
+                    Spacer(modifier = Modifier.height(2.dp))
 
                     Text(
-                        text = route.category,
-                        fontSize = 14.sp,
-                        color = Color.White.copy(alpha = 0.9f)
+                        text = route.category.uppercase(),
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White.copy(alpha = 0.85f),
+                        letterSpacing = 1.sp
                     )
                 }
 
+                // Indicador de Calificación sutil en la esquina superior derecha
                 Surface(
                     modifier = Modifier.align(Alignment.TopEnd),
-                    shape = CircleShape,
-                    color = Color.White.copy(alpha = 0.22f)
+                    shape = RoundedCornerShape(10.dp),
+                    color = Color.White.copy(alpha = 0.2f)
                 ) {
-                    Icon(
-                        imageVector = Icons.Default.Place,
-                        contentDescription = null,
-                        tint = Color.White,
-                        modifier = Modifier
-                            .padding(8.dp)
-                            .size(20.dp)
-                    )
+                    Row(
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(3.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Star,
+                            contentDescription = null,
+                            tint = Color(0xFFFFD700),
+                            modifier = Modifier.size(14.dp)
+                        )
+                        Text(
+                            text = "${route.rating}",
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White
+                        )
+                    }
                 }
 
+                // Chips informativos con diseño moderno flotante en la parte inferior de la cabecera
                 Row(
                     modifier = Modifier.align(Alignment.BottomStart),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    horizontalArrangement = Arrangement.spacedBy(6.dp)
                 ) {
                     RouteInfoChip(
                         icon = Icons.Default.AccessTime,
@@ -720,30 +747,51 @@ fun RouteCard(
                 }
             }
 
+            // Cuerpo de la tarjeta con la descripción y el botón de acción
             Column(
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier.padding(18.dp)
             ) {
                 Text(
                     text = route.description,
                     fontSize = 14.sp,
                     lineHeight = 20.sp,
-                    color = Color(0xFF6D7875)
+                    color = Color(0xFF5A6663),
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis
                 )
 
-                Spacer(modifier = Modifier.height(14.dp))
+                Spacer(modifier = Modifier.height(16.dp))
 
+                // Botón principal de descubrimiento adaptado estéticamente
                 Button(
                     onClick = onClick,
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(44.dp),
                     shape = RoundedCornerShape(14.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFF2F7D75)
-                    )
+                    ),
+                    elevation = ButtonDefaults.buttonElevation(defaultElevation = 0.dp)
                 ) {
-                    Text(
-                        text = stringResource(R.string.aventura_view_route),
-                        fontWeight = FontWeight.Bold
-                    )
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ) {
+                        Text(
+                            text = stringResource(R.string.aventura_view_route),
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 14.sp,
+                            color = Color.White
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Icon(
+                            imageVector = Icons.Default.ArrowForward,
+                            contentDescription = null,
+                            modifier = Modifier.size(16.dp),
+                            tint = Color.White
+                        )
+                    }
                 }
             }
         }
@@ -758,7 +806,7 @@ fun RouteInfoChip(
     Row(
         modifier = Modifier
             .clip(RoundedCornerShape(50.dp))
-            .background(Color.White.copy(alpha = 0.22f))
+            .background(Color.White.copy(alpha = 0.18f))
             .padding(horizontal = 9.dp, vertical = 5.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(4.dp)
@@ -773,6 +821,7 @@ fun RouteInfoChip(
         Text(
             text = text,
             fontSize = 12.sp,
+            fontWeight = FontWeight.Medium,
             color = Color.White
         )
     }
