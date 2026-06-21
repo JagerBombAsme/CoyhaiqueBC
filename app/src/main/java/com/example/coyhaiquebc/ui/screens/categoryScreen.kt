@@ -13,6 +13,7 @@ fun CategoryScreen(
         "alojamientos" -> AlojamientosScreen(navController = navController)
         "transporte" -> TransporteScreen(navController = navController)
         "gastronomia" -> GastronomiaScreen(navController = navController)
+        "aventura" -> AventuraScreen(navController = navController)
         else -> ComingSoonScreen(category = category)
     }
 }

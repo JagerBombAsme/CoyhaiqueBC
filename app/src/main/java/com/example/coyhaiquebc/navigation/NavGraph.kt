@@ -16,6 +16,10 @@ import com.example.coyhaiquebc.ui.screens.ProfileScreen
 import com.example.coyhaiquebc.ui.screens.WelcomeScreen
 import com.example.coyhaiquebc.ui.screens.RouteDetailScreen
 import com.example.coyhaiquebc.ui.screens.CulturaScreen
+import com.example.coyhaiquebc.ui.screens.PlaceDetailScreen
+import com.example.coyhaiquebc.ui.screens.AventuraScreen
+import com.example.coyhaiquebc.ui.screens.MapScreen
+
 @Composable
 fun NavGraph() {
     val navController = rememberNavController()
@@ -55,10 +59,10 @@ fun NavGraph() {
             route = Routes.MAP
         ) {
             MapScreen(navController = navController)
-
         }
+        
         composable(
-            route = "place_detail/{id}",
+            route = Routes.PLACE_DETAIL,
             arguments = listOf(
                 navArgument("id") {
                     type = NavType.StringType
@@ -66,7 +70,10 @@ fun NavGraph() {
             )
         ) { backStackEntry ->
             val id = backStackEntry.arguments?.getString("id") ?: ""
-
+            PlaceDetailScreen(
+                navController = navController,
+                placeId = id
+            )
         }
         composable(
             route = Routes.CATEGORY,

@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.coyhaiquebc.R
 import com.example.coyhaiquebc.data.model.PlaceDto
+import com.example.coyhaiquebc.navigation.Routes
 import com.example.coyhaiquebc.data.repository.PlacesRepository
 
 @Composable
@@ -115,7 +116,7 @@ fun AlojamientosScreen(
                     val id = alojamiento.id
 
                     if (id != null) {
-                        navController.navigate("alojamiento_detail/$id")
+                        navController.navigate(Routes.placeDetail(id))
                     } else {
                         println("Error: ID de alojamiento es nulo")
                     }
