@@ -15,15 +15,18 @@
           <theme>@style/Theme.CoyhaiqueBC</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/van_icon_125763.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11d72b1a-eb7c-44f3-8a59-257f442bdb80" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="11d72b1a-eb7c-44f3-8a59-257f442bdb80" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -117,7 +120,7 @@
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "C:/Users/Crisis.ckmm/Desktop/Proyect APP Coyhaique/app/src/main/res/mipmap-anydpi-v26",
-    "last_opened_file_path": "C:/Users/Crisis.ckmm/Desktop/Proyect APP Coyhaique/app/src/main/res/drawable",
+    "last_opened_file_path": "C:/Users/Crisis.ckmm/Desktop/CoyhaiqueBC-main",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.17",
     "project.structure.side.proportion": "0.2",
@@ -136,11 +139,11 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Crisis.ckmm\Desktop\CoyhaiqueBC-main\app\src\main\res\drawable" />
       <recent name="C:\Users\Crisis.ckmm\Desktop\Proyect APP Coyhaique\app\src\main\res\mipmap-hdpi" />
       <recent name="C:\Users\Crisis.ckmm\Desktop\Proyect APP Coyhaique\app\src\main\res\mipmap-anydpi-v26" />
       <recent name="C:\Users\Crisis.ckmm\Desktop\Proyect APP Coyhaique\app\src\main\res\mipmap-xhdpi" />
       <recent name="C:\Users\Crisis.ckmm\Desktop\Proyect APP Coyhaique\app\src\main\res\mipmap\ic_launcher" />
-      <recent name="C:\Users\Crisis.ckmm\Desktop\Proyect APP Coyhaique\app\src\main\res\values-en" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.example.coyhaiquebc.ui.screens" />
@@ -266,12 +269,12 @@
       <map>
         <entry key="com.example.coyhaiquebasecampproyect">
           <value>
-            <CheckInfo lastCheckTimestamp="1781909251619" />
+            <CheckInfo lastCheckTimestamp="1782002616482" />
           </value>
         </entry>
         <entry key="com.example.coyhaiquebasecampproyect.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1781909251619" />
+            <CheckInfo lastCheckTimestamp="1782002616483" />
           </value>
         </entry>
       </map>

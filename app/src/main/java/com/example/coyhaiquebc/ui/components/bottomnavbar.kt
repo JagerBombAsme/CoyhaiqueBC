@@ -13,9 +13,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.example.coyhaiquebc.R
 import com.example.coyhaiquebc.navigation.Routes
 import com.example.coyhaiquebc.ui.screens.BubbleNavItem
 import kotlinx.coroutines.delay
@@ -110,9 +113,13 @@ fun BottomNavBar(
                     label = "Planificador",
                     icon = {
                         Icon(
-                            imageVector = Icons.Default.Category,
+                            painter = painterResource(id = R.drawable.van_icon_125763),
                             contentDescription = "Planificador",
-                            modifier = Modifier.size(28.dp)
+                            modifier = Modifier
+                                .size(60.dp)
+                                .graphicsLayer {
+                                    scaleX = -1f
+                                }
                         )
                     },
                     onClick = {

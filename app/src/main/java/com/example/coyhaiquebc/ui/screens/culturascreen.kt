@@ -1,8 +1,10 @@
 package com.example.coyhaiquebc.ui.screens
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -11,6 +13,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Audiotrack
 import androidx.compose.material.icons.filled.CalendarMonth
 import androidx.compose.material.icons.filled.Favorite
@@ -32,6 +35,14 @@ import com.example.coyhaiquebc.R
 import com.example.coyhaiquebc.ui.components.BottomNavBar
 import kotlinx.coroutines.launch
 
+
+data class TraditionItem(
+    val id: String,
+    val name: String,
+    val imageRes: Int,
+    val detailDescription: String
+)
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CulturaScreen(navController: NavController) {
@@ -41,9 +52,19 @@ fun CulturaScreen(navController: NavController) {
     var isFavorite by remember { mutableStateOf(false) }
     var activeDialogText by remember { mutableStateOf<String?>(null) }
 
+
+    val traditions = remember {
+        listOf(
+            TraditionItem("1", "El Mate", R.drawable.comida, "Información detallada, datos históricos y registros fotográficos sobre el ritual del Mate en la Patagonia."),
+            TraditionItem("2", "La Jineteada", R.drawable.gaucho, "Información detallada, datos históricos y registros fotográficos sobre las destrezas criollas de La Jineteada."),
+            TraditionItem("3", "Chamamé", R.drawable.comida, "Información detallada, datos históricos y registros fotográficos sobre la influencia y compás del Chamamé."),
+            TraditionItem("4", "Asado al Palo", R.drawable.gaucho, "Información detallada, datos históricos y registros fotográficos sobre la preparación e hitos del Asado al Palo.")
+        )
+    }
+
     val iconColor by animateColorAsState(
         targetValue = if (isFavorite) Color(0xFFD32F2F) else Color(0xFF8B4513),
-        label = "FavColor"
+        label = "FavColorAnimation"
     )
 
     Scaffold(
@@ -53,8 +74,8 @@ fun CulturaScreen(navController: NavController) {
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color(0xFFFDFCFB))
-                .padding(paddingValues)
+                .background(Color(0xFFFDFCFB)),
+            contentPadding = paddingValues
         ) {
             item {
                 Box(
@@ -78,10 +99,28 @@ fun CulturaScreen(navController: NavController) {
                                 )
                             )
                     )
+
+                    IconButton(
+                        onClick = { navController.popBackStack() },
+                        modifier = Modifier
+                            .padding(start = 16.dp, top = 20.dp)
+                            .size(44.dp)
+                            .background(Color.White.copy(alpha = 0.85f), CircleShape)
+                            .align(Alignment.TopStart)
+                            .border(BorderStroke(1.dp, Color.White.copy(alpha = 0.3f)), CircleShape)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.ArrowBack,
+                            contentDescription = "Volver atrás",
+                            tint = Color(0xFF1E1E1B)
+                        )
+                    }
+
+
                     Row(
                         modifier = Modifier
                             .align(Alignment.TopEnd)
-                            .padding(20.dp),
+                            .padding(end = 16.dp, top = 20.dp),
                         horizontalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
                         FloatingActionButton(
@@ -95,8 +134,9 @@ fun CulturaScreen(navController: NavController) {
                             },
                             containerColor = Color.White.copy(alpha = 0.85f),
                             contentColor = iconColor,
-                            modifier = Modifier.size(45.dp),
-                            shape = CircleShape
+                            modifier = Modifier.size(44.dp),
+                            shape = CircleShape,
+                            elevation = FloatingActionButtonDefaults.elevation(0.dp)
                         ) {
                             Icon(
                                 imageVector = if (isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
@@ -112,12 +152,14 @@ fun CulturaScreen(navController: NavController) {
                             },
                             containerColor = Color.White.copy(alpha = 0.85f),
                             contentColor = Color(0xFF8B4513),
-                            modifier = Modifier.size(45.dp),
-                            shape = CircleShape
+                            modifier = Modifier.size(44.dp),
+                            shape = CircleShape,
+                            elevation = FloatingActionButtonDefaults.elevation(0.dp)
                         ) {
                             Icon(Icons.Default.Share, null)
                         }
                     }
+
                     Column(
                         modifier = Modifier
                             .align(Alignment.BottomStart)
@@ -194,11 +236,14 @@ fun CulturaScreen(navController: NavController) {
                     contentPadding = PaddingValues(horizontal = 24.dp, vertical = 12.dp),
                     horizontalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    items(listOf("El Mate", "La Jineteada", "Chamamé", "Asado al Palo")) { item ->
+                    items(
+                        items = traditions,
+                        key = { it.id }
+                    ) { tradition ->
                         TraditionCard(
-                            name = item,
+                            item = tradition,
                             onClick = {
-                                activeDialogText = "Información detallada, datos históricos y registros fotográficos sobre la tradición: $item."
+                                activeDialogText = tradition.detailDescription
                             }
                         )
                     }
@@ -267,7 +312,7 @@ fun CulturalActionCard(
 
 @Composable
 fun TraditionCard(
-    name: String,
+    item: TraditionItem,
     onClick: () -> Unit
 ) {
     Card(
@@ -279,8 +324,8 @@ fun TraditionCard(
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
             Image(
-                painter = painterResource(id = R.drawable.comida),
-                contentDescription = null,
+                painter = painterResource(id = item.imageRes),
+                contentDescription = item.name,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxSize()
             )
@@ -290,7 +335,7 @@ fun TraditionCard(
                     .background(Brush.verticalGradient(listOf(Color.Transparent, Color.Black)))
             )
             Text(
-                text = name,
+                text = item.name,
                 modifier = Modifier
                     .align(Alignment.BottomStart)
                     .padding(12.dp),

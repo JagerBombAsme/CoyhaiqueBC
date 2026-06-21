@@ -12,7 +12,6 @@ fun CategoryScreen(
         "cultura" -> CulturaScreen(navController = navController)
         "alojamientos" -> AlojamientosScreen(navController = navController)
         "transporte" -> TransporteScreen(navController = navController)
-        "aventura" -> AventuraScreen(navController = navController)
         "gastronomia" -> GastronomiaScreen(navController = navController)
         else -> ComingSoonScreen(category = category)
     }

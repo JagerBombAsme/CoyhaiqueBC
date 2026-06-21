@@ -2,6 +2,7 @@ package com.example.coyhaiquebc.navigation
 
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -56,7 +57,17 @@ fun NavGraph() {
             MapScreen(navController = navController)
 
         }
+        composable(
+            route = "place_detail/{id}",
+            arguments = listOf(
+                navArgument("id") {
+                    type = NavType.StringType
+                }
+            )
+        ) { backStackEntry ->
+            val id = backStackEntry.arguments?.getString("id") ?: ""
 
+        }
         composable(
             route = Routes.CATEGORY,
             arguments = listOf(
@@ -75,3 +86,4 @@ fun NavGraph() {
         }
     }
 }
+
