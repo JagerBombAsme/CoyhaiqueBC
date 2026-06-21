@@ -2,6 +2,7 @@ package com.example.coyhaiquebc.ui.screens
 
 import android.Manifest
 import android.content.pm.PackageManager
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -11,6 +12,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -20,10 +22,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
@@ -458,7 +461,7 @@ fun getRoutes(
             difficulty = difficultyMedium,
             stops = 4,
             location = LatLng(-45.519759364582185, -72.09609880228778),
-            imageRes = 0,
+            imageRes = R.drawable.aventura,
             rating = 4.5,
             stopsList = listOf(
                 stringResource(R.string.route_miradores_stop_1),
@@ -476,7 +479,7 @@ fun getRoutes(
             difficulty = difficultyLow,
             stops = 4,
             location = LatLng(-45.4242, -72.0480),
-            imageRes = 0,
+            imageRes = R.drawable.trekking,
             rating = 4.2,
             stopsList = listOf(
                 stringResource(R.string.route_lenneros_stop_1),
@@ -494,7 +497,7 @@ fun getRoutes(
             difficulty = difficultyMedium,
             stops = 4,
             location = LatLng(-45.52084047900688, -71.829670194351980),
-            imageRes = 0,
+            imageRes = R.drawable.kayak,
             rating = 4.7,
             stopsList = listOf(
                 stringResource(R.string.route_4lagunas_stop_1),
@@ -512,7 +515,7 @@ fun getRoutes(
             difficulty = difficultyHigh,
             stops = 3,
             location = LatLng(-45.51290087531122, -72.02875725145691),
-            imageRes = 0,
+            imageRes = R.drawable.trekking,
             rating = 4.9,
             stopsList = listOf(
                 stringResource(R.string.route_cinchao_stop_1),
@@ -529,7 +532,7 @@ fun getRoutes(
             difficulty = difficultyMedium,
             stops = 3,
             location = LatLng(-45.599014950441294, -72.07256754155097),
-            imageRes = 0,
+            imageRes = R.drawable.aventura,
             rating = 4.4,
             stopsList = listOf(
                 stringResource(R.string.route_mackay_stop_1),
@@ -546,7 +549,7 @@ fun getRoutes(
             difficulty = difficultyMedium,
             stops = 2,
             location = LatLng(-45.59804611966424, -72.0851278239362),
-            imageRes = 0,
+            imageRes = R.drawable.trekking,
             rating = 4.3,
             stopsList = listOf(
                 stringResource(R.string.route_divisadero_stop_1),
@@ -562,7 +565,7 @@ fun getRoutes(
             difficulty = difficultyLow,
             stops = 5,
             location = LatLng(-45.5710, -72.0670),
-            imageRes = 0,
+            imageRes = R.drawable.tecnicacordero,
             rating = 4.8,
             stopsList = listOf(
                 stringResource(R.string.route_gastronomica_stop_1),
@@ -581,7 +584,7 @@ fun getRoutes(
             difficulty = difficultyHigh,
             stops = 3,
             location = LatLng(-45.4242, -72.0480),
-            imageRes = 0,
+            imageRes = R.drawable.kayak,
             rating = 4.7,
             stopsList = listOf(
                 stringResource(R.string.route_natural_stop_1),
@@ -598,7 +601,7 @@ fun getRoutes(
             difficulty = difficultyLow,
             stops = 4,
             location = LatLng(-45.5700, -72.0660),
-            imageRes = 0,
+            imageRes = R.drawable.fotografia,
             rating = 4.3,
             stopsList = listOf(
                 stringResource(R.string.route_familiar_stop_1),
@@ -616,7 +619,7 @@ fun getRoutes(
             difficulty = difficultyHigh,
             stops = 3,
             location = LatLng(-46.0560, -72.1850),
-            imageRes = 0,
+            imageRes = R.drawable.aventura,
             rating = 4.9,
             stopsList = listOf(
                 stringResource(R.string.route_aventura_stop_1),
@@ -633,7 +636,7 @@ fun getRoutes(
             difficulty = difficultyLow,
             stops = 4,
             location = LatLng(-45.5705, -72.0675),
-            imageRes = 0,
+            imageRes = R.drawable.gaucho,
             rating = 4.2,
             stopsList = listOf(
                 stringResource(R.string.route_cultural_stop_1),
@@ -650,144 +653,97 @@ fun RouteCard(
     route: RouteItem,
     onClick: () -> Unit
 ) {
-    val categoryColor = getCategoryColor(route.category)
-
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .clickable { onClick() },
-        shape = RoundedCornerShape(24.dp),
+        shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column {
+            // Imagen rectangular en la parte superior
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(134.dp)
-                    .background(
-                        Brush.verticalGradient(
-                            colors = listOf(categoryColor, categoryColor.copy(alpha = 0.8f))
-                        )
-                    )
-                    .padding(18.dp)
+                    .height(180.dp)
             ) {
-                Column(
+                Image(
+                    painter = painterResource(id = if (route.imageRes != 0) route.imageRes else R.drawable.aventura),
+                    contentDescription = route.name,
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Crop
+                )
+                
+                // Badge de categoría sobre la imagen
+                Surface(
+                    color = Color(0xFF2F7D75),
+                    shape = RoundedCornerShape(8.dp),
                     modifier = Modifier
+                        .padding(12.dp)
                         .align(Alignment.TopStart)
-                        .fillMaxWidth(0.8f)
                 ) {
-                    Text(
-                        text = route.name,
-                        fontSize = 22.sp,
-                        fontWeight = FontWeight.Black,
-                        color = Color.White,
-                        letterSpacing = (-0.3).sp,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis
-                    )
-
-                    Spacer(modifier = Modifier.height(2.dp))
-
                     Text(
                         text = route.category.uppercase(),
-                        fontSize = 11.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = Color.White.copy(alpha = 0.85f),
-                        letterSpacing = 1.sp
-                    )
-                }
-
-                Surface(
-                    modifier = Modifier.align(Alignment.TopEnd),
-                    shape = RoundedCornerShape(10.dp),
-                    color = Color.White.copy(alpha = 0.2f)
-                ) {
-                    Row(
+                        color = Color.White,
                         modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(3.dp)
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Star,
-                            contentDescription = null,
-                            tint = Color(0xFFFFD700),
-                            modifier = Modifier.size(14.dp)
-                        )
-                        Text(
-                            text = "${route.rating}",
-                            fontSize = 12.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Color.White
-                        )
-                    }
-                }
-
-                // Chips informativos con diseño moderno flotante en la parte inferior de la cabecera
-                Row(
-                    modifier = Modifier.align(Alignment.BottomStart),
-                    horizontalArrangement = Arrangement.spacedBy(6.dp)
-                ) {
-                    RouteInfoChip(
-                        icon = Icons.Default.AccessTime,
-                        text = route.duration
-                    )
-
-                    RouteInfoChip(
-                        icon = Icons.Default.TrendingUp,
-                        text = route.difficulty
-                    )
-
-                    RouteInfoChip(
-                        icon = Icons.Default.Place,
-                        text = "${route.stops} ${stringResource(R.string.aventura_stops)}"
+                        fontSize = 9.sp,
+                        fontWeight = FontWeight.Bold,
+                        letterSpacing = 0.5.sp
                     )
                 }
             }
 
+            // Información en la parte inferior (Tema Claro)
             Column(
-                modifier = Modifier.padding(18.dp)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
             ) {
-                Text(
-                    text = route.description,
-                    fontSize = 14.sp,
-                    lineHeight = 20.sp,
-                    color = Color(0xFF5A6663),
-                    maxLines = 2,
-                    overflow = TextOverflow.Ellipsis
-                )
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                Button(
-                    onClick = onClick,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(44.dp),
-                    shape = RoundedCornerShape(14.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFF2F7D75)
-                    ),
-                    elevation = ButtonDefaults.buttonElevation(defaultElevation = 0.dp)
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.Center
-                    ) {
-                        Text(
-                            text = stringResource(R.string.aventura_view_route),
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 14.sp,
-                            color = Color.White
-                        )
-                        Spacer(modifier = Modifier.width(6.dp))
+                    Text(
+                        text = route.name,
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.ExtraBold,
+                        color = Color(0xFF1E1E1B),
+                        modifier = Modifier.weight(1f)
+                    )
+                    
+                    Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(
-                            imageVector = Icons.Default.ArrowForward,
+                            imageVector = Icons.Default.Star,
                             contentDescription = null,
-                            modifier = Modifier.size(16.dp),
-                            tint = Color.White
+                            tint = Color(0xFFFFB300),
+                            modifier = Modifier.size(16.dp)
+                        )
+                        Spacer(modifier = Modifier.width(4.dp))
+                        Text(
+                            text = "${route.rating}",
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF1E1E1B)
                         )
                     }
+                }
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    RouteInfoIconText(
+                        icon = Icons.Default.AccessTime,
+                        text = route.duration
+                    )
+                    RouteInfoIconText(
+                        icon = Icons.Default.Hiking,
+                        text = route.difficulty
+                    )
                 }
             }
         }
@@ -795,33 +751,27 @@ fun RouteCard(
 }
 
 @Composable
-fun RouteInfoChip(
+fun RouteInfoIconText(
     icon: ImageVector,
     text: String
 ) {
-    Row(
-        modifier = Modifier
-            .clip(RoundedCornerShape(50.dp))
-            .background(Color.White.copy(alpha = 0.18f))
-            .padding(horizontal = 9.dp, vertical = 5.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(4.dp)
-    ) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
         Icon(
             imageVector = icon,
             contentDescription = null,
-            tint = Color.White,
-            modifier = Modifier.size(13.dp)
+            tint = Color(0xFF6D7875),
+            modifier = Modifier.size(16.dp)
         )
-
+        Spacer(modifier = Modifier.width(4.dp))
         Text(
             text = text,
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Medium,
-            color = Color.White
+            color = Color(0xFF6D7875),
+            fontSize = 13.sp,
+            fontWeight = FontWeight.Medium
         )
     }
 }
+
 
 @Composable
 fun RouteDetailContent(
@@ -1005,16 +955,6 @@ fun EmptyRoutesState() {
     }
 }
 
-@Composable
-fun getCategoryColor(category: String): Color {
-    return when (category) {
-        stringResource(R.string.aventura_category_adventure) -> Color(0xFFE86D5A)
-        stringResource(R.string.aventura_category_food) -> Color(0xFFF59E0B)
-        stringResource(R.string.aventura_category_nature) -> Color(0xFF2F7D75)
-        stringResource(R.string.aventura_category_family) -> Color(0xFF3B82F6)
-        else -> Color(0xFF2F7D75)
-    }
-}
 
 data class RouteItem(
     val id: Int,
