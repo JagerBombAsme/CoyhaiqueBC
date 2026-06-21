@@ -661,7 +661,6 @@ fun RouteCard(
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column {
-            // Cabecera estilizada con gradiente premium basado en la categoría
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -699,7 +698,6 @@ fun RouteCard(
                     )
                 }
 
-                // Indicador de Calificación sutil en la esquina superior derecha
                 Surface(
                     modifier = Modifier.align(Alignment.TopEnd),
                     shape = RoundedCornerShape(10.dp),
@@ -747,7 +745,6 @@ fun RouteCard(
                 }
             }
 
-            // Cuerpo de la tarjeta con la descripción y el botón de acción
             Column(
                 modifier = Modifier.padding(18.dp)
             ) {
@@ -762,7 +759,6 @@ fun RouteCard(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Botón principal de descubrimiento adaptado estéticamente
                 Button(
                     onClick = onClick,
                     modifier = Modifier

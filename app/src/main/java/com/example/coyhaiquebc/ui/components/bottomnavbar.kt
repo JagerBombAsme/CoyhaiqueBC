@@ -28,7 +28,7 @@ fun BottomNavBar(
     navController: NavController,
     modifier: Modifier = Modifier,
     containerColor: Color = Color.White,
-    selectedColor: Color = Color(0xFF7EC8F3),
+    selectedColor: Color = Color(0xFF1D7312),
     unselectedColor: Color = Color(0xFFC8C8C8)
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -88,25 +88,7 @@ fun BottomNavBar(
                     unselectedColor = unselectedColor
                 )
 
-                BubbleNavItem(
-                    selected = currentRoute == Routes.PROFILE,
-                    showLabel = showLabel,
-                    label = "Perfil",
-                    icon = {
-                        Icon(
-                            imageVector = Icons.Default.Person,
-                            contentDescription = "Perfil",
-                            modifier = Modifier.size(40.dp)
-                        )
-                    },
-                    onClick = {
-                        navController.navigate(Routes.PROFILE) {
-                            launchSingleTop = true
-                        }
-                    },
-                    selectedColor = selectedColor,
-                    unselectedColor = unselectedColor
-                )
+
                 BubbleNavItem(
                     selected = currentRoute == Routes.PLANNER,
                     showLabel = showLabel,
@@ -158,6 +140,26 @@ fun BottomNavBar(
                     selectedColor = selectedColor,
                     unselectedColor = unselectedColor
                 )
+                BubbleNavItem(
+                    selected = currentRoute == Routes.PROFILE,
+                    showLabel = showLabel,
+                    label = "Perfil",
+                    icon = {
+                        Icon(
+                            imageVector = Icons.Default.Person,
+                            contentDescription = "Perfil",
+                            modifier = Modifier.size(40.dp)
+                        )
+                    },
+                    onClick = {
+                        navController.navigate(Routes.PROFILE) {
+                            launchSingleTop = true
+                        }
+                    },
+                    selectedColor = selectedColor,
+                    unselectedColor = unselectedColor
+                )
+
             }
         }
     }

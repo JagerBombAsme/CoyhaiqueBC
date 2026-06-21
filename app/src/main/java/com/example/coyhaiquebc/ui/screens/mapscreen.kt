@@ -2,18 +2,20 @@ package com.example.coyhaiquebc.ui.screens
 
 import android.Manifest
 import android.content.pm.PackageManager
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Place
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -50,7 +52,14 @@ fun MapScreen(navController: NavController) {
     var isSearching by remember { mutableStateOf(false) }
 
     val sernatur = LatLng(-45.5699325, -72.0675682)
+    val plazaArmas = LatLng(-45.5712, -72.0685)
     val coyhaique = LatLng(-45.5700, -72.0660)
+
+    val quickLocations = listOf(
+        MapLocation("SERNATUR", sernatur, Icons.Default.Info),
+        MapLocation("Plaza de Armas", plazaArmas, Icons.Default.Park),
+        MapLocation("Centro", coyhaique, Icons.Default.LocationCity)
+    )
 
     Scaffold(
         containerColor = Color(0xFFF6F7F5),
@@ -61,13 +70,18 @@ fun MapScreen(navController: NavController) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = 48.dp)
         ) {
             GoogleMap(
                 modifier = Modifier.fillMaxSize(),
                 cameraPositionState = cameraPositionState,
-                properties = MapProperties(isMyLocationEnabled = hasLocationPermission),
-                uiSettings = MapUiSettings(zoomControlsEnabled = false)
+                properties = MapProperties(
+                    isMyLocationEnabled = hasLocationPermission,
+                    mapType = MapType.NORMAL
+                ),
+                uiSettings = MapUiSettings(
+                    zoomControlsEnabled = false,
+                    myLocationButtonEnabled = false 
+                )
             ) {
                 if (isSearching) {
                     Marker(
@@ -78,20 +92,20 @@ fun MapScreen(navController: NavController) {
                 }
             }
 
-            Card(
+            Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 15.dp)
-                    .padding(top=15.dp)
-                    .align(Alignment.TopCenter),
-                shape = RoundedCornerShape(20.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
-                elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
+                    .statusBarsPadding()
+                    .padding(horizontal = 16.dp, vertical = 12.dp)
             ) {
-                Column(
-                    modifier = Modifier.padding(12.dp)
+                Surface(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(24.dp),
+                    color = Color.White,
+                    tonalElevation = 4.dp,
+                    shadowElevation = 8.dp
                 ) {
-                    OutlinedTextField(
+                    TextField(
                         value = searchText,
                         onValueChange = {
                             searchText = it
@@ -99,7 +113,7 @@ fun MapScreen(navController: NavController) {
                         },
                         modifier = Modifier.fillMaxWidth(),
                         placeholder = {
-                            Text("Buscar destinos, servicios...", color = Color.Gray)
+                            Text("Buscar destinos, servicios...", color = Color.Gray, fontSize = 15.sp)
                         },
                         leadingIcon = {
                             Icon(Icons.Default.Search, null, tint = Color(0xFF2F7D75))
@@ -114,73 +128,128 @@ fun MapScreen(navController: NavController) {
                                 }
                             }
                         },
-                        colors = OutlinedTextFieldDefaults.colors(
-                            focusedBorderColor = Color(0xFF2F7D75).copy(alpha = 0.4f),
-                            unfocusedBorderColor = Color.Transparent,
-                            focusedContainerColor = Color(0xFFF6F7F5),
-                            unfocusedContainerColor = Color(0xFFF6F7F5),
+                        colors = TextFieldDefaults.colors(
+                            focusedContainerColor = Color.Transparent,
+                            unfocusedContainerColor = Color.Transparent,
+                            disabledContainerColor = Color.Transparent,
+                            focusedIndicatorColor = Color.Transparent,
+                            unfocusedIndicatorColor = Color.Transparent,
                             cursorColor = Color(0xFF2F7D75)
                         ),
                         textStyle = TextStyle(color = Color(0xFF1A1A1A), fontSize = 15.sp),
-                        shape = RoundedCornerShape(14.dp),
                         singleLine = true
                     )
+                }
 
-                    Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height(12.dp))
 
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(8.dp),
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Button(
+                LazyRow(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    contentPadding = PaddingValues(horizontal = 4.dp)
+                ) {
+                    items(quickLocations) { location ->
+                        MapQuickChip(
+                            label = location.name,
+                            icon = location.icon,
                             onClick = {
                                 coroutineScope.launch {
                                     cameraPositionState.animate(
-                                        CameraUpdateFactory.newLatLngZoom(sernatur, 16f)
+                                        CameraUpdateFactory.newLatLngZoom(location.position, 16f)
                                     )
                                 }
-                                searchText = "SERNATUR"
+                                searchText = location.name
                                 isSearching = true
-                            },
-                            modifier = Modifier
-                                .weight(1f)
-                                .height(40.dp),
-                            shape = RoundedCornerShape(10.dp),
-                            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2F7D75)),
-                            contentPadding = PaddingValues(horizontal = 12.dp)
-                        ) {
-                            Icon(Icons.Default.Place, null, modifier = Modifier.size(16.dp))
-                            Spacer(modifier = Modifier.width(6.dp))
-                            Text(
-                                text = "SERNATUR",
-                                color = Color.White,
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 13.sp
-                            )
-                        }
-
-                        Button(
-                            onClick = {
-                                coroutineScope.launch {
-                                    cameraPositionState.animate(
-                                        CameraUpdateFactory.newLatLngZoom(coyhaique, 13f)
-                                    )
-                                }
-                                searchText = ""
-                                isSearching = false
-                            },
-                            modifier = Modifier
-                                .width(54.dp)
-                                .height(40.dp),
-                            shape = RoundedCornerShape(10.dp),
-                            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1A1A1A)),
-                            contentPadding = PaddingValues(0.dp)
-                        ) {
-                            Icon(Icons.Default.Home, null, modifier = Modifier.size(18.dp), tint = Color.White)
-                        }
+                            }
+                        )
                     }
                 }
+            }
+
+            Column(
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(end = 16.dp, bottom = 16.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                MapFloatingButton(
+                    icon = Icons.Default.MyLocation,
+                    onClick = {
+                        coroutineScope.launch {
+                            cameraPositionState.animate(
+                                CameraUpdateFactory.newLatLngZoom(coyhaique, 15f)
+                            )
+                        }
+                    }
+                )
+
+                MapFloatingButton(
+                    icon = Icons.Default.Home,
+                    containerColor = Color(0xFF1A1A1A),
+                    onClick = {
+                        coroutineScope.launch {
+                            cameraPositionState.animate(
+                                CameraUpdateFactory.newLatLngZoom(coyhaique, 13f)
+                            )
+                        }
+                        searchText = ""
+                        isSearching = false
+                    }
+                )
             }
         }
     }
 }
+
+@Composable
+fun MapQuickChip(
+    label: String,
+    icon: ImageVector,
+    onClick: () -> Unit
+) {
+    Surface(
+        onClick = onClick,
+        shape = RoundedCornerShape(12.dp),
+        color = Color.White,
+        shadowElevation = 4.dp,
+        tonalElevation = 2.dp
+    ) {
+        Row(
+            modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(6.dp)
+        ) {
+            Icon(icon, null, modifier = Modifier.size(16.dp), tint = Color(0xFF2F7D75))
+            Text(
+                text = label,
+                fontSize = 13.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color(0xFF1A1A1A)
+            )
+        }
+    }
+}
+
+@Composable
+fun MapFloatingButton(
+    icon: ImageVector,
+    containerColor: Color = Color.White,
+    contentColor: Color = if (containerColor == Color.White) Color(0xFF2F7D75) else Color.White,
+    onClick: () -> Unit
+) {
+    LargeFloatingActionButton(
+        onClick = onClick,
+        modifier = Modifier.size(56.dp),
+        shape = CircleShape,
+        containerColor = containerColor,
+        contentColor = contentColor,
+        elevation = FloatingActionButtonDefaults.elevation(defaultElevation = 6.dp)
+    ) {
+        Icon(icon, null, modifier = Modifier.size(24.dp))
+    }
+}
+
+data class MapLocation(
+    val name: String,
+    val position: LatLng,
+    val icon: ImageVector
+)

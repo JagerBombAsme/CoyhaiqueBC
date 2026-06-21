@@ -1,5 +1,4 @@
 package com.example.coyhaiquebc.ui.screens
-
 import com.example.coyhaiquebc.Planner.PlannerColors
 import com.example.coyhaiquebc.Planner.components.PlannerPrimaryButton
 import androidx.compose.foundation.background
@@ -216,19 +215,17 @@ fun PlanificacionScreen(
                             bottomPadding = padding.calculateBottomPadding()
                         )
 
-                        4 -> Box(modifier = stepModifier) {
-                            PlannerConfirmationStep(
-                                destination = selectedDestination?.getNombre(currentLanguage) ?: defaultDestination,
-                                route = selectedRoute,
-                                date = date,
-                                people = people,
-                                onFinishClick = {
-                                    step = 1
-                                    selectedRoute = null
-                                    routes = emptyList()
-                                }
-                            )
-                        }
+                        4 -> PlannerConfirmationStep(
+                            destination = selectedDestination?.getNombre(currentLanguage) ?: defaultDestination,
+                            route = selectedRoute,
+                            date = date,
+                            people = people,
+                            onFinishClick = {
+                                step = 1
+                                selectedRoute = null
+                                routes = emptyList()
+                            }
+                        )
                     }
                 }
             }

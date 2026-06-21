@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Coyhaique BaseCamp</string>
-    <string name="welcome_title">Welcome to\nCoyhaique BaseCamp</string>
+    <string name="welcome_title">Choose the language for \n the app</string>
     <string name="welcome_subtitle">Choose the display language to start your tourist experience.</string>
     <string name="welcome_language_spanish">Spanish</string>
     <string name="welcome_language_english">English</string>
@@ -274,4 +274,18 @@
     <string name="difficulty_low">Low</string>
     <string name="difficulty_medium">Medium</string>
     <string name="difficulty_high">High</string>
+    <string name="profile_stats_followers">Followers</string>
+    <string name="profile_stats_following">Following</string>
+    <string name="profile_full_name">Diego Del Rio</string>
+    <string name="profile_bio_description">Expert gastronomic taster and culinary critic</string>
+    <string name="profile_subscribe">Edit Profile</string>
+    <string name="profile_message">Choose Language</string>
+    <string name="profile_mini_card_text">Explore the best gastronomic routes with me</string>
+    <string name="profile_add">Add</string>
+    <string name="profile_review_count">Review 12</string>
+    <string name="profile_review_question">How to evaluate the technique of\n"asado al palo"?</string>
+    <string name="profile_read_review">Read review</string>
+    <string name="profile_verified_desc">Verified</string>
+    <string name="planner_confirmation_present_qr">Present boarding code</string>
+    <string name="planner_confirmation_not_ready">I am not ready yet</string>
 </resources>
