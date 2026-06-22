@@ -11,7 +11,7 @@ package com.coyhaiquebc.data.model
         @SerialName("titulo_es")
         val tituloEs: String,
         @SerialName("titulo_en")
-        val tituloEn: String,
+        val tituloEn: String? = null,
         @SerialName("subtitulo_es")
         val subtituloEs: String? = null,
         @SerialName("subtitulo_en")
@@ -32,7 +32,7 @@ package com.coyhaiquebc.data.model
 
         fun getTitulo(language: String): String {
             return when (language) {
-                "en" -> tituloEn.ifEmpty { tituloEs }
+                "en" -> if (tituloEn.isNullOrEmpty()) tituloEs else tituloEn
                 else -> tituloEs
             }
         }

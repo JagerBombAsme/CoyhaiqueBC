@@ -7,14 +7,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.coyhaiquebc.R
-import com.coyhaiquebc.data.model.PlaceDto
+import com.coyhaiquebc.data.model.TransportServiceDto
 import com.coyhaiquebc.navigation.Routes
 import com.coyhaiquebc.data.repository.PlacesRepository
+import androidx.compose.material3.*
 
 @Composable
 fun TransporteScreen(
@@ -32,7 +36,7 @@ fun TransporteScreen(
 
     var isLoading by remember { mutableStateOf(true) }
     var errorMessage by remember { mutableStateOf<String?>(null) }
-    var places by remember { mutableStateOf<List<PlaceDto>>(emptyList()) }
+    var services by remember { mutableStateOf<List<TransportServiceDto>>(emptyList()) }
     var reloadTrigger by remember { mutableIntStateOf(0) }
 
     val loadingText = stringResource(R.string.transporte_loading)
@@ -57,7 +61,7 @@ fun TransporteScreen(
         errorMessage = null
 
         try {
-            places = repository.getPlacesByCategory("transporte")
+            services = repository.getTransportServices()
         } catch (e: Exception) {
             e.printStackTrace()
             errorMessage = errorText
@@ -66,19 +70,15 @@ fun TransporteScreen(
         }
     }
 
-    val transporte = remember(places, appLanguage) {
-        if (places.isEmpty()) {
-            emptyList()
-        } else {
-            places.map { place ->
-                CategoryItem(
-                    id = place.id,
-                    title = place.getTitulo(appLanguage).ifEmpty { noTitleText },
-                    subtitle = place.getSubtitulo(appLanguage).ifEmpty { defaultSubtitleText },
-                    description = place.getDescripcion(appLanguage).ifEmpty { noDescriptionText },
-                    imageUrl = place.imageUrl
-                )
-            }
+    val transporteItems = remember(services, appLanguage) {
+        services.map { service ->
+            CategoryItem(
+                id = service.id,
+                title = service.getNombre(appLanguage).ifEmpty { noTitleText },
+                subtitle = service.getTipo(appLanguage).ifEmpty { defaultSubtitleText },
+                description = service.getDescripcion(appLanguage).ifEmpty { noDescriptionText },
+                imageUrl = service.imageUrl
+            )
         }
     }
 
@@ -92,7 +92,7 @@ fun TransporteScreen(
                 onRetry = { reloadTrigger++ }
             )
 
-        transporte.isEmpty() ->
+        transporteItems.isEmpty() && !isLoading ->
             EmptyScreen(
                 message = emptyText,
                 retryText = retryText,
@@ -111,15 +111,10 @@ fun TransporteScreen(
                     rutasTabText
                 ),
                 selectedTab = allTabText,
-                featuredItems = transporte,
-                popularItems = transporte,
+                featuredItems = transporteItems,
+                popularItems = transporteItems,
                 onItemClick = { item ->
-                    val id = item.id
-                    if (id != null) {
-                        navController.navigate(Routes.placeDetail(id))
-                    } else {
-                        println("Error: ID de transporte es nulo")
-                    }
+                    navController.navigate(Routes.placeDetail(item.id))
                 }
             )
         }
@@ -137,11 +132,11 @@ private fun LoadingScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        CircularProgressIndicator()
+        CircularProgressIndicator(color = Color(0xFF243B55))
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Text(text = loadingText)
+        Text(text = loadingText, color = Color(0xFF243B55), fontWeight = FontWeight.Medium)
     }
 }
 
@@ -158,12 +153,15 @@ private fun ErrorScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(text = errorMessage)
+        Text(text = errorMessage, textAlign = TextAlign.Center)
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Button(onClick = onRetry) {
-            Text(text = retryText)
+        Button(
+            onClick = onRetry,
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF243B55))
+        ) {
+            Text(text = retryText, color = Color.White)
         }
     }
 }
@@ -181,12 +179,15 @@ private fun EmptyScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(text = message)
+        Text(text = message, textAlign = TextAlign.Center)
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Button(onClick = onRetry) {
-            Text(text = retryText)
+        Button(
+            onClick = onRetry,
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF243B55))
+        ) {
+            Text(text = retryText, color = Color.White)
         }
     }
 }
