@@ -169,7 +169,7 @@ fun CategoryListHeader() {
         Icon(
             imageVector = Icons.Default.LocationOn,
             contentDescription = null,
-            tint = Color(0xFF2F7D75),
+            tint = Color(0xFF243B55),
             modifier = Modifier.size(18.dp)
         )
 
@@ -193,7 +193,7 @@ fun CategoryListHeader() {
             Icon(
                 imageVector = Icons.Default.BookmarkBorder,
                 contentDescription = "Guardados",
-                tint = Color(0xFF2F7D75)
+                tint = Color(0xFF243B55)
             )
         }
     }
@@ -245,7 +245,7 @@ fun CategorySearchBar(
             modifier = Modifier
                 .size(54.dp)
                 .clip(CircleShape)
-                .background(Color(0xFF2F7D75)),
+                .background(Color(0xFF243B55)),
             contentAlignment = Alignment.Center
         ) {
             Icon(
@@ -268,7 +268,7 @@ fun CategoryTabs(
         tabs.forEach { tab ->
             Text(
                 text = tab,
-                color = if (tab == selectedTab) Color(0xFF2F7D75) else Color.Gray,
+                color = if (tab == selectedTab) Color(0xFF243B55) else Color.Gray,
                 fontSize = 14.sp,
                 fontWeight = if (tab == selectedTab) FontWeight.Bold else FontWeight.Normal
             )

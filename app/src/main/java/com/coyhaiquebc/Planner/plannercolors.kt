@@ -3,50 +3,50 @@ package com.coyhaiquebc.Planner
 import androidx.compose.ui.graphics.Color
 
 object PlannerColors {
-    val StrongCyan = Color(0xFF0CBDCC)
-    val TwilightIndigo = Color(0xFF2A3D5E)
-    val SmartBlue = Color(0xFF2567C5)
-    val Silver = Color(0xFFB3AFAB)
-    val DodgerBlue = Color(0xFF4898FB)
+    val PremiumBlue = Color(0xFF243B55)
+    val MidnightNavy = Color(0xFF1A2A3A)
+    val SlateGray = Color(0xFF7F8C8D)
+    val OceanBlue = Color(0xFF0984E3)
+    val EmeraldPremium = Color(0xFF00B894)
 
-    val Primary = StrongCyan
-    val PrimaryDark = TwilightIndigo
-    val PrimaryLight = DodgerBlue
+    val Primary = PremiumBlue
+    val PrimaryDark = MidnightNavy
+    val PrimaryLight = OceanBlue
 
-    val Secondary = SmartBlue
-    val SecondaryLight = StrongCyan.copy(alpha = 0.15f)
+    val Secondary = OceanBlue
+    val SecondaryLight = PremiumBlue.copy(alpha = 0.15f)
 
-    val Background = Color(0xFFF6F7F5)
+    val Background = Color(0xFFF8F9FA)
     val Surface = Color.White
-    val SurfaceDark = TwilightIndigo
+    val SurfaceDark = MidnightNavy
 
-    val TextPrimary = TwilightIndigo
-    val TextSecondary = Silver
+    val TextPrimary = MidnightNavy
+    val TextSecondary = SlateGray
     val TextOnPrimary = Color.White
     val TextOnSecondary = Color.White
 
-    val Error = Color(0xFFE53935)
-    val Success = StrongCyan
+    val Error = Color(0xFFD63031)
+    val Success = EmeraldPremium
 
-    val SegmentBackground = StrongCyan.copy(alpha = 0.15f)
-    val SegmentSelected = StrongCyan
+    val SegmentBackground = PremiumBlue.copy(alpha = 0.1f)
+    val SegmentSelected = PremiumBlue
     val SegmentUnselected = Color.Transparent
 
-    val CardSelected = SmartBlue
+    val CardSelected = PremiumBlue
     val CardUnselected = Color.White
     val CardTextSelected = Color.White
-    val CardTextUnselected = TwilightIndigo
+    val CardTextUnselected = MidnightNavy
 
-    val FieldCard = DodgerBlue
+    val FieldCard = PremiumBlue
     val FieldCardText = Color.White
 
-    val OptionCard = StrongCyan.copy(alpha = 0.2f)
-    val OptionCardText = TwilightIndigo
+    val OptionCard = Color(0xFFF1F2F6)
+    val OptionCardText = MidnightNavy
 
     val QRBackground = Color.White
 
-    val ButtonPrimary = StrongCyan
+    val ButtonPrimary = PremiumBlue
     val ButtonText = Color.White
 
-    val Border = Silver.copy(alpha = 0.3f)
+    val Border = Color(0xFFDFE6E9)
 }

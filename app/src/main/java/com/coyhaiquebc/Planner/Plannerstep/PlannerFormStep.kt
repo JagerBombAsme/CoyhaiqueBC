@@ -160,7 +160,7 @@ fun PlannerFormStep(
                     text = titlePart2,
                     fontSize = 32.sp,
                     fontWeight = FontWeight.ExtraBold,
-                    color = Color(0xFF2F7D75),
+                    color = Color(0xFF243B55),
                     letterSpacing = (-0.5).sp
                 )
 
@@ -181,7 +181,7 @@ fun PlannerFormStep(
                                 painter = painterResource(id = android.R.drawable.ic_menu_directions),
                                 contentDescription = null,
                                 modifier = Modifier.size(22.dp),
-                                tint = Color(0xFF2F7D75)
+                                tint = Color(0xFF243B55)
                             )
                             Spacer(modifier = Modifier.width(14.dp))
                             Column {
@@ -207,7 +207,7 @@ fun PlannerFormStep(
                                 .padding(start = 11.dp, top = 8.dp, bottom = 8.dp)
                                 .width(1.5.dp)
                                 .height(20.dp)
-                                .background(Color(0xFF2F7D75).copy(alpha = 0.3f))
+                                .background(Color(0xFF243B55).copy(alpha = 0.3f))
                         )
 
                         Row(
@@ -274,7 +274,7 @@ fun PlannerFormStep(
                         text = "Ver más",
                         fontSize = 13.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color(0xFF2F7D75)
+                        color = Color(0xFF243B55)
                     )
                 }
 
@@ -306,7 +306,7 @@ fun PlannerFormStep(
                         Icon(
                             painter = painterResource(id = android.R.drawable.ic_menu_myplaces),
                             contentDescription = null,
-                            tint = Color(0xFF2F7D75).copy(alpha = 0.7f),
+                            tint = Color(0xFF243B55).copy(alpha = 0.7f),
                             modifier = Modifier.size(20.dp)
                         )
                     }
@@ -325,7 +325,7 @@ fun PlannerFormStep(
                 onDismissRequest = { showDatePicker = false },
                 confirmButton = {
                     TextButton(onClick = { updateDate(datePickerState.selectedDateMillis) }) {
-                        Text("Aceptar", fontWeight = FontWeight.Bold, color = Color(0xFF2F7D75))
+                        Text("Aceptar", fontWeight = FontWeight.Bold, color = Color(0xFF243B55))
                     }
                 },
                 dismissButton = {
@@ -379,7 +379,7 @@ fun PlannerFormStep(
                                 Icon(
                                     imageVector = Icons.Default.Remove,
                                     contentDescription = null,
-                                    tint = Color(0xFF2F7D75)
+                                    tint = Color(0xFF243B55)
                                 )
                             }
                             Text(
@@ -396,7 +396,7 @@ fun PlannerFormStep(
                                 Icon(
                                     imageVector = Icons.Default.Add,
                                     contentDescription = null,
-                                    tint = Color(0xFF2F7D75)
+                                    tint = Color(0xFF243B55)
                                 )
                             }
                         }
@@ -415,7 +415,7 @@ fun PlannerFormStep(
                             showPeoplePicker = false
                         }
                     ) {
-                        Text("Confirmar", fontWeight = FontWeight.Bold, color = Color(0xFF2F7D75))
+                        Text("Confirmar", fontWeight = FontWeight.Bold, color = Color(0xFF243B55))
                     }
                 },
                 dismissButton = {

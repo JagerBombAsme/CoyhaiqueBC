@@ -144,7 +144,7 @@ fun ProfileHeaderCard(onBackClick: () -> Unit, onMessageClick: () -> Unit) {
                         .background(Color.LightGray)
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.comida),
+                        painter = painterResource(id = R.drawable.kayak),
                         contentDescription = stringResource(R.string.profile_profile_image),
                         modifier = Modifier.fillMaxSize(),
                         contentScale = ContentScale.Crop
@@ -213,8 +213,8 @@ fun ActionButton(text: String, modifier: Modifier = Modifier, onClick: () -> Uni
         onClick = onClick,
         modifier = modifier.height(48.dp),
         shape = RoundedCornerShape(24.dp),
-        border = BorderStroke(1.dp, Color(0xFF2F7D75).copy(alpha = 0.5f)),
-        colors = ButtonDefaults.outlinedButtonColors(contentColor = Color(0xFF2F7D75))
+        border = BorderStroke(1.dp, Color(0xFF243B55).copy(alpha = 0.5f)),
+        colors = ButtonDefaults.outlinedButtonColors(contentColor = Color(0xFF243B55))
     ) {
         Text(text = text, fontSize = 14.sp, fontWeight = FontWeight.Medium)
     }

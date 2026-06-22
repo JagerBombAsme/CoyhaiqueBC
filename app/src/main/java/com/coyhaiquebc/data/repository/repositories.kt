@@ -17,4 +17,20 @@ class PlacesRepository {
             }
             .decodeList<PlaceDto>()
     }
+
+    suspend fun getPlaceById(id: String): PlaceDto? {
+        return try {
+            SupabaseClientProvider.client
+                .from("places")
+                .select {
+                    filter {
+                        eq("id", id)
+                    }
+                }
+                .decodeSingle<PlaceDto>()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
+    }
 }

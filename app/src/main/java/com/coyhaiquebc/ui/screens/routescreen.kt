@@ -206,7 +206,7 @@ fun AventuraScreen(
                     singleLine = true,
                     shape = RoundedCornerShape(18.dp),
                     colors = OutlinedTextFieldDefaults.colors(
-                        focusedBorderColor = Color(0xFF2F7D75),
+                        focusedBorderColor = Color(0xFF243B55),
                         unfocusedBorderColor = Color.Transparent,
                         focusedContainerColor = Color.White,
                         unfocusedContainerColor = Color.White
@@ -237,7 +237,7 @@ fun AventuraScreen(
                                 )
                             },
                             colors = FilterChipDefaults.filterChipColors(
-                                selectedContainerColor = Color(0xFF2F7D75),
+                                selectedContainerColor = Color(0xFF243B55),
                                 selectedLabelColor = Color.White,
                                 containerColor = Color.White,
                                 labelColor = Color(0xFF1E1E1B)
@@ -336,7 +336,7 @@ fun AventuraScreen(
                             selectedRoute?.let { route ->
                                 Polyline(
                                     points = listOf(coyhaiqueCenter, route.location),
-                                    color = Color(0xFF2F7D75),
+                                    color = Color(0xFF243B55),
                                     width = 4f,
                                     pattern = listOf(Dash(30f), Gap(20f))
                                 )
@@ -677,7 +677,7 @@ fun RouteCard(
                 
                 // Badge de categoría sobre la imagen
                 Surface(
-                    color = Color(0xFF2F7D75),
+                    color = Color(0xFF243B55),
                     shape = RoundedCornerShape(8.dp),
                     modifier = Modifier
                         .padding(12.dp)
@@ -842,7 +842,7 @@ fun RouteDetailContent(
                     modifier = Modifier
                         .size(28.dp)
                         .clip(CircleShape)
-                        .background(Color(0xFF2F7D75)),
+                        .background(Color(0xFF243B55)),
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
@@ -872,7 +872,7 @@ fun RouteDetailContent(
                 .height(52.dp),
             shape = RoundedCornerShape(16.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFF2F7D75)
+                containerColor = Color(0xFF243B55)
             )
         ) {
             Icon(

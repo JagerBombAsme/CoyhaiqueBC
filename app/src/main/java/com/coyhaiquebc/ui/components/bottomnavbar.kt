@@ -28,7 +28,7 @@ fun BottomNavBar(
     navController: NavController,
     modifier: Modifier = Modifier,
     containerColor: Color = Color.White,
-    selectedColor: Color = Color(0xFF1D7312),
+    selectedColor: Color = Color(0xFF243B55),
     unselectedColor: Color = Color(0xFFC8C8C8)
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()

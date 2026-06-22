@@ -119,7 +119,7 @@ fun LanguageButton(
             .fillMaxWidth()
             .height(56.dp)
             .clip(RoundedCornerShape(18.dp))
-            .background(if (selected) Color(0xFF1D7312) else Color.White)
+            .background(if (selected) Color(0xFF243B55) else Color.White)
             .clickable(enabled = enabled) {
                 onClick()
             },
@@ -158,7 +158,7 @@ fun LoadingOverlay() {
             ) {
 
                 CircularProgressIndicator(
-                    color = Color(0xFF1D7312),
+                    color = Color(0xFF243B55),
                     modifier = Modifier.size(48.dp)
                 )
 

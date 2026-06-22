@@ -68,7 +68,7 @@ fun HomeHeader(
             contentAlignment = Alignment.Center
         ) {
             Image(
-                painter = painterResource(id = R.drawable.comida),
+                painter = painterResource(id = R.drawable.kayak),
                 contentDescription = stringResource(R.string.home_header_profile_image_description),
                 modifier = Modifier
                     .fillMaxSize()

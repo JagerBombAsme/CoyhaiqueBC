@@ -116,7 +116,7 @@ fun MapScreen(navController: NavController) {
                             Text("Buscar destinos, servicios...", color = Color.Gray, fontSize = 15.sp)
                         },
                         leadingIcon = {
-                            Icon(Icons.Default.Search, null, tint = Color(0xFF2F7D75))
+                            Icon(Icons.Default.Search, null, tint = Color(0xFF243B55))
                         },
                         trailingIcon = {
                             if (searchText.isNotEmpty()) {
@@ -134,7 +134,7 @@ fun MapScreen(navController: NavController) {
                             disabledContainerColor = Color.Transparent,
                             focusedIndicatorColor = Color.Transparent,
                             unfocusedIndicatorColor = Color.Transparent,
-                            cursorColor = Color(0xFF2F7D75)
+                            cursorColor = Color(0xFF243B55)
                         ),
                         textStyle = TextStyle(color = Color(0xFF1A1A1A), fontSize = 15.sp),
                         singleLine = true
@@ -218,7 +218,7 @@ fun MapQuickChip(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(6.dp)
         ) {
-            Icon(icon, null, modifier = Modifier.size(16.dp), tint = Color(0xFF2F7D75))
+            Icon(icon, null, modifier = Modifier.size(16.dp), tint = Color(0xFF243B55))
             Text(
                 text = label,
                 fontSize = 13.sp,
@@ -233,7 +233,7 @@ fun MapQuickChip(
 fun MapFloatingButton(
     icon: ImageVector,
     containerColor: Color = Color.White,
-    contentColor: Color = if (containerColor == Color.White) Color(0xFF2F7D75) else Color.White,
+    contentColor: Color = if (containerColor == Color.White) Color(0xFF243B55) else Color.White,
     onClick: () -> Unit
 ) {
     LargeFloatingActionButton(

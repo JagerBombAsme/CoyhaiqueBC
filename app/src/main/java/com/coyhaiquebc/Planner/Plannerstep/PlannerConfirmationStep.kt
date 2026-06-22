@@ -104,13 +104,13 @@ fun PlannerConfirmationStep(
                     modifier = Modifier
                         .size(56.dp)
                         .clip(CircleShape)
-                        .background(Color(0xFF2F7D75).copy(alpha = 0.12f)),
+                        .background(Color(0xFF243B55).copy(alpha = 0.12f)),
                     contentAlignment = Alignment.Center
                 ) {
                     Icon(
                         imageVector = Icons.Default.ConfirmationNumber,
                         contentDescription = null,
-                        tint = Color(0xFF2F7D75),
+                        tint = Color(0xFF243B55),
                         modifier = Modifier.size(28.dp)
                     )
                 }
@@ -173,7 +173,7 @@ fun PlannerConfirmationStep(
                                 .padding(horizontal = 8.dp)
                                 .height(2.dp)
                                 .width(30.dp)
-                                .background(Color(0xFF2F7D75).copy(alpha = 0.3f))
+                                .background(Color(0xFF243B55).copy(alpha = 0.3f))
                         )
 
                         Column(
@@ -191,7 +191,7 @@ fun PlannerConfirmationStep(
                                 text = destino,
                                 fontSize = 18.sp,
                                 fontWeight = FontWeight.ExtraBold,
-                                color = Color(0xFF2F7D75),
+                                color = Color(0xFF243B55),
                                 textAlign = TextAlign.End
                             )
                         }

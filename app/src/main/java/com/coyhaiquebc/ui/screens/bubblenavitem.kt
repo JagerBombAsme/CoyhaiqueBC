@@ -24,9 +24,9 @@ fun BubbleNavItem(
     icon: @Composable () -> Unit,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    selectedColor: Color = Color(0xFF1D7312),
+    selectedColor: Color = Color(0xFF243B55),
     unselectedColor: Color = Color(0xFF9E9E9E),
-    labelColor: Color = Color(0xFF1D7312)
+    labelColor: Color = Color(0xFF243B55)
 ) {
 
     var animationPhase by remember { mutableStateOf(0) }
