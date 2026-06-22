@@ -13,7 +13,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BookmarkBorder
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Tune
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -47,7 +49,8 @@ fun CategoryListScreen(
     selectedTab: String,
     featuredItems: List<CategoryItem>,
     popularItems: List<CategoryItem>,
-    onItemClick: (CategoryItem) -> Unit
+    onItemClick: (CategoryItem) -> Unit,
+    onReload: (() -> Unit)? = null
 ) {
     var search by remember { mutableStateOf("") }
 
@@ -67,7 +70,7 @@ fun CategoryListScreen(
             .verticalScroll(rememberScrollState())
             .padding(horizontal = 24.dp, vertical = 32.dp)
     ) {
-        CategoryListHeader()
+        CategoryListHeader(onReload = onReload)
 
         Spacer(modifier = Modifier.height(24.dp))
 
@@ -161,7 +164,7 @@ fun CategoryListScreen(
 }
 
 @Composable
-fun CategoryListHeader() {
+fun CategoryListHeader(onReload: (() -> Unit)? = null) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
@@ -182,6 +185,24 @@ fun CategoryListHeader() {
             color = Color(0xFF26413F),
             modifier = Modifier.weight(1f)
         )
+
+        if (onReload != null) {
+            IconButton(
+                onClick = onReload,
+                modifier = Modifier
+                    .size(38.dp)
+                    .clip(CircleShape)
+                    .background(Color(0xFFE8EEEE))
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Refresh,
+                    contentDescription = "Recargar",
+                    tint = Color(0xFF243B55),
+                    modifier = Modifier.size(20.dp)
+                )
+            }
+            Spacer(modifier = Modifier.width(8.dp))
+        }
 
         Box(
             modifier = Modifier

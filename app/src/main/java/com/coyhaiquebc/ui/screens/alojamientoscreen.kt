@@ -121,7 +121,8 @@ fun AlojamientosScreen(
                         println("Error: ID de alojamiento es nulo")
                     }
 
-                }
+                },
+                onReload = { reloadTrigger++ }
             )
         }
     }

@@ -117,7 +117,8 @@ fun GastronomiaScreen(
                     } else {
                         println("Error: ID de gastronomía es nulo")
                     }
-                }
+                },
+                onReload = { reloadTrigger++ }
             )
         }
     }

@@ -115,7 +115,8 @@ fun TransporteScreen(
                 popularItems = transporteItems,
                 onItemClick = { item ->
                     navController.navigate(Routes.placeDetail(item.id))
-                }
+                },
+                onReload = { reloadTrigger++ }
             )
         }
     }
