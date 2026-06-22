@@ -27,21 +27,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11d72b1a-eb7c-44f3-8a59-257f442bdb80" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/cinchao.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/cuatrolagunas.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/divisadero.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/familiar.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/leneros.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/mckay.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/miradores.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/Planner/Plannerstep/PlannerConfirmationStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/Planner/Plannerstep/PlannerConfirmationStep.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/Planner/Plannerstep/PlannerFormStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/Planner/Plannerstep/PlannerFormStep.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/Planner/plannercolors.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/Planner/plannercolors.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/data/repository/repositories.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/data/repository/repositories.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/components/bottomnavbar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/components/bottomnavbar.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/PlaceDetailScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/PlaceDetailScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/bubblenavitem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/bubblenavitem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/categorylistscreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/categorylistscreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/homeheader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/homeheader.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/mapscreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/mapscreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/profilescreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/profilescreen.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/routescreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/routescreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/welcomescreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/welcomescreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/theme/color.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/theme/color.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

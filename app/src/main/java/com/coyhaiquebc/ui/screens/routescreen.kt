@@ -461,7 +461,7 @@ fun getRoutes(
             difficulty = difficultyMedium,
             stops = 4,
             location = LatLng(-45.519759364582185, -72.09609880228778),
-            imageRes = R.drawable.aventura,
+            imageRes = R.drawable.miradores,
             rating = 4.5,
             stopsList = listOf(
                 stringResource(R.string.route_miradores_stop_1),
@@ -479,7 +479,7 @@ fun getRoutes(
             difficulty = difficultyLow,
             stops = 4,
             location = LatLng(-45.4242, -72.0480),
-            imageRes = R.drawable.trekking,
+            imageRes = R.drawable.leneros,
             rating = 4.2,
             stopsList = listOf(
                 stringResource(R.string.route_lenneros_stop_1),
@@ -497,7 +497,7 @@ fun getRoutes(
             difficulty = difficultyMedium,
             stops = 4,
             location = LatLng(-45.52084047900688, -71.829670194351980),
-            imageRes = R.drawable.kayak,
+            imageRes = R.drawable.cuatrolagunas,
             rating = 4.7,
             stopsList = listOf(
                 stringResource(R.string.route_4lagunas_stop_1),
@@ -515,7 +515,7 @@ fun getRoutes(
             difficulty = difficultyHigh,
             stops = 3,
             location = LatLng(-45.51290087531122, -72.02875725145691),
-            imageRes = R.drawable.trekking,
+            imageRes = R.drawable.cinchao,
             rating = 4.9,
             stopsList = listOf(
                 stringResource(R.string.route_cinchao_stop_1),
@@ -532,7 +532,7 @@ fun getRoutes(
             difficulty = difficultyMedium,
             stops = 3,
             location = LatLng(-45.599014950441294, -72.07256754155097),
-            imageRes = R.drawable.aventura,
+            imageRes = R.drawable.mckay,
             rating = 4.4,
             stopsList = listOf(
                 stringResource(R.string.route_mackay_stop_1),
@@ -549,7 +549,7 @@ fun getRoutes(
             difficulty = difficultyMedium,
             stops = 2,
             location = LatLng(-45.59804611966424, -72.0851278239362),
-            imageRes = R.drawable.trekking,
+            imageRes = R.drawable.divisadero,
             rating = 4.3,
             stopsList = listOf(
                 stringResource(R.string.route_divisadero_stop_1),
@@ -601,7 +601,7 @@ fun getRoutes(
             difficulty = difficultyLow,
             stops = 4,
             location = LatLng(-45.5700, -72.0660),
-            imageRes = R.drawable.fotografia,
+            imageRes = R.drawable.familiar,
             rating = 4.3,
             stopsList = listOf(
                 stringResource(R.string.route_familiar_stop_1),
@@ -662,7 +662,6 @@ fun RouteCard(
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column {
-            // Imagen rectangular en la parte superior
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -675,7 +674,7 @@ fun RouteCard(
                     contentScale = ContentScale.Crop
                 )
                 
-                // Badge de categoría sobre la imagen
+
                 Surface(
                     color = Color(0xFF243B55),
                     shape = RoundedCornerShape(8.dp),
@@ -694,7 +693,6 @@ fun RouteCard(
                 }
             }
 
-            // Información en la parte inferior (Tema Claro)
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -783,6 +781,23 @@ fun RouteDetailContent(
             .fillMaxWidth()
             .padding(horizontal = 22.dp, vertical = 18.dp)
     ) {
+        // Cabecera con Imagen de la ruta
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(160.dp),
+            shape = RoundedCornerShape(16.dp)
+        ) {
+            Image(
+                painter = painterResource(id = if (route.imageRes != 0) route.imageRes else R.drawable.aventura),
+                contentDescription = route.name,
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop
+            )
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
         Text(
             text = route.name,
             fontSize = 26.sp,
