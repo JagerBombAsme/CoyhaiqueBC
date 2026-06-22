@@ -27,11 +27,62 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11d72b1a-eb7c-44f3-8a59-257f442bdb80" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/data/model/supabase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/chamame.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/festival.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/mate.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/musica.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/Plannerstep/PlannerAvailabilityStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/Plannerstep/PlannerAvailabilityStep.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/components/PlannerOptionCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/components/PlannerOptionCard.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/routescreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/routescreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/qrcode.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/qrcode.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/example/coyhaiquebc/ExampleInstrumentedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/coyhaiquebc/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/Plannerstep/PlannerAvailabilityStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/Planner/Plannerstep/PlannerAvailabilityStep.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/Plannerstep/PlannerConfirmationStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/Planner/Plannerstep/PlannerConfirmationStep.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/Plannerstep/PlannerFormStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/Planner/Plannerstep/PlannerFormStep.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/Plannerstep/PlannerWelcomeStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/Planner/Plannerstep/PlannerWelcomeStep.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/components/PlannerDestinationButton.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/Planner/components/PlannerDestinationButton.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/components/PlannerFieldCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/Planner/components/PlannerFieldCard.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/components/PlannerOptionCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/Planner/components/PlannerOptionCard.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/components/PlannerPrimaryButton.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/Planner/components/PlannerPrimaryButton.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/components/PlannerSegment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/Planner/components/PlannerSegment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/Planner/plannercolors.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/Planner/plannercolors.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/data/model/Category.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/data/model/Category.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/data/model/DestinationDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/data/model/DestinationDto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/data/model/MockData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/data/model/MockData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/data/model/Places.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/data/model/Places.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/data/model/TestConnectionDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/data/model/TestConnectionDto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/data/model/TransportRouteDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/data/model/TransportRouteDto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/data/model/supabase.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/data/remote/ClienteSupabase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/data/remote/ClienteSupabase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/data/repository/plannerepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/data/repository/plannerepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/data/repository/repositories.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/data/repository/repositories.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/navigation/NavGraph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/navigation/NavGraph.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/navigation/Routes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/navigation/Routes.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/components/CategoryCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/components/CategoryCard.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/components/bottomnavbar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/components/bottomnavbar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/components/languagemanager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/components/languagemanager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/PlaceDetailScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/PlaceDetailScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/alojamientoscreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/alojamientoscreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/bubblenavitem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/bubblenavitem.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/categoryScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/categoryScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/categorylistscreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/categorylistscreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/culturascreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/culturascreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/gastronomiascreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/gastronomiascreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/homeheader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/homeheader.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/homescreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/homescreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/mapscreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/mapscreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/planificacionscreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/planificacionscreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/plannelcolors.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/plannelcolors.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/profilescreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/profilescreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/routedetailscreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/routedetailscreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/routescreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/routescreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/transportescreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/transportescreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/screens/welcomescreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/screens/welcomescreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/theme/Theme.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/theme/Theme.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/theme/color.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/theme/color.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coyhaiquebc/ui/theme/type.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/coyhaiquebc/ui/theme/type.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/coyhaiquebc/ExampleUnitTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/coyhaiquebc/ExampleUnitTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test supabase .txt" beforeDir="false" afterPath="$PROJECT_DIR$/test supabase .txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,32 +158,31 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Android App.app.executor": "Run",
-    "Gradle.Proyect APP Coyhaique [testDebugUnitTest].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "com.google.services.firebase.aqiPopupShown": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "C:/Users/Crisis.ckmm/Desktop/Proyect APP Coyhaique/app/src/main/res/mipmap-anydpi-v26",
-    "last_opened_file_path": "C:/Users/Crisis.ckmm/Desktop/Proyect APP Coyhaiqueno usar aun/app/src/main/res/drawable",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Android App.app.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Proyect APP Coyhaique [testDebugUnitTest].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/Crisis.ckmm/Desktop/Proyect APP Coyhaique/app/src/main/res/mipmap-anydpi-v26&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Crisis.ckmm/Desktop/Proyect APP Coyhaiqueno usar aun/app/src/main/res/drawable&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
-}]]></component>
+}</component>
   <component name="PsdUISettings">
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
@@ -147,10 +197,10 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Crisis.ckmm\Desktop\Proyect APP Coyhaiqueno usar aun\app\src\main\res\drawable" />
+      <recent name="C:\Users\Crisis.ckmm\Desktop\Proyect APP Coyhaiqueno usar aun\app\src\main\java\com" />
       <recent name="C:\Users\Crisis.ckmm\Desktop\CoyhaiqueBC-main\app\src\main\res\drawable" />
       <recent name="C:\Users\Crisis.ckmm\Desktop\Proyect APP Coyhaique\app\src\main\res\mipmap-hdpi" />
       <recent name="C:\Users\Crisis.ckmm\Desktop\Proyect APP Coyhaique\app\src\main\res\mipmap-anydpi-v26" />
-      <recent name="C:\Users\Crisis.ckmm\Desktop\Proyect APP Coyhaique\app\src\main\res\mipmap-xhdpi" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.example.coyhaiquebc.ui.screens" />
@@ -274,6 +324,16 @@
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
       <map>
+        <entry key="com.coyhaiquebc">
+          <value>
+            <CheckInfo lastCheckTimestamp="1782090832282" />
+          </value>
+        </entry>
+        <entry key="com.coyhaiquebc.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1782090832287" />
+          </value>
+        </entry>
         <entry key="com.example.coyhaiquebasecampproyect">
           <value>
             <CheckInfo lastCheckTimestamp="1782002616482" />

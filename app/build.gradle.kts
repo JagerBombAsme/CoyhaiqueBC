@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.coyhaiquebc"
+    namespace = "com.coyhaiquebc"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -18,7 +18,7 @@ android {
         kotlinCompilerExtensionVersion = "1.5.14"
     }
     defaultConfig {
-        applicationId = "com.example.coyhaiquebasecampproyect"
+        applicationId = "com.coyhaiquebc"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
